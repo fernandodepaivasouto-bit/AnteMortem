@@ -484,7 +484,7 @@ const EN={
  'Ele joga os ossos e lê o que dizem. Por ouro, ensina suas mãos a ferir mais fundo.':'He casts the bones and reads what they say. For gold, he teaches your hands to cut deeper.',
  'Uma leitura por visita. Cada nível custa mais que o anterior.':'One reading per visit. Each level costs more than the last.','Os ossos já falaram. Volte no próximo Festival.':'The bones have spoken. Come back at the next Festival.',
  'Subir · ${c}':'Level up · ${c}','nv {a} → {b}':'lv {a} → {b}','Os ossos falam: {n} chega ao nível {l}.':'The bones speak: {n} reaches level {l}.',
- 'O Ossomante, coberto de ossos, lendo o destino':'The Bonemancer, draped in bones, reading fate','MORTO':'SLAIN','sangra {n}':'bleeds {n}','{n} se ergue do filactério!':'{n} rises from its phylactery!','O olhar antimágico apaga sua magia.':'The antimagic gaze snuffs out your magic.','um jogo de':'a game by','Nova classe liberada: {c}!':'New class unlocked: {c}!','Pilhagem':'Plunder','Bloqueada':'Locked','Para liberar':'To unlock',
+ 'O Ossomante, coberto de ossos, lendo o destino':'The Bonemancer, draped in bones, reading fate','MORTO':'SLAIN','O sal quebra a maldição.':'The salt breaks the curse.','{n} fica preso na armadilha!':'{n} is caught in the trap!','sangra {n}':'bleeds {n}','{n} se ergue do filactério!':'{n} rises from its phylactery!','O olhar antimágico apaga sua magia.':'The antimagic gaze snuffs out your magic.','um jogo de':'a game by','Nova classe liberada: {c}!':'New class unlocked: {c}!','Pilhagem':'Plunder','Bloqueada':'Locked','Para liberar':'To unlock',
  'Classes ocultas':'Hidden classes','{n} de {m} liberadas. O progresso conta em qualquer classe.':'{n} of {m} unlocked. Progress counts with any class.','Golpe crítico!':'Critical blow!',
 };
 
@@ -1278,6 +1278,23 @@ const ICON={
  heart:'M32 58C10 42 4 30 4 20 4 10 12 4 20 4c6 0 10 4 12 8 2-4 6-8 12-8 8 0 16 6 16 16 0 10-6 22-28 38z',
  hands:'M14 60V30l8-20 4 2-4 18h2V6h5v26h2V4h5v28h2V8h5v26l4-10 5 2-7 22v12z',
  pouch:'M12 26c0-6 10-10 20-10s20 4 20 10l4 30H8z M22 8h20l-6 8h-8z',
+ stake:'M28 2h8l-1 44-3 16-3-16z M22 14h20v4H22z',
+ knife:'M10 40L46 6c6 2 8 8 4 12L22 46z M8 44l8 8-6 6-8-8z',
+ trap:'M4 40h56v6H4z M6 40l6-18 6 18z M18 40l6-18 6 18z M30 40l6-18 6 18z M42 40l6-18 6 18z M26 46h12v12H26z',
+ garrote:'M4 30h14v4H4z M46 30h14v4H46z M18 26h6v12h-6z M40 26h6v12h-6z M24 31h16v2H24z',
+ mirror:'M32 4a18 22 0 1 0 .1 0z M32 10a12 16 0 1 0 .1 0z M28 46h8v16h-8z',
+ sling:'M30 30h4v32h-4z M32 4a10 10 0 1 0 .1 0z M14 30c0-10 36-10 36 0l-4 2c-2-6-26-6-28 0z',
+ helm:'M10 34c0-16 10-26 22-26s22 10 22 26v12H10z M16 30h32v6H16z M30 36h4v14h-4z',
+ lance:'M30.5 18h3v44h-3z M32 0l7 18H25z M22 44h20v6H22z',
+ scales:'M32 3l25 8v21c0 15-12 25-25 31C19 57 7 47 7 32V11z M14 18h10v6H14z M28 18h10v6H28z M40 18h10v6H40z M20 28h10v6H20z M34 28h10v6H34z M26 38h12v6H26z',
+ cloak:'M24 4h16l4 10 12 46H8l12-46z M28 14h8v4h-8z',
+ ring:'M32 10a22 22 0 1 0 .1 0z M32 18a14 14 0 1 0 .1 0z M26 2h12l-6 10z',
+ bell:'M32 4c-12 0-18 10-18 24v14l-6 8h48l-6-8V28c0-14-6-24-18-24z M28 52h8a4 4 0 0 1-8 0z',
+ die:'M8 8h48v48H8z M18 16a4 4 0 1 0 .1 0z M44 16a4 4 0 1 0 .1 0z M32 30a4 4 0 1 0 .1 0z M18 44a4 4 0 1 0 .1 0z M44 44a4 4 0 1 0 .1 0z',
+ chain:'M8 20a10 8 0 1 0 .1 0z M8 24a5 3 0 1 0 .1 0z M26 30a10 8 0 1 0 .1 0z M26 34a5 3 0 1 0 .1 0z M44 40a10 8 0 1 0 .1 0z M44 44a5 3 0 1 0 .1 0z M54 46l6 14-8-4z',
+ smoke:'M32 30a16 16 0 1 0 .1 0z M28 8h8v16h-8z M34 4l8-4 2 6z',
+ salt:'M20 14h24l6 46H14z M22 4h20v10H22z M26 30h3v3h-3z M34 38h3v3h-3z M28 46h3v3h-3z',
+ herb:'M31 30h2v32h-2z M32 30C20 26 14 14 18 4c10 4 16 14 14 26z M32 34c12-4 18-16 14-26-10 4-16 14-14 26z',
 };
 function iconSVG(k){return `<svg class="ic" viewBox="0 0 64 64" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="${ICON[k]||ICON.eye}"/></svg>`}
 function sigilSVG(seed){const r=mulberry(hash(seed));const n=5+Math.floor(r()*4);let p='';const pts=[];for(let i=0;i<n;i++){const a=i/n*Math.PI*2-Math.PI/2;pts.push([32+Math.cos(a)*24,34+Math.sin(a)*24])}
@@ -1288,10 +1305,11 @@ function sigilSVG(seed){const r=mulberry(hash(seed));const n=5+Math.floor(r()*4)
 
 /* ================= equilíbrio (ajustado por simulação) ================= */
 const BAL={
-  hp:[300,700,1250,1900,2700,3700,5000,6800],   /* vida base por Círculo (comum); grande ×1,5, chefe ×2 */
-  mult:[1,1.5,2],
-  atk:{small:[2,.8],big:[3,1.2],boss:[4,1.7]},     /* ataque = a + b × Círculo */
-  healWin:.3,healBoss:.7,hpBoss:6,hpCircle:2,      /* curas e crescimento de PV */
+  hp:[900,2400,4200,6600,9200,12500,16500,21000],   /* vida base por Círculo (comum) */
+  mult:[1,1.3,1.75],
+  tal:{bruxoCost:2,barbBase:1.25,barbMax:3,barb:.5,caca:2.2,druida:[1.4,2.2],cav:5,ladino:2,bardo:.12,bruxo:1.7,mago:6,cler:[1.75,2.75],pal:[2.5,4]},  /* força dos talentos */
+  atk:{small:[4,1],big:[5,1.5],boss:[6,2.2]},     /* ataque = a + b × Círculo */
+  healWin:.25,healBoss:.7,hpBoss:6,hpCircle:2,      /* curas e crescimento de PV */
   bone:[5,1.5],boneChance:.4,                     /* chance de o Ossomante estar no Festival */
                                       /* Ossomante: preço = 5 × 1,5^(nível-1), uma leitura por visita */
 };
@@ -1331,7 +1349,7 @@ function evalHand(cs){
 const HAS_PAIR=['par','dois','trinca','full','quadra'];
 const suitEq=s=>({card:(x,c)=>{if(c.s===s)x.addM(3)}});
 const EQ={
- espada_longa:{n:'Espada Longa',en:['Longsword','+3 Fury. Against undead, +8 instead.'],ic:'sword',p:5,r:1,d:'+3 Fúria. Contra mortos-vivos, +8.',hand:x=>x.addM(F&&F.foe.u?8:3)},
+ espada_longa:{n:'Espada Longa',en:['Longsword','+4 Fury on every hand.'],ic:'sword',p:5,r:1,d:'+4 Fúria em toda mão.',hand:x=>x.addM(4)},
  espada_grande:{n:'Espada Grande',en:['Greatsword','Executioner: ×1.5 Fury while the enemy is below half life.'],ic:'gsword',p:6,r:2,d:'Carrasca: ×1,5 Fúria enquanto o inimigo estiver abaixo da metade da vida.',mul:x=>{if(F&&F.foe.hp<F.foe.max/2)x.mulM(1.5)}},
  machado_grande:{n:'Machado Grande',en:['Greataxe','+1 Fury for every 4 HP you are missing (max +10).'],ic:'axe',p:6,r:1,d:'+1 Fúria a cada 4 PV que te faltam (máx. +10).',hand:x=>{const v=Math.min(10,Math.floor((R.maxHp-R.hp)/4));if(v>0)x.addM(v)}},
  machado_batalha:{n:'Machado de Batalha',en:['Battleaxe','×2 Fury against bosses.'],ic:'axe2',p:8,r:3,d:'×2 Fúria contra chefes.',mul:x=>{if(F&&F.foe.kind==='boss')x.mulM(2)}},
@@ -1344,9 +1362,9 @@ const EQ={
  machadinha:{n:'Machadinha',en:['Handaxe','+20 Blow, plus +5 more for each fight won while carrying it.'],ic:'hatchet',p:5,r:1,d:'+20 Golpe, e mais +5 por combate vencido com ela.',v:0,hand:(x,e)=>x.addC(20+(e.v||0)),win:e=>{e.v=(e.v||0)+5}},
  adaga:{n:'Adaga',en:['Dagger','Blades cards that score give +15 Blow and make the enemy bleed 1% of max life.'],ic:'dagger',p:4,r:1,d:'Cartas de Lâminas que pontuam dão +15 Golpe e fazem o inimigo sangrar 1% da vida máxima.',card:(x,c)=>{if(c.s===0){x.addC(15);x.bleed++}}},
  lanca:{n:'Lança',en:['Spear','Blood cards that score give +10 Blow and heal you 1 HP.'],ic:'spear',p:4,r:1,d:'Cartas de Sangue que pontuam dão +10 Golpe e curam 1 PV.',card:(x,c)=>{if(c.s===1){x.addC(10);x.heal++}}},
- cimitarra:{n:'Cimitarra',en:['Scimitar','Bones cards that score give +2 Fury (+5 against undead).'],ic:'scim',p:4,r:1,d:'Cartas de Ossos que pontuam dão +2 Fúria (+5 contra mortos-vivos).',card:(x,c)=>{if(c.s===2)x.addM(F&&F.foe.u?5:2)}},
+ cimitarra:{n:'Cimitarra',en:['Scimitar','Bones cards that score give +2 Fury (+5 against beasts).'],ic:'scim',p:4,r:1,d:'Cartas de Ossos que pontuam dão +2 Fúria (+5 contra Bestas).',card:(x,c)=>{if(c.s===2)x.addM(isT('beast')?5:2)}},
  maca:{n:'Maça',en:['Mace','Crowns cards that score give +10 Blow and +1 Armor for this fight (max +4).'],ic:'mace',p:4,r:1,d:'Cartas de Coroas que pontuam dão +10 Golpe e +1 Armadura neste combate (máx. +4).',card:(x,c)=>{if(c.s===3){x.addC(10);x.guard++}}},
- martelo:{n:'Martelo de Guerra',en:['Warhammer','Crushes stone: ignores Stone Skin and Carapace. +5 Fury against Large enemies and bosses.'],ic:'hammer',p:6,r:2,d:'Esmaga pedra: ignora Pele de Pedra e Carapaça. +5 Fúria contra inimigos Grandes e chefes.',hand:x=>{if(F&&F.foe.kind!=='small')x.addM(5)}},
+ martelo:{n:'Martelo de Guerra',en:['Warhammer','Crushes stone: ignores Stone Skin and Carapace. +5 Fury, and ×2 against constructs.'],ic:'hammer',p:6,r:2,d:'Esmaga pedra: ignora Pele de Pedra e Carapaça. +5 Fúria, e ×2 contra Constructos.',hand:x=>x.addM(5),mul:x=>{if(isT('construct'))x.mulM(2)}},
  cajado:{n:'Cajado',en:['Quarterstaff','Damage spells and items deal +50%. +10 Blow per spell cast this journey.'],ic:'staff',p:6,r:2,d:'Magias e itens de dano causam +50%. +10 Golpe por magia conjurada nesta jornada.',hand:x=>{if(R.spells)x.addC(10*R.spells)}},
  tocha:{n:'Tocha',en:['Torch','+25 Blow. Against undead, +75 instead.'],ic:'torch',p:3,r:1,d:'+25 Golpe. Contra mortos-vivos, +75.',hand:x=>x.addC(F&&F.foe.u?75:25)},
  simbolo:{n:'Símbolo Sagrado',en:['Holy Symbol','×1.5 Fury. Against undead, ×2.'],ic:'holy',p:8,r:3,d:'×1,5 Fúria. Contra mortos-vivos, ×2.',mul:x=>x.mulM(F&&F.foe.u?2:1.5)},
@@ -1364,6 +1382,22 @@ const EQ={
  corda:{n:'Corda de Cânhamo',en:['Hempen Rope','The first discard of each fight is free.'],ic:'rope',p:4,r:1,d:'O primeiro descarte de cada combate é grátis.'},
  kit:{n:'Kit de Herbalismo',en:['Herbalism Kit','Heals 2 HP on every hand played.'],ic:'kit',p:5,r:1,d:'Cura 2 PV a cada mão jogada.'},
  racoes:{n:'Rações de Viagem',en:['Rations','Heals 6 HP after winning a fight.'],ic:'bread',p:3,r:1,d:'Cura 6 PV ao vencer um combate.',win:()=>heal(6)},
+ estaca:{n:'Estaca de Freixo',en:['Ash Stake','×2 Fury against undead.'],ic:'stake',p:6,r:2,d:'×2 Fúria contra mortos-vivos.',mul:x=>{if(isT('undead'))x.mulM(2)}},
+ faca_esfolar:{n:'Faca de Esfolar',en:['Skinning Knife','+40 Blow against beasts. Each beast slain gives +$2 in pelts.'],ic:'knife',p:4,r:1,d:'+40 Golpe contra Bestas. Cada Besta morta rende +$2 em peles.',hand:x=>{if(isT('beast'))x.addC(40)},win:(e,f)=>{if(f&&f.ty==='beast')R.gold+=2}},
+ armadilha:{n:'Armadilha de Urso',en:['Bear Trap','+10 Fury against beasts, and a beast\'s first counterattack each fight is caught.'],ic:'trap',p:6,r:2,d:'+10 Fúria contra Bestas, e o primeiro contra-ataque de uma Besta em cada combate fica preso.',hand:x=>{if(isT('beast'))x.addM(10)}},
+ garrote:{n:'Garrote',en:['Garrote','×1.75 Fury against humanoids.'],ic:'garrote',p:6,r:2,d:'×1,75 Fúria contra Humanoides.',mul:x=>{if(isT('humanoid'))x.mulM(1.75)}},
+ espelho:{n:'Espelho de Prata',en:['Silver Mirror','+10 Fury against monstrosities. Petrifying gazes don\'t affect you.'],ic:'mirror',p:6,r:2,d:'+10 Fúria contra Monstruosidades. Olhares petrificantes não te afetam.',hand:x=>{if(isT('monstrosity'))x.addM(10)}},
+ funda:{n:'Funda',en:['Sling','+15 Blow. Against giants, ×2.5 Fury.'],ic:'sling',p:5,r:2,d:'+15 Golpe. Contra Gigantes, ×2,5 Fúria.',hand:x=>x.addC(15),mul:x=>{if(isT('giant'))x.mulM(2.5)}},
+ elmo_chumbo:{n:'Elmo de Chumbo',en:['Lead Helm','+1 Armor. Aberrations deal half damage to you and can\'t sting your mind.'],ic:'helm',p:6,r:2,d:'+1 Armadura. Aberrações causam metade do dano e não ferroam sua mente.',arm:1},
+ lanca_dragao:{n:'Lança Matadragões',en:['Dragonbane Lance','×3 Fury against dragons.'],ic:'lance',p:7,r:3,d:'×3 Fúria contra Dragões.',mul:x=>{if(isT('dragon'))x.mulM(3)}},
+ escamas:{n:'Escudo de Escamas',en:['Scale Shield','+1 Armor. Against dragons, +4 more and Fire Breath doesn\'t double.'],ic:'scales',p:6,r:2,d:'+1 Armadura. Contra Dragões, +4 a mais e o Sopro de Fogo não dobra.',arm:1},
+ manto:{n:'Manto do Peregrino',en:['Pilgrim\'s Cloak','+8 max HP while worn.'],ic:'cloak',p:5,r:1,d:'+8 PV máximos enquanto estiver vestido.',hpb:8},
+ anel_osso:{n:'Anel de Osso',en:['Bone Ring','+1 Fury for each enemy slain while wearing it (max +12).'],ic:'ring',p:6,r:2,d:'+1 Fúria por inimigo morto usando o anel (máx. +12).',v:0,hand:(x,e)=>{if(e.v)x.addM(Math.min(12,e.v))},win:e=>{e.v=(e.v||0)+1}},
+ sino:{n:'Sino Fúnebre',en:['Funeral Bell','Every third hand of a fight has ×2 Fury.'],ic:'bell',p:6,r:2,d:'Toda terceira mão de um combate tem ×2 Fúria.',mul:x=>{if(F&&F.n%3===2)x.mulM(2)}},
+ coracao:{n:'Coração Seco',en:['Dried Heart','After each boss slain, +3 max HP for good.'],ic:'heart',p:5,r:2,d:'A cada chefe morto, +3 PV máximos para sempre.',win:(e,f)=>{if(f&&f.kind==='boss'){R.maxHp+=3;heal(3)}}},
+ dado:{n:'Dado Viciado',en:['Loaded Die','Each hand has a 1 in 4 chance of ×2 Fury (the die is cast before you choose).'],ic:'die',p:5,r:2,d:'Cada mão tem 1 chance em 4 de ×2 Fúria (o dado já foi lançado antes de você escolher).',mul:x=>{if(F&&F.rolls&&F.rolls[F.n])x.mulM(2)}},
+ corrente:{n:'Corrente com Ganchos',en:['Hooked Chain','+4 Fury. Enemies can\'t regenerate.'],ic:'chain',p:5,r:1,d:'+4 Fúria. Inimigos não conseguem se regenerar.',hand:x=>x.addM(4)},
+
 };
 const CONS={
  misseis:{n:'Agulhas Arcanas',en:['Arcane Needles','Deals damage equal to 12% of the enemy\'s max life.'],k:'magia',p:3,d:'Causa dano igual a 12% da vida máxima do inimigo.',f:'fight',use:()=>spellDmg(.12)},
@@ -1386,24 +1420,37 @@ const CONS={
  fogo_alq:{n:'Fogo Alquímico',en:['Alchemist\'s Fire','Deals damage equal to 20% of the enemy\'s max life.'],k:'item',ic:'fire',p:4,d:'Causa dano igual a 20% da vida máxima do inimigo.',f:'fight',use:()=>spellDmg(.20)},
  agua_benta:{n:'Água Benta',en:['Holy Water','35% of an undead\'s max life. 6% of anything else.'],k:'item',ic:'potion',p:3,d:'35% da vida máxima de um morto-vivo. 6% de qualquer outro.',f:'fight',use:()=>spellDmg(F.foe.u?.35:.06)},
  racao:{n:'Ração',en:['Ration','+5 max HP, permanently.'],k:'item',ic:'bread',p:3,d:'+5 PV máximos, permanentes.',use:()=>{R.maxHp+=5;heal(5)}},
+ enxame:{n:'Enxame de Moscas',en:['Fly Swarm','18% of max life to beasts and humanoids; 6% to anything else.'],k:'magia',p:4,d:'18% da vida máxima de Bestas e Humanoides; 6% de qualquer outro.',f:'fight',use:()=>spellDmg(isT('beast')||isT('humanoid')?.18:.06)},
+ mao_tumulo:{n:'Mão do Túmulo',en:['Grave Hand','Drains 8% of the enemy\'s max life and heals you 8 HP.'],k:'magia',p:4,d:'Drena 8% da vida máxima do inimigo e cura 8 PV.',f:'fight',use:()=>{heal(8);spellDmg(.08)}},
+ clarao:{n:'Clarão Solar',en:['Sunburst','25% of max life to undead and aberrations; 6% to anything else.'],k:'magia',p:5,d:'25% da vida máxima de Mortos-vivos e Aberrações; 6% de qualquer outro.',f:'fight',use:()=>spellDmg(isT('undead')||isT('aberration')?.25:.06)},
+ comando:{n:'Palavra de Comando',en:['Word of Command','The enemy doesn\'t strike back after your next hand, and you gain +1 discard.'],k:'magia',p:4,d:'O inimigo não contra-ataca na sua próxima mão, e você ganha +1 descarte.',f:'fight',use:()=>{F.freeze+=1;F.dis+=1}},
+ muralha_ossos:{n:'Muralha de Ossos',en:['Bone Wall','+5 Armor until the end of this fight.'],k:'magia',p:4,d:'+5 Armadura até o fim deste combate.',f:'fight',use:()=>{F.armB+=5}},
+ maldicao:{n:'Maldição do Sangue',en:['Blood Curse','Every hand this fight has ×1.25 Fury.'],k:'magia',p:5,d:'Todas as suas mãos neste combate têm ×1,25 Fúria.',f:'fight',use:()=>{F.curse=true}},
+ ritual:{n:'Ritual da Lua Negra',en:['Black Moon Rite','Levels up two random hand types.'],k:'magia',p:4,d:'Sobe 1 nível de duas mãos aleatórias.',use:()=>{shuffle(HORDER).slice(0,2).forEach(h=>{R.lv[h]=lvl(h)+1;toast(t('{n} agora é nível {l}.',{n:nm(HANDS[h]),l:lvl(h)}))})}},
+ ouro_tolo:{n:'Ouro de Tolo',en:['Fool\'s Gold','Up to 3 selected cards become Crowns.'],k:'magia',p:3,sel:3,d:'Até 3 cartas selecionadas viram Coroas.',f:'fight',use:cs=>cs.forEach(c=>{deckCard(c).s=3})},
+ oleo:{n:'Óleo Corrosivo',en:['Corrosive Oil','30% of a construct\'s max life; 8% of anything else.'],k:'item',ic:'vial',p:3,d:'30% da vida máxima de Constructos; 8% de qualquer outro.',f:'fight',use:()=>spellDmg(isT('construct')?.3:.08)},
+ fumaca:{n:'Bomba de Fumaça',en:['Smoke Bomb','The enemy doesn\'t strike back after your next hand.'],k:'item',ic:'smoke',p:3,d:'O inimigo não contra-ataca na sua próxima mão.',f:'fight',use:()=>{F.freeze+=1}},
+ sal:{n:'Sal Grosso',en:['Coarse Salt','Breaks the enemy\'s ability or curse for this fight.'],k:'item',ic:'salt',p:6,d:'Quebra a habilidade ou maldição do inimigo neste combate.',f:'fight',use:()=>{F.foe.ab=null;toast(t('O sal quebra a maldição.'))}},
+ erva_lobo:{n:'Erva-de-Lobo',en:['Wolfsbane','30% of a beast\'s max life; 6% of anything else.'],k:'item',ic:'herb',p:3,d:'30% da vida máxima de Bestas; 6% de qualquer outro.',f:'fight',use:()=>spellDmg(isT('beast')?.3:.06)},
+ tonico:{n:'Tônico de Sangue',en:['Blood Tonic','Heals 25 HP.'],k:'item',ic:'potion',p:4,d:'Cura 25 PV.',use:()=>heal(25)},
 };
 HORDER.forEach(h=>{CONS['man_'+h]={get n(){return 'Manual: '+HANDS[h].n},get en(){return['Manual: '+HANDS[h].en[0],'Levels up '+HANDS[h].en[0]+'.']},k:'manual',ic:'book',p:3,get d(){return 'Sobe 1 nível de '+HANDS[h].n+'.'},use:()=>{R.lv[h]=lvl(h)+1;toast(t('{n} agora é nível {l}.',{n:nm(HANDS[h]),l:lvl(h)}))}}});
 
 const CLASSES={
- cavaleiro:{n:'Cavaleiro',en:['Knight'],art:'knight',bg:'yel',hp:44,arm:2,dis:2,hs:8,sl:2,eq:['espada_longa','escudo'],cons:['pocao'],tal:['Disciplina de Aço','Steel Discipline'],td:['+2 Fúria por ponto de Armadura. Cura 3 PV sempre que joga Par de Cicatrizes ou Dois Pares da Profanação.','+2 Fury per point of Armor. Heals 3 HP whenever you play Pair of Scars or Two Pairs of Profanation.']},
- mago:{n:'Mago',en:['Wizard'],art:'mage',bg:'pink',hp:24,arm:0,dis:3,hs:8,sl:3,eq:['cajado'],cons:['misseis','escudo_arcano'],tal:['Memória Arcana','Arcane Memory'],td:['Começa cada combate com uma magia aleatória, se houver espaço. +1 Fúria a cada 2 magias conjuradas na jornada (máx. +4).','Starts each fight with a random spell, if there is room. +1 Fury for every 2 spells cast this journey (max +4).']},
- cacador:{n:'Caçador',en:['Hunter'],art:'hunter',bg:'bone',hp:30,arm:0,dis:4,hs:8,sl:2,eq:['arco_longo'],cons:['raio_gelo'],tal:['Primeira Flecha','First Arrow'],td:['As duas primeiras mãos de cada combate têm ×2,5 Fúria.','The first two hands of each fight have ×2.5 Fury.']},
- druida:{n:'Druida',en:['Druid'],art:'druid',bg:'yel',hp:30,arm:0,dis:3,hs:8,sl:2,eq:['cimitarra'],cons:['chicote'],suits:[1,2],tal:['Fera Interior','Inner Beast'],td:['Com metade dos PV ou menos, suas mãos têm ×1,75 Fúria. Baralho só de Sangue e Ossos.','At half HP or less, your hands have ×1.75 Fury. Deck of Blood and Bones only.']},
- clerigo:{n:'Clérigo',en:['Cleric'],art:'cleric',bg:'pink',hp:32,arm:1,dis:3,hs:8,sl:2,eq:['maca'],cons:['palavra'],tal:['Luz da Penitência','Penitent Light'],td:['Cura 3 PV a cada mão jogada. ×1,5 Fúria, ou ×2,5 contra mortos-vivos.','Heals 3 HP on every hand played. ×1.5 Fury, or ×2.5 against undead.']},
- barbaro:{n:'Bárbaro',en:['Barbarian'],art:'barbarian',bg:'pink',hp:40,arm:0,dis:2,hs:8,sl:2,eq:['machado_grande'],cons:['pocao'],tal:['Sangue Fervente','Boiling Blood'],td:['Cada mão jogada no combate soma +1 Fúria a todas as mãos seguintes.','Each hand played in a fight adds +1 Fury to every hand after it.'],
+ cavaleiro:{n:'Cavaleiro',en:['Knight'],art:'knight',bg:'yel',hp:44,arm:2,dis:2,hs:8,sl:2,eq:['espada_longa','escudo'],cons:['pocao'],tal:['Disciplina de Aço','Steel Discipline'],td:['+5 Fúria por ponto de Armadura. Cura 3 PV sempre que joga Par de Cicatrizes ou Dois Pares da Profanação.','+5 Fury per point of Armor. Heals 3 HP whenever you play Pair of Scars or Two Pairs of Profanation.']},
+ mago:{n:'Mago',en:['Wizard'],art:'mage',bg:'pink',hp:24,arm:0,dis:3,hs:8,sl:3,eq:['cajado'],cons:['misseis','escudo_arcano'],tal:['Memória Arcana','Arcane Memory'],td:['Começa cada combate com uma magia aleatória, se houver espaço. +1 Fúria a cada 2 magias conjuradas na jornada (máx. +6).','Starts each fight with a random spell, if there is room. +1 Fury for every 2 spells cast this journey (max +6).']},
+ cacador:{n:'Caçador',en:['Hunter'],art:'hunter',bg:'bone',hp:30,arm:0,dis:4,hs:8,sl:2,eq:['arco_longo'],cons:['raio_gelo'],tal:['Primeira Flecha','First Arrow'],td:['As duas primeiras mãos de cada combate têm ×2,2 Fúria.','The first two hands of each fight have ×2.2 Fury.']},
+ druida:{n:'Druida',en:['Druid'],art:'druid',bg:'yel',hp:30,arm:0,dis:3,hs:8,sl:2,eq:['cimitarra'],cons:['chicote'],suits:[1,2],tal:['Fera Interior','Inner Beast'],td:['×1,4 Fúria sempre; com metade dos PV ou menos, ×2,2. Baralho só de Sangue e Ossos.','×1.4 Fury always; at half HP or less, ×2.2. Deck of Blood and Bones only.']},
+ clerigo:{n:'Clérigo',en:['Cleric'],art:'cleric',bg:'pink',hp:32,arm:1,dis:3,hs:8,sl:2,eq:['maca'],cons:['palavra'],tal:['Luz da Penitência','Penitent Light'],td:['Cura 3 PV a cada mão jogada. ×1,75 Fúria, ou ×2,75 contra mortos-vivos.','Heals 3 HP on every hand played. ×1.75 Fury, or ×2.75 against undead.']},
+ barbaro:{n:'Bárbaro',en:['Barbarian'],art:'barbarian',bg:'pink',hp:46,arm:0,dis:3,hs:8,sl:2,eq:['machado_grande'],cons:['pocao'],tal:['Sangue Fervente','Boiling Blood'],td:['A primeira mão de cada combate tem ×1,3 Fúria, e cada mão seguinte soma ×0,6 (máx. ×3).','The first hand of each fight has ×1.3 Fury, and each later hand adds ×0.6 (max ×3).'],
    req:{st:'bestHit',goal:15000,d:['Cause {g} de dano em uma única mão.','Deal {g} damage in a single hand.']}},
- ladino:{n:'Ladino',en:['Rogue'],art:'rogue',bg:'bone',hp:26,arm:0,dis:4,hs:8,sl:2,eq:['adaga'],cons:['acido'],tal:['Lâmina nas Costas','Knife in the Back'],td:['Golpe Solitário e Par de Cicatrizes têm ×2,5 Fúria. Ganha +$2 por inimigo morto.','Lone Strike and Pair of Scars have ×2.5 Fury. Gain +$2 per enemy slain.'],
+ ladino:{n:'Ladino',en:['Rogue'],art:'rogue',bg:'bone',hp:32,arm:0,dis:4,hs:8,sl:2,eq:['adaga','couro'],cons:['acido'],tal:['Lâmina nas Costas','Knife in the Back'],td:['Golpe Solitário e Par de Cicatrizes têm ×2 Fúria. Ganha +$2 por inimigo morto.','Lone Strike and Pair of Scars have ×2 Fury. Gain +$2 per enemy slain.'],
    req:{st:'maxGold',goal:60,d:['Junte ${g} de ouro ao mesmo tempo.','Hold ${g} gold at once.']}},
- bardo:{n:'Bardo',en:['Bard'],art:'bard',bg:'yel',hp:28,arm:0,dis:3,hs:9,sl:3,eq:['rapieira'],cons:['bencao'],tal:['Canção Fúnebre','Dirge'],td:['Cada tipo de mão diferente já jogado no combate dá ×0,25 Fúria às mãos seguintes. +1 carta na mão.','Each different hand type already played in a fight gives ×0.25 Fury to later hands. +1 card in hand.'],
+ bardo:{n:'Bardo',en:['Bard'],art:'bard',bg:'yel',hp:32,arm:0,dis:3,hs:9,sl:3,eq:['rapieira'],cons:['bencao'],tal:['Canção Fúnebre','Dirge'],td:['Cada tipo de mão diferente já jogado na jornada dá ×0,12 Fúria. +1 carta na mão.','Each different hand type played this journey gives ×0.12 Fury. +1 card in hand.'],
    req:{st:'handsPlayed',goal:500,d:['Jogue {g} mãos, somando todas as jornadas.','Play {g} hands across all journeys.']}},
- paladino:{n:'Paladino',en:['Paladin'],art:'paladin',bg:'yel',hp:40,arm:2,dis:2,hs:8,sl:2,eq:['martelo','escudo'],cons:['agua_benta'],tal:['Julgamento','Judgment'],td:['A primeira mão de cada combate com uma figura tem ×1,75 Fúria (×3 contra mortos-vivos).','The first hand each fight with a face card has ×1.75 Fury (×3 against undead).'],
+ paladino:{n:'Paladino',en:['Paladin'],art:'paladin',bg:'yel',hp:44,arm:2,dis:3,hs:8,sl:2,eq:['martelo','escudo'],cons:['agua_benta'],tal:['Julgamento','Judgment'],td:['A primeira mão de cada combate com uma figura tem ×2,5 Fúria (×4 contra mortos-vivos).','The first hand each fight with a face card has ×2.5 Fury (×4 against undead).'],
    req:{st:'undead',goal:60,d:['Destrua {g} mortos-vivos.','Destroy {g} undead.']}},
- bruxo:{n:'Bruxo',en:['Warlock'],art:'warlock',bg:'ink',hp:30,arm:0,dis:3,hs:8,sl:3,eq:['bugiganga'],cons:['veneno'],tal:['Pacto de Sangue','Blood Pact'],td:['Toda mão tem ×1,5 Fúria, mas custa 3 PV. Cura 8 PV a cada inimigo morto.','Every hand has ×1.5 Fury but costs 3 HP. Heals 8 HP per enemy slain.'],
+ bruxo:{n:'Bruxo',en:['Warlock'],art:'warlock',bg:'ink',hp:30,arm:0,dis:3,hs:8,sl:3,eq:['bugiganga'],cons:['veneno'],tal:['Pacto de Sangue','Blood Pact'],td:['Toda mão tem ×1,7 Fúria, mas custa 2 PV. Cura 8 PV a cada inimigo morto.','Every hand has ×1.7 Fury but costs 2 HP. Heals 8 HP per enemy slain.'],
    req:{st:'spells',goal:100,d:['Use {g} magias, somando todas as jornadas.','Cast {g} spells across all journeys.']}},
 };
 const cn=k=>LANG==='en'?CLASSES[k].en[0]:CLASSES[k].n;
@@ -1412,58 +1459,61 @@ const ctd=k=>CLASSES[k].td[LANG==='en'?1:0];
 
 /* monstros: baseados no Manual dos Monstros */
 const MONSTERS=[
- {a:'goblin',n:'Goblin',en:'Goblin',k:'small',min:1,max:3},
- {a:'kobold',n:'Kobold',en:'Kobold',k:'small',min:1,max:3},
- {a:'skeleton',n:'Esqueleto',en:'Skeleton',k:'small',min:1,max:4,u:1},
- {a:'zombie',n:'Zumbi',en:'Zombie',k:'small',min:1,max:4,u:1},
- {a:'stirge',n:'Mosquito-Vampiro',en:'Blood Gnat',k:'small',min:1,max:3},
- {a:'hand',n:'Mão Errante',en:'Wandering Hand',k:'small',min:1,max:4,u:1},
- {a:'frog',n:'Homem-Sapo da Lama',en:'Mud Toadman',k:'small',min:1,max:4},
- {a:'kenku',n:'Corvo Ladrão',en:'Thief Crow',k:'small',min:2,max:5},
- {a:'gnoll',n:'Homem-Hiena',en:'Hyena-Man',k:'small',min:2,max:5,ab:'frenesi'},
- {a:'ghoul',n:'Carniçal',en:'Ghoul',k:'small',min:2,max:6,u:1},
- {a:'grimlock',n:'Cego das Cavernas',en:'Cave Blind',k:'small',min:3,max:6},
- {a:'jackal',n:'Chacal da Tumba',en:'Tomb Jackal',k:'small',min:3,max:7},
- {a:'wisp',n:'Fogo-Fátuo',en:'Will-o\'-Wisp',k:'small',min:4,max:8,ab:'medo'},
- {a:'flameskull',n:'Crânio em Brasa',en:'Ember Skull',k:'small',min:4,max:8,u:1,ab:'frenesi'},
- {a:'shadow',n:'Sombra',en:'Shadow',k:'small',min:5,max:8,u:1,ab:'dreno'},
- {a:'bugbear',n:'Bicho-Papão',en:'Bogeyman',k:'big',min:1,max:3},
- {a:'ogre',n:'Ogro',en:'Ogre',k:'big',min:1,max:4},
- {a:'mimic',n:'Baú Faminto',en:'Hungry Chest',k:'big',min:1,max:5},
- {a:'harpy',n:'Harpia',en:'Harpy',k:'big',min:1,max:4,ab:'medo'},
- {a:'owlbear',n:'Fera de Penas',en:'Feathered Brute',k:'big',min:2,max:5,ab:'frenesi'},
- {a:'cockatrice',n:'Cocatriz',en:'Cockatrice',k:'big',min:2,max:5},
- {a:'troll',n:'Troll',en:'Troll',k:'big',min:2,max:6,ab:'regen5'},
- {a:'gargoyle',n:'Gárgula',en:'Gargoyle',k:'big',min:2,max:6,ab:'pedra'},
- {a:'minotaur',n:'Minotauro',en:'Minotaur',k:'big',min:3,max:7,ab:'frenesi'},
- {a:'cube',n:'Geleia Carnívora',en:'Carnivorous Jelly',k:'big',min:3,max:7,ab:'regen5'},
- {a:'mummy',n:'Múmia',en:'Mummy',k:'big',min:3,max:7,u:1,ab:'dreno'},
- {a:'banshee',n:'Banshee',en:'Banshee',k:'big',min:3,max:8,u:1,ab:'medo'},
- {a:'ettin',n:'Gigante de Duas Cabeças',en:'Two-Headed Giant',k:'big',min:4,max:8,ab:'frenesi'},
- {a:'ankheg',n:'Escavador Quitinoso',en:'Chitin Burrower',k:'big',min:4,max:8,ab:'pedra'},
- {a:'manticore',n:'Mantícora',en:'Manticore',k:'big',min:4,max:8,ab:'frenesi'},
- {a:'wraith',n:'Aparição',en:'Wraith',k:'big',min:4,max:8,u:1,ab:'dreno'},
- {a:'hag',n:'Bruxa do Pântano',en:'Bog Witch',k:'big',min:4,max:8,ab:'medo'},
- {a:'cyclops',n:'Ciclope',en:'Cyclops',k:'big',min:5,max:8,ab:'frenesi'},
- {a:'otyugh',n:'Boca do Esgoto',en:'Sewer Maw',k:'big',min:5,max:8,ab:'regen5'},
- {a:'golem',n:'O Remendado',en:'The Stitched',k:'big',min:5,max:8,ab:'pedra'},
- {a:'werewolf',n:'Lobisomem',en:'Werewolf',k:'big',min:5,max:8,ab:'regen5'},
- {a:'specter',n:'Espectro',en:'Specter',k:'big',min:6,max:8,u:1,ab:'dreno'},
+ {a:'goblin',ty:'humanoid',n:'Goblin',en:'Goblin',k:'small',min:1,max:3},
+ {a:'kobold',ty:'dragon',n:'Kobold',en:'Kobold',k:'small',min:1,max:3},
+ {a:'skeleton',ty:'undead',n:'Esqueleto',en:'Skeleton',k:'small',min:1,max:4,u:1},
+ {a:'zombie',ty:'undead',n:'Zumbi',en:'Zombie',k:'small',min:1,max:4,u:1},
+ {a:'stirge',ty:'beast',n:'Mosquito-Vampiro',en:'Blood Gnat',k:'small',min:1,max:3},
+ {a:'hand',ty:'undead',n:'Mão Errante',en:'Wandering Hand',k:'small',min:1,max:4,u:1},
+ {a:'frog',ty:'humanoid',n:'Homem-Sapo da Lama',en:'Mud Toadman',k:'small',min:1,max:4},
+ {a:'kenku',ty:'humanoid',n:'Corvo Ladrão',en:'Thief Crow',k:'small',min:2,max:5},
+ {a:'gnoll',ty:'humanoid',n:'Homem-Hiena',en:'Hyena-Man',k:'small',min:2,max:5,ab:'frenesi'},
+ {a:'ghoul',ty:'undead',n:'Carniçal',en:'Ghoul',k:'small',min:2,max:6,u:1},
+ {a:'grimlock',ty:'humanoid',n:'Cego das Cavernas',en:'Cave Blind',k:'small',min:3,max:6},
+ {a:'jackal',ty:'beast',n:'Chacal da Tumba',en:'Tomb Jackal',k:'small',min:3,max:7},
+ {a:'wisp',ty:'aberration',n:'Fogo-Fátuo',en:'Will-o\'-Wisp',k:'small',min:4,max:8,ab:'medo'},
+ {a:'flameskull',ty:'undead',n:'Crânio em Brasa',en:'Ember Skull',k:'small',min:4,max:8,u:1,ab:'frenesi'},
+ {a:'shadow',ty:'undead',n:'Sombra',en:'Shadow',k:'small',min:5,max:8,u:1,ab:'dreno'},
+ {a:'bugbear',ty:'humanoid',n:'Bicho-Papão',en:'Bogeyman',k:'big',min:1,max:3},
+ {a:'ogre',ty:'giant',n:'Ogro',en:'Ogre',k:'big',min:1,max:4},
+ {a:'mimic',ty:'monstrosity',n:'Baú Faminto',en:'Hungry Chest',k:'big',min:1,max:5},
+ {a:'harpy',ty:'monstrosity',n:'Harpia',en:'Harpy',k:'big',min:1,max:4,ab:'medo'},
+ {a:'owlbear',ty:'beast',n:'Fera de Penas',en:'Feathered Brute',k:'big',min:2,max:5,ab:'frenesi'},
+ {a:'cockatrice',ty:'monstrosity',n:'Cocatriz',en:'Cockatrice',k:'big',min:2,max:5},
+ {a:'troll',ty:'giant',n:'Troll',en:'Troll',k:'big',min:2,max:6,ab:'regen5'},
+ {a:'gargoyle',ty:'construct',n:'Gárgula',en:'Gargoyle',k:'big',min:2,max:6,ab:'pedra'},
+ {a:'minotaur',ty:'monstrosity',n:'Minotauro',en:'Minotaur',k:'big',min:3,max:7,ab:'frenesi'},
+ {a:'cube',ty:'aberration',n:'Geleia Carnívora',en:'Carnivorous Jelly',k:'big',min:3,max:7,ab:'regen5'},
+ {a:'mummy',ty:'undead',n:'Múmia',en:'Mummy',k:'big',min:3,max:7,u:1,ab:'dreno'},
+ {a:'banshee',ty:'undead',n:'Banshee',en:'Banshee',k:'big',min:3,max:8,u:1,ab:'medo'},
+ {a:'ettin',ty:'giant',n:'Gigante de Duas Cabeças',en:'Two-Headed Giant',k:'big',min:4,max:8,ab:'frenesi'},
+ {a:'ankheg',ty:'beast',n:'Escavador Quitinoso',en:'Chitin Burrower',k:'big',min:4,max:8,ab:'pedra'},
+ {a:'manticore',ty:'monstrosity',n:'Mantícora',en:'Manticore',k:'big',min:4,max:8,ab:'frenesi'},
+ {a:'wraith',ty:'undead',n:'Aparição',en:'Wraith',k:'big',min:4,max:8,u:1,ab:'dreno'},
+ {a:'hag',ty:'monstrosity',n:'Bruxa do Pântano',en:'Bog Witch',k:'big',min:4,max:8,ab:'medo'},
+ {a:'cyclops',ty:'giant',n:'Ciclope',en:'Cyclops',k:'big',min:5,max:8,ab:'frenesi'},
+ {a:'otyugh',ty:'aberration',n:'Boca do Esgoto',en:'Sewer Maw',k:'big',min:5,max:8,ab:'regen5'},
+ {a:'golem',ty:'construct',n:'O Remendado',en:'The Stitched',k:'big',min:5,max:8,ab:'pedra'},
+ {a:'werewolf',ty:'beast',n:'Lobisomem',en:'Werewolf',k:'big',min:5,max:8,ab:'regen5'},
+ {a:'specter',ty:'undead',n:'Espectro',en:'Specter',k:'big',min:6,max:8,u:1,ab:'dreno'},
 ];
 const BOSSES=[
- {a:'beholder',n:'O Olho que Flutua',en:'The Floating Eye',ab:'antimagia'},
- {a:'mindflayer',n:'Bebedor de Cérebros',en:'Brain Drinker',ab:'mental'},
- {a:'medusa',n:'Medusa',en:'Medusa',ab:'petrifica'},
- {a:'hydra',n:'Hidra',en:'Hydra',ab:'regen'},
- {a:'vampire',n:'Vampiro',en:'Vampire',ab:'sede',u:1},
- {a:'deathknight',n:'Cavaleiro Sem Túmulo',en:'Graveless Knight',ab:'furia',u:1},
- {a:'lich',n:'Lich',en:'Lich',ab:'filact',u:1},
- {a:'aboleth',n:'O Ancestral Afogado',en:'The Drowned Elder',ab:'afogar'},
- {a:'worm',n:'Verme Colossal',en:'Colossal Worm',ab:'engolir'},
- {a:'dragon',n:'Dragão Carmesim',en:'Crimson Dragon',ab:'sopro'},
+ {a:'beholder',ty:'aberration',n:'O Olho que Flutua',en:'The Floating Eye',ab:'antimagia'},
+ {a:'mindflayer',ty:'aberration',n:'Bebedor de Cérebros',en:'Brain Drinker',ab:'mental'},
+ {a:'medusa',ty:'monstrosity',n:'Medusa',en:'Medusa',ab:'petrifica'},
+ {a:'hydra',ty:'monstrosity',n:'Hidra',en:'Hydra',ab:'regen'},
+ {a:'vampire',ty:'undead',n:'Vampiro',en:'Vampire',ab:'sede',u:1},
+ {a:'deathknight',ty:'undead',n:'Cavaleiro Sem Túmulo',en:'Graveless Knight',ab:'furia',u:1},
+ {a:'lich',ty:'undead',n:'Lich',en:'Lich',ab:'filact',u:1},
+ {a:'aboleth',ty:'aberration',n:'O Ancestral Afogado',en:'The Drowned Elder',ab:'afogar'},
+ {a:'worm',ty:'beast',n:'Verme Colossal',en:'Colossal Worm',ab:'engolir'},
+ {a:'dragon',ty:'dragon',n:'Dragão Carmesim',en:'Crimson Dragon',ab:'sopro'},
 ];
-const FINAL={a:'tarrasque',n:'O Colosso do Fim',en:'The End Colossus',ab:'tarrasque'};
-const FOEDB={};[...MONSTERS,...BOSSES,FINAL].forEach(m=>FOEDB[m.a]=m);
+const FINAL={a:'tarrasque',ty:'monstrosity',n:'O Colosso do Fim',en:'The End Colossus',ab:'tarrasque'};
+const FOEDB={};[...MONSTERS,...BOSSES,FINAL].forEach(m=>{m.u=m.ty==='undead'?1:0;FOEDB[m.a]=m});
+const TYPES={undead:['Morto-vivo','Undead'],beast:['Besta','Beast'],humanoid:['Humanoide','Humanoid'],monstrosity:['Monstruosidade','Monstrosity'],giant:['Gigante','Giant'],aberration:['Aberração','Aberration'],dragon:['Dragão','Dragon'],construct:['Constructo','Construct']};
+const tyN=t=>TYPES[t]?TYPES[t][LANG==='en'?1:0]:'';
+const isT=t=>!!(F&&F.foe&&F.foe.ty===t);
 const fn_=f=>{const m=FOEDB[f.a];return LANG==='en'?m.en:m.n};
 const ABIL={
  antimagia:[['Olhar Antimágico','Magias e itens não funcionam neste combate.'],['Antimagic Gaze','Spells and items don\'t work in this fight.']],
@@ -1523,7 +1573,9 @@ const itemPool=()=>Object.keys(CONS).filter(k=>CONS[k].k==='item'&&isUnl(k));
 
 /* ================= estado ================= */
 let R=null,F=null;const UI={sel:new Set(),busy:false,sort:'r',cur:null,upTab:'eq',confirm:null,screen:null};
-function armor(){return R.arm+R.eq.reduce((a,e)=>a+(EQ[e.id].arm||0),0)+(F?F.armB:0)}
+function armor(){return R.arm+R.eq.reduce((a,e)=>a+(EQ[e.id].arm||0),0)+(F?F.armB:0)+(hasEq('escamas')&&isT('dragon')?4:0)}
+function equipAdd(id){const E=EQ[id];R.eq.push({id,v:E.v||0});if(E.hpb){R.maxHp+=E.hpb;R.hp+=E.hpb}}
+function equipRemove(i){const E=EQ[R.eq[i].id];R.eq.splice(i,1);if(E.hpb){R.maxHp=Math.max(5,R.maxHp-E.hpb);R.hp=Math.min(R.hp,R.maxHp)}}
 function slots(){return R.sl+R.eq.reduce((a,e)=>a+(EQ[e.id].slots||0),0)}
 function handSize(){return R.hs+R.eq.reduce((a,e)=>a+(EQ[e.id].hs||0),0)}
 function discards(){return R.dis+R.eq.reduce((a,e)=>a+(EQ[e.id].dis||0),0)}
@@ -1550,7 +1602,7 @@ function makeFoes(){
     const A=BAL.atk[kind];const atk=Math.round(A[0]+A[1]*c);
     if(base.ab==='muralha')max=Math.round(max*1.4);
     if(base.ab==='tarrasque')max=Math.round(max*1.2);
-    const f={a:base.a,u:base.u||0,ab:base.ab||null,kind,max,hp:max,atk,bg:pick(BGS),reward:kind==='small'?3:kind==='big'?4:6};
+    const f={a:base.a,ty:base.ty,u:base.u||0,ab:base.ab||null,kind,max,hp:max,atk,bg:pick(BGS),reward:kind==='small'?3:kind==='big'?4:6};
     if(f.ab==='naipe')f.suit=pick(CLASSES[R.cls].suits||[0,1,2,3]);
     return f};
   R.foes=[mk(choose('small'),'small',0),mk(choose('big'),'big',1),mk(c===8?FINAL:FOEDB[R.bossPool[(c-1)%R.bossPool.length]],'boss',2)];
@@ -1572,7 +1624,7 @@ function loadRun(){const c=LS.get('ruina-run',null);if(!c||c.v!==3||!c.cls||!CLA
 function startFight(){
   const f=R.foes[R.st];
   let dis=f.ab==='garra'?0:discards();if(f.ab==='medo')dis=Math.max(0,dis-1);
-  F={foe:f,draw:shuffle(R.deck),disc:[],hand:[],played:[],dis,n:0,freeze:0,poison:0,half:false,chama:false,armB:0,last:null,down:new Set(),types:new Set(),smite:false,stone:new Set(),discarded:0,freeDis:false,maceArm:0,revived:false};
+  F={foe:f,draw:shuffle(R.deck),disc:[],hand:[],played:[],dis,n:0,freeze:0,poison:0,half:false,chama:false,armB:0,last:null,down:new Set(),types:new Set(),smite:false,rolls:Array.from({length:60},()=>Math.random()<.25),trap:false,curse:false,stone:new Set(),discarded:0,freeDis:false,maceArm:0,revived:false};
   if(R.cls==='mago'&&R.cons.length<slots()){const s=spellPool();if(s.length){R.cons.push(pick(s));setTimeout(()=>toast(t('Memória Arcana: uma magia surge no grimório.')),300)}}
   R.phase='fight';UI.sel.clear();UI.cur=null;drawUp();render();
 }
@@ -1589,25 +1641,27 @@ function score(cards){
   R.eq.forEach((e,i)=>{const E=EQ[e.id];if(E.hand){cur='e'+i;E.hand(x,e)}});
   R.eq.forEach((e,i)=>{const E=EQ[e.id];if(E.mul){cur='e'+i;E.mul(x,e)}});
   cur='t';
-  if(R.cls==='cacador'&&F&&F.n<2)x.mulM(2.5);
-  if(R.cls==='druida'&&R.hp<=R.maxHp/2)x.mulM(1.75);
-  if(R.cls==='barbaro'&&F&&F.n>0)x.addM(F.n);
-  if(R.cls==='cavaleiro'&&R.arm+R.eq.reduce((a,e)=>a+(EQ[e.id].arm||0),0)>0)x.addM(2*(R.arm+R.eq.reduce((a,e)=>a+(EQ[e.id].arm||0),0)));
-  if(R.cls==='ladino'&&['alta','par'].includes(ev.t))x.mulM(2.5);
-  if(R.cls==='bardo'&&F&&F.types.size)x.mulM(1+.25*F.types.size);
-  if(R.cls==='bruxo')x.mulM(1.5);
-  if(R.cls==='mago'&&R.spells)x.addM(Math.min(4,Math.floor(R.spells/2)));
-  if(R.cls==='clerigo')x.mulM(F&&F.foe.u?2.5:1.5);
+  const T=BAL.tal;
+  if(R.cls==='cacador'&&F&&F.n<2)x.mulM(T.caca);
+  if(R.cls==='druida')x.mulM(R.hp<=R.maxHp/2?T.druida[1]:T.druida[0]);
+  if(R.cls==='barbaro'&&F)x.mulM(Math.min(T.barbMax,T.barbBase+T.barb*F.n));
+  if(R.cls==='cavaleiro'&&R.arm+R.eq.reduce((a,e)=>a+(EQ[e.id].arm||0),0)>0)x.addM(T.cav*(R.arm+R.eq.reduce((a,e)=>a+(EQ[e.id].arm||0),0)));
+  if(R.cls==='ladino'&&['alta','par'].includes(ev.t))x.mulM(T.ladino);
+  if(R.cls==='bardo'&&R.types&&R.types.length)x.mulM(1+T.bardo*R.types.length);
+  if(R.cls==='bruxo')x.mulM(T.bruxo);
+  if(R.cls==='mago'&&R.spells)x.addM(Math.min(T.mago,Math.floor(R.spells/2)));
+  if(R.cls==='clerigo')x.mulM(F&&F.foe.u?T.cler[1]:T.cler[0]);
   let smite=false;
-  if(R.cls==='paladino'&&F&&!F.smite&&ev.sc.some(c=>c.r>=11&&c.r<=13)){smite=true;x.mulM(F.foe.u?3:1.75)}
+  if(R.cls==='paladino'&&F&&!F.smite&&ev.sc.some(c=>c.r>=11&&c.r<=13)){smite=true;x.mulM(F.foe.u?T.pal[1]:T.pal[0])}
   if(F&&F.chama)x.mulM(2);
+  if(F&&F.curse)x.mulM(1.25);
   if(F&&F.foe.ab==='medo'&&F.n===0)x.mulM(.5);
   let dmg=Math.floor(chips*mult);
   if(F&&(F.foe.ab==='pedra'||F.foe.ab==='tarrasque')&&!hasEq('martelo'))dmg=Math.floor(dmg*.8);
   if(F&&F.foe.ab==='silencio'&&F.n===0)dmg=0;
   return{t:ev.t,sc:ev.sc,steps,chips,mult,dmg,base:b,smite,bleed:x.bleed,heal:x.heal,guard:x.guard};
 }
-function incoming(f){let raw=atkOf(f);if(f.ab==='engolir'&&F.n>=4)raw*=3;if(hasEq('bugiganga'))raw=Math.ceil(raw*1.2);if(f.ab==='sopro'&&F.n%3===2)raw*=2;if(F.half)raw=Math.ceil(raw/2);if(hasEq('rede'))raw=Math.ceil(raw*.85);
+function incoming(f){let raw=atkOf(f);if(hasEq('elmo_chumbo')&&f.ty==='aberration')raw=Math.ceil(raw/2);if(f.ab==='engolir'&&F.n>=4)raw*=3;if(hasEq('bugiganga'))raw=Math.ceil(raw*1.2);if(f.ab==='sopro'&&F.n%3===2&&!hasEq('escamas'))raw*=2;if(F.half)raw=Math.ceil(raw/2);if(hasEq('rede'))raw=Math.ceil(raw*.85);
   /* a armadura nunca bloqueia mais da metade do golpe */
   return Math.max(Math.ceil(raw/2),raw-armor())}
 async function playHand(){
@@ -1638,9 +1692,9 @@ async function playHand(){
   const dm=$('#dmg');if(dm){dm.classList.remove('bump');void dm.offsetWidth;dm.classList.add('bump')}
   await wait(650);
   await fxPlayerAttack(S.dmg,()=>{f.hp=Math.max(0,f.hp-S.dmg);updateFoeBar()});
-  R.best=Math.max(R.best,S.dmg);R.lastT=S.t;F.last=S.t;F.types.add(S.t);if(S.smite)F.smite=true;
+  const T=BAL.tal;R.best=Math.max(R.best,S.dmg);R.lastT=S.t;F.last=S.t;F.types.add(S.t);if(S.smite)F.smite=true;
   R.types=R.types||[];if(!R.types.includes(S.t))R.types.push(S.t);bumpStat('handsAll',R.types.length);bumpStat('handsPlayed',1,'add');bumpStat('bestHit',S.dmg);
-  if(R.cls==='bruxo'){R.hp=Math.max(1,R.hp-3);updateMeBar()}
+  if(R.cls==='bruxo'){R.hp=Math.max(1,R.hp-T.bruxoCost);updateMeBar()}
   let h=0;
   if(S.bleed&&f.hp>0){const bd=Math.ceil(f.max*.01*S.bleed);f.hp=Math.max(0,f.hp-bd);floatOn('.foe',t('sangra {n}',{n:fmt(bd)}));updateFoeBar()}
   if(S.heal)h+=heal(S.heal);
@@ -1654,15 +1708,16 @@ async function playHand(){
   F.disc.push(...F.played);F.played=[];
   if(f.hp<=0&&f.ab==='filact'&&!F.revived){F.revived=true;f.hp=Math.round(f.max*.3);updateFoeBar();sfx('death');toast(t('{n} se ergue do filactério!',{n:fn_(f)}));await wait(900)}
   if(f.hp<=0){F.n++;await fxKill();UI.busy=false;return win()}
-  if(f.ab==='petrifica'){const free=F.hand.filter(c=>!F.stone.has(c.id));shuffle(free).slice(0,2).forEach(c=>F.stone.add(c.id))}
+  if(f.ab==='petrifica'&&!hasEq('espelho')){const free=F.hand.filter(c=>!F.stone.has(c.id));shuffle(free).slice(0,2).forEach(c=>F.stone.add(c.id))}
   if(f.ab==='afogar'){if(F.dis>0)F.dis--;else{R.hp-=3;updateMeBar();floatOn('.score','-3 '+HPW(),true)}}
-  if(f.ab==='regen')f.hp=Math.min(f.max,f.hp+Math.round(f.max*.06));
-  if(f.ab==='regen5')f.hp=Math.min(f.max,f.hp+Math.round(f.max*.04));
+  if(f.ab==='regen'&&!hasEq('corrente'))f.hp=Math.min(f.max,f.hp+Math.round(f.max*.06));
+  if(f.ab==='regen5'&&!hasEq('corrente'))f.hp=Math.min(f.max,f.hp+Math.round(f.max*.04));
   if(h>0){toast('+'+h+' '+HPW());updateMeBar()}
   updateFoeBar();
   if(F.freeze>0){F.freeze--;toast(t('{n} não consegue atacar.',{n:fn_(f)}));await wait(500)}
+  else if(hasEq('armadilha')&&f.ty==='beast'&&!F.trap){F.trap=true;toast(t('{n} fica preso na armadilha!',{n:fn_(f)}));await wait(600)}
   else{const d=incoming(f);
-    await fxEnemyAttack(d,()=>{R.hp-=d;if(f.ab==='sede'&&d>0){f.hp=Math.min(f.max,f.hp+Math.round(f.max*.06));updateFoeBar()}if(f.ab==='mental'&&F.hand.length>1){const c=pick(F.hand);F.hand=F.hand.filter(x=>x!==c)}if(f.ab==='dreno'&&d>0){R.maxHp=Math.max(5,R.maxHp-1);R.hp=Math.min(R.hp,R.maxHp)}updateMeBar()});
+    await fxEnemyAttack(d,()=>{R.hp-=d;if(f.ab==='sede'&&d>0){f.hp=Math.min(f.max,f.hp+Math.round(f.max*.06));updateFoeBar()}if(f.ab==='mental'&&!hasEq('elmo_chumbo')&&F.hand.length>1){const c=pick(F.hand);F.hand=F.hand.filter(x=>x!==c)}if(f.ab==='dreno'&&d>0){R.maxHp=Math.max(5,R.maxHp-1);R.hp=Math.min(R.hp,R.maxHp)}updateMeBar()});
     if(R.hp<=0){R.hp=0;renderSide();await wait(600);UI.busy=false;return gameOver()}}
   F.n++;
   drawUp();UI.busy=false;render();
@@ -1824,7 +1879,7 @@ function renderSide(){
      <div class="fart"><img src="${foeImg(f)}" alt="${t('{n} ilustração em tinta',{n:fn_(f)})}"><div class="fname">${fn_(f)}</div></div>
      <div class="fbar"><div class="frow"><span>${t('Vida')}</span><b>${fmt(f.hp)} / ${fmt(f.max)}</b></div>
       <div class="hpbar"><i style="width:${pct}%"></i></div>
-      <div class="frow"><span>${t('Ataque')} <b>${atkOf(f)}</b></span><span>${f.u?`<span class="tag u">${t('Morto-vivo')}</span> `:''}<span class="tag">${t(f.kind==='boss'?'Chefe':f.kind==='big'?'Grande':'Comum')}</span></span></div></div>
+      <div class="frow"><span>${t('Ataque')} <b>${atkOf(f)}</b></span><span><span class="tag u">${tyN(f.ty)}</span> <span class="tag">${t(f.kind==='boss'?'Chefe':f.kind==='big'?'Grande':'Comum')}</span></span></div></div>
    </div>`:'';
   const abHTML=ab?`<div class="ability"><b>${ab.t}</b>${ab.d}</div>`:'';
   const hpp=R.hp/R.maxHp*100;
@@ -1890,7 +1945,7 @@ function renderStage(){
   } else if(R.phase==='path'){
     const nodes=R.foes.map((f,i)=>{const ab=abilTxt(f);const cls=i<R.st?'done':i===R.st?'next':'';
       return `<div class="pnode ${cls} ${f.kind==='boss'?'boss':''}"><img src="${foeImg(f,180,225)}" alt="${fn_(f)}"><div class="pi"><span class="kicker">${t(f.kind==='boss'?'Chefe':f.kind==='big'?'Inimigo grande':'Inimigo comum')}</span><h4>${fn_(f)}</h4>
-       <p>${t('Vida {a} · Ataque {b} · ${c}',{a:fmt(f.max),b:atkOf(f),c:f.reward})}</p>${ab?`<p style="color:var(--pink)"><b>${ab.t}:</b> ${ab.d}</p>`:''}${f.u?`<p style="color:var(--yel)">${t('Morto-vivo')}</p>`:''}</div></div>`}).join('');
+       <p>${t('Vida {a} · Ataque {b} · ${c}',{a:fmt(f.max),b:atkOf(f),c:f.reward})}</p>${ab?`<p style="color:var(--pink)"><b>${ab.t}:</b> ${ab.d}</p>`:''}<p style="color:var(--yel)">${tyN(f.ty)}</p></div></div>`}).join('');
     st.innerHTML=`<div class="banner"><h2>${t('Círculo')} ${R.c}</h2><p>${LANDS[LANG][R.c-1]}</p></div>
      <div class="path">${nodes}</div>
      <div class="actions" style="justify-content:flex-start"><button class="big play" data-act="fight">${t('Enfrentar {n}',{n:fn_(R.foes[R.st])})}</button></div>`;
@@ -2072,10 +2127,10 @@ document.addEventListener('click',e=>{
      openPop(tg,`<div class="k">${t(C.k==='magia'?'Magia':C.k==='item'?'Item':'Manual')}</div><h5>${nm(C)}</h5><p>${ds(C)}</p><div class="pb"><button data-act="use" data-i="${i}">${t('Usar')}</button><button class="alt" data-act="sellc" data-i="${i}">${t('Vender')} · $1</button></div>`);break}
    case 'closepop':closePop();break;
    case 'use':useCons(+tg.dataset.i);break;
-   case 'sell':{if(UI.busy)return;const i=+tg.dataset.i;const E=EQ[R.eq[i].id];R.gold+=Math.max(1,Math.floor(E.p/2));R.eq.splice(i,1);closePop();render();break}
+   case 'sell':{if(UI.busy)return;const i=+tg.dataset.i;const E=EQ[R.eq[i].id];R.gold+=Math.max(1,Math.floor(E.p/2));equipRemove(i);closePop();render();break}
    case 'sellc':{if(UI.busy)return;R.cons.splice(+tg.dataset.i,1);R.gold+=1;closePop();render();break}
    case 'buy':{const i=+tg.dataset.i,type=tg.dataset.type;const it=R.shop[type][i];const D=type==='eq'?EQ[it.k]:CONS[it.k];if(R.gold<D.p)return;
-     if(type==='eq'){if(R.eq.length>=5)return;R.eq.push({id:it.k,v:D.v||0})}else{if(R.cons.length>=slots())return;R.cons.push(it.k)}
+     if(type==='eq'){if(R.eq.length>=5)return;equipAdd(it.k)}else{if(R.cons.length>=slots())return;R.cons.push(it.k)}
      R.gold-=D.p;it.sold=true;render();break}
    case 'reroll':{if(R.gold<R.shop.reroll)return;R.gold-=R.shop.reroll;const rr=R.shop.reroll+1,rs=R.shop.rested,rd=R.shop.read;genShop();R.shop.reroll=rr;R.shop.rested=rs;R.shop.read=rd;render();break}
    case 'rest':{if(R.gold<4)return;R.gold-=4;const h=heal(Math.round(R.maxHp*.35));R.shop.rested=true;toast(t('Uma noite de sono ruim. +{h} PV.',{h}));render();break}

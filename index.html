@@ -521,6 +521,14 @@ body.ingame #scene{opacity:1}
 .ccin .tape{font-size:clamp(15px,2vw,20px);transform:rotate(1.5deg)}
 @keyframes ccin{from{opacity:0}}@keyframes ccout{to{opacity:0;visibility:hidden}}@keyframes cczoom{from{transform:scale(1.12)}to{transform:scale(1)}}
 @media (prefers-reduced-motion:reduce){.ccimg{animation:none}.intent.i-heavy,.intent.i-howl{animation:none}}
+/* tela inicial com arte */
+.hero{position:relative;background:center 40%/cover no-repeat;border:3px solid var(--ink);outline:3px solid var(--bone);padding:clamp(18px,3vw,36px);min-height:clamp(300px,34vw,440px);overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,11,10,.88),rgba(11,11,10,.55) 30%,transparent 55%)}
+.hero>*{position:relative}
+.hero h1 .a,.hero h1 .b{text-shadow:4px 4px 0 var(--ink)}
+.hero img{box-shadow:8px 8px 0 var(--ink)}
+@media (max-width:760px){.hero::before{background:linear-gradient(rgba(11,11,10,.8),rgba(11,11,10,.35) 45%,transparent)}.hero{background-position:58% 40%}}
+@media (max-width:760px){.hero img{max-width:200px;justify-self:end;margin-top:-10px}}
 </style>
 </head>
 <body>
@@ -1499,6 +1507,34 @@ function festWide(g,W,H,r){sky(g,W,H,.45,.9);disc(g,1050,90,46,1);glow(g,1050,90
   for(let i=0;i<16;i++){const x=30+i*80+r()*30,y=400;hooded(g,x,y,.9+r()*.3,.04);ell(g,x,y-58,13,16,.95);disc(g,x-5,y-60,3,0);disc(g,x+5,y-60,3,0);pg(g,[[x-5,y-48],[x+5,y-48],[x,y-43]],0)}
   g.fillStyle=gv(.06);g.fillRect(0,395,W,H-395)}
 let FW=null;function festImg(){return FW||(FW=engrave(1280,400,festWide,{seed:'festw',paper:PAL.yel,per:4.4,splat:4,scr:14,edge:false}).toDataURL('image/png'))}
+/* arte da tela inicial: a mão da Morte dá as cartas diante do sol negro */
+function titleArt(g,W,H,r){
+  sky(g,W,H,.42,.96,.72);
+  const sx=700,sy=275;disc(g,sx,sy,165,0);g.strokeStyle=gv(1);for(let i=0;i<90;i++){const a=i/90*6.28,l=180+r()*120;g.lineWidth=1+r()*3;g.beginPath();g.moveTo(sx+Math.cos(a)*172,sy+Math.sin(a)*172);g.lineTo(sx+Math.cos(a)*l,sy+Math.sin(a)*l);g.stroke()}
+  for(let i=0;i<14;i++){const x=r()*W,y=r()*260,l=60+r()*120;ln(g,[[x,y],[x-l*.45,y+l]],2,1);glow(g,x-l*.45,y+l,18,.9,1)}
+  for(let i=0;i<26;i++)crow(g,80+r()*1240,40+r()*250,.5+r()*.8,.04);
+  ridge(g,r,430,26,.5,W,H,.006);
+  /* mão de esqueleto */
+  g.save();g.translate(0,62);
+  const B=(x1,y1,x2,y2,w)=>{ln(g,[[x1,y1],[x2,y2]],w,.97);disc(g,x1,y1,w*.62,.97);disc(g,x2,y2,w*.62,.97);ln(g,[[x1+w*.25,y1],[x2+w*.25,y2]],w*.28,.6)};
+  B(660,600,672,330,26);B(722,600,712,332,22);
+  [[640,320],[668,306],[700,304],[730,310],[752,326],[655,290],[690,282],[728,288]].forEach(([x,y])=>{ell(g,x,y,17,13,.97);ell(g,x+5,y+5,6,4,.55)});
+  const fingers=[[628,300,-2.5,[42,30,22]],[650,270,-1.95,[52,36,26]],[690,262,-1.6,[58,40,28]],[730,268,-1.25,[52,36,26]],[760,300,-.85,[44,30,22]]];
+  fingers.forEach(([x,y,a,ls])=>{let px=x,py=y,an=a;ls.forEach((l,i)=>{const nx=px+Math.cos(an)*l,ny=py+Math.sin(an)*l;B(px,py,nx,ny,14-i*3);px=nx;py=ny;an+=(a<-1.6?-.12:.12)})});
+  /* leque de cartas */
+  [[-.5,'s'],[-.17,'d'],[.17,'c'],[.5,'k']].forEach(([a,s],i)=>{g.save();g.translate(694,170);g.rotate(a);g.fillStyle=gv(.05);g.fillRect(-64,-186,128,184);g.fillStyle=gv(.98);g.fillRect(-58,-180,116,172);
+    g.fillStyle=gv(.05);if(s==='d'){g.beginPath();g.moveTo(0,-140);g.bezierCurveTo(30,-100,38,-80,0,-60);g.bezierCurveTo(-38,-80,-30,-100,0,-140);g.fill()}
+    else if(s==='s'){disc(g,0,-108,30,.05);disc(g,-11,-112,8,.98);disc(g,11,-112,8,.98);g.fillRect(-16,-84,32,16)}
+    else if(s==='c'){pg(g,[[-36,-70],[-36,-120],[-18,-100],[0,-135],[18,-100],[36,-120],[36,-70]],.05)}
+    else{pg(g,[[0,-150],[10,-100],[0,-60],[-10,-100]],.05);g.fillRect(-26,-108,52,8)}
+    g.font='bold 30px serif';g.fillText(['A','K','Q','J'][i],-50,-150);g.restore()});
+  g.restore();
+  /* estrada, cruzes e o peregrino */
+  ridge(g,r,470,14,.1,W,H,.012);pg(g,[[650,470],[740,470],[1000,H],[380,H]],.62);
+  for(let i=0;i<7;i++){const t=i/6,y=480+t*130;cross(g,640-t*240,y,.6+t*1.6,(r()-.5)*.4,.03);cross(g,752+t*250,y,.6+t*1.6,(r()-.5)*.4,.03)}
+  hooded(g,690,575,.85,.02);ln(g,[[704,575],[712,512]],3,.02);glow(g,712,508,16,.9,1);
+  for(let i=0;i<5;i++)tree(g,r,[60,170,1260,1350,1150][i],H,[150,110,170,130,90][i],-1.5+(r()-.5)*.3,20,7,.03)}
+let TA=null;function titleImg(){return TA||(TA=engrave(1400,620,titleArt,{seed:'titulo-ante',paper:PAL.pink,per:4.5,splat:5,scr:18,edge:false}).toDataURL('image/png'))}
 
 
 /* ================= áudio: trilha procedural =================
@@ -2680,7 +2716,7 @@ function titleScreen(){
   const best=Object.keys(CLASSES).filter(clsOpen).map(k=>{const b=META.best[k]||0;const sw=(META.sigWon||{})[k];return `<div class="brow"><span>${cn(k)}${sw!=null&&sw>0?` <small class="sigw">${L('Sinal','Sign')} ${sw}</small>`:''}</span><span class="pips">${Array.from({length:8},(_,i)=>`<i class="${i<b?'on':''}${b>8?' w':''}"></i>`).join('')}</span></div>`}).join('');
   const conf=UI.confirm==='new';
   showOv(`<div class="ovin">
-   <div class="hero"><h1><span class="a">ANTE</span><span class="b">Mortem</span></h1><img src="${TITLE_ART.src}" alt="${TITLE_ART.alt}"></div>
+   <div class="hero" style="background-image:url(${titleImg()})"><h1><span class="a">ANTE</span><span class="b">Mortem</span></h1><img src="${TITLE_ART.src}" alt="${TITLE_ART.alt}"></div>
    <div class="tgrid">
     <div class="tmenu">
      ${saved?`<button class="big play" data-act="continue">${t('Continuar jornada')} <small>${cn(saved.cls)} · ${t('Círculo')} ${Math.min(saved.c,8)}</small></button>`:''}

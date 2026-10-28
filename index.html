@@ -516,7 +516,10 @@ body.ingame #scene{opacity:1}
 .ccimg{position:absolute;inset:0;background:center/cover no-repeat;animation:cczoom 3.4s ease-out forwards}
 .ccimg::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 30%,rgba(11,11,10,.7))}
 .ccin{position:relative;display:grid;justify-items:center;gap:6px;text-align:center;padding:16px}
-.ccn{font-family:var(--f-black);font-size:clamp(120px,24vw,260px);line-height:.8;color:var(--bone);text-shadow:6px 6px 0 var(--ink),-2px -2px 0 var(--ink)}
+.ccn{display:flex;align-items:stretch;gap:clamp(10px,2vw,22px);margin:6px 0}
+.ccn .rom{font-family:Georgia,'Times New Roman',serif;font-weight:700;font-size:clamp(96px,18vw,200px);line-height:1;color:var(--bone);background:var(--ink);padding:.06em .22em .02em;border-top:.09em solid var(--bone);border-bottom:.09em solid var(--bone);letter-spacing:.04em;box-shadow:8px 8px 0 var(--pink);transform:rotate(-2deg)}
+.ccn .ara{align-self:center;font-family:var(--f-dirt);font-size:clamp(54px,9vw,110px);line-height:1;color:var(--ink);background:var(--yel);padding:.1em .25em;transform:rotate(3deg);box-shadow:6px 6px 0 var(--ink)}
+.ccn .ara small{font-size:.4em}
 .ccin .rn{font-size:clamp(36px,6vw,72px);justify-content:center}
 .ccin .tape{font-size:clamp(15px,2vw,20px);transform:rotate(1.5deg)}
 @keyframes ccin{from{opacity:0}}@keyframes ccout{to{opacity:0;visibility:hidden}}@keyframes cczoom{from{transform:scale(1.12)}to{transform:scale(1)}}
@@ -652,10 +655,11 @@ function art(kind,seed,bg,w=240,h=300){
   const key=kind+'|'+seed+'|'+bg+'|'+w;if(ART[key])return ART[key];
   const cv=document.createElement('canvas');cv.width=w;cv.height=h;const g=cv.getContext('2d');
   const r=mulberry(hash(kind+seed));
-  const COL={yel:'#ffe500',pink:'#ff2fa6',bone:'#f4f1e8',ink:'#0b0b0a'};
-  let INK='#0b0b0a',BONE='#f4f1e8';const BG=COL[bg]||COL.yel;
-  if(bg==='ink'){INK='#f4f1e8';BONE='#0b0b0a'}
-  const glow=bg==='pink'?'#ffe500':bg==='yel'?'#ff2fa6':bg==='ink'?'#ff2fa6':'#d4145a';
+  const COL={yel:'#ffe500',pink:'#ff2fa6',green:'#b8ff1f',orange:'#ff5a1f',cyan:'#8ee8ff',red:'#e1061c'};
+  /* papel sempre colorido: fundos antigos em osso ou preto ganham uma cor fixa da paleta */
+  if(!COL[bg])bg=['green','orange','cyan','red','yel','pink'][hash(kind)%6];
+  let INK='#0b0b0a',BONE='#f4f1e8';const BG=COL[bg];
+  const glow={pink:'#ffe500',yel:'#ff2fa6',green:'#ff2fa6',orange:'#ffe500',cyan:'#ff2fa6',red:'#ffe500'}[bg];
   g.fillStyle=BG;g.fillRect(0,0,w,h);
   g.save();g.scale(w/240,h/300);
   const P={g,r,INK,BONE,BG,glow};
@@ -1320,7 +1324,7 @@ function grit(g,W,H,r,o){const ink=o.ink||PAL.ink,k=W/600;
     const map=([t,v])=>side===0?[t,v]:side===1?[W-v,t]:side===2?[t,H-v]:[v,t];g.moveTo(...map([0,0]));pts.forEach(p=>g.lineTo(...map(p)));g.lineTo(...map([len,0]));g.closePath();g.fill()}}}
 
 /* ---------- os oito cenários ---------- */
-const SCENE_PAPER={1:'yel',2:'green',3:'orange',4:'yel',5:'pink',6:'bone',7:'cyan',8:'red'};
+const SCENE_PAPER={1:'yel',2:'green',3:'orange',4:'yel',5:'pink',6:'green',7:'cyan',8:'red'};
 const SCENE={
  1:(g,W,H,r)=>{ /* a estrada dos enforcados */
   sky(g,W,H,.8,.97);disc(g,880,300,120,1);glow(g,880,300,260,.6);
@@ -1410,7 +1414,7 @@ function sceneImg(c){c=Math.min(8,Math.max(1,c));if(SCN[c])return SCN[c];
 
 /* ---------- ilustrações de encontros e lugares ---------- */
 const EVA={
- mendigo:['bone',(g,W,H,r)=>{sky(g,W,H,.9,.6);g.fillStyle=gv(.45);for(let y=0;y<200;y+=22)for(let x=(y/22%2)*20;x<W;x+=40)g.fillRect(x+2,y+2,36,18);
+ mendigo:['orange',(g,W,H,r)=>{sky(g,W,H,.9,.6);g.fillStyle=gv(.45);for(let y=0;y<200;y+=22)for(let x=(y/22%2)*20;x<W;x+=40)g.fillRect(x+2,y+2,36,18);
   pg(g,[[150,70],[205,110],[220,200],[250,375],[50,375],[80,200],[95,110]],.04);ell(g,150,150,34,42,.7);ell(g,136,145,9,12,.0);ell(g,164,145,9,12,.0);disc(g,136,147,2,1);disc(g,164,147,2,1);pg(g,[[140,175],[160,175],[150,190]],.2);
   pg(g,[[95,250],[175,270],[200,262],[205,276],[180,290],[100,280]],.55);ell(g,215,282,34,12,.85);ell(g,215,276,28,6,.1);for(let i=0;i<5;i++)disc(g,204+i*6,276,3,1)}],
  poco:['green',(g,W,H,r)=>{sky(g,W,H,.75,.95);disc(g,220,70,34,1);glow(g,220,70,90,.6);ln(g,[[150,40],[150,150]],3,.05);
@@ -1426,7 +1430,7 @@ const EVA={
   [[60,.0],[150,.1],[240,.05]].forEach(([x])=>{ln(g,[[x,30],[x,60]],3,.05);pg(g,[[x,60],[x+28,90],[x+34,170],[x+16,240],[x-16,240],[x-34,170],[x-28,90]],.42);for(let k=0;k<5;k++)ln(g,[[x-24,100+k*24],[x+24,104+k*24]],3,.85)});
   pg(g,[[60,300],[220,250],[250,262],[244,300],[90,345]],.92);ln(g,[[225,268],[290,240]],14,.05);pg(g,[[60,300],[220,250],[226,262],[70,318]],.4);
   for(let i=0;i<14;i++)disc(g,40+r()*220,340+r()*30,2+r()*4,.0)}],
- altar:['bone',(g,W,H,r)=>{sky(g,W,H,.4,.75);glow(g,150,180,170,.7,1);
+ altar:['yel',(g,W,H,r)=>{sky(g,W,H,.4,.75);glow(g,150,180,170,.7,1);
   pg(g,[[50,240],[250,240],[240,375],[60,375]],.3);pg(g,[[40,215],[260,215],[260,240],[40,240]],.15);ln(g,[[150,215],[140,260],[160,300],[148,375]],5,.98);
   [[70,215,40],[95,215,60],[205,215,55],[232,215,38]].forEach(([x,y,h])=>{g.fillStyle=gv(.92);g.fillRect(x-6,y-h,12,h);glow(g,x,y-h-8,26,.95,1);ell(g,x,y-h-8,3,8,1)});
   pg(g,[[150,60],[180,120],[150,190],[120,120]],.06);disc(g,150,120,10,.95)}],
@@ -1455,7 +1459,7 @@ const EVA={
   g.strokeStyle=gv(.95);g.lineWidth=12;g.beginPath();g.moveTo(40,170);g.quadraticCurveTo(150,240,260,160);g.stroke();
   for(let i=0;i<9;i++){const t=i/8,x=40+220*t,y=170+Math.sin(t*Math.PI)*36;disc(g,x,y-28,8,.95);disc(g,x-3,y-29,2,.0);disc(g,x+3,y-29,2,.0);ln(g,[[x,y-20],[x,y]],3,.95)}
   pg(g,[[262,145],[290,145],[290,128],[262,128]],.7);disc(g,276,128,4,1)}],
- dentes:['bone',(g,W,H,r)=>{sky(g,W,H,.55,.8);
+ dentes:['red',(g,W,H,r)=>{sky(g,W,H,.55,.8);
   pg(g,[[150,40],[200,60],[280,375],[20,375],[100,60]],.05);ell(g,150,70,26,32,.6);ell(g,141,66,5,7,.0);ell(g,159,66,5,7,.0);
   pg(g,[[105,130],[195,130],[210,375],[90,375]],.3);for(let y=140;y<370;y+=14)for(let x=100+((y/14)%2)*6;x<205;x+=12)ell(g,x,y,4,6,.97)}],
  espelho:['cyan',(g,W,H,r)=>{sky(g,W,H,.85,.95);ell(g,150,190,110,150,.04);ell(g,150,190,92,132,.12);
@@ -1480,14 +1484,14 @@ function evImg(k){if(!EVA[k])k='mendigo';if(EVI[k])return EVI[k];const[p,f]=EVA[
 /* ---------- ícones gravados: o mesmo desenho, com volume em linhas e grão ---------- */
 const ICI={};
 /* raridade vira o fundo da gravura: comum liso, incomum auréola pontilhada, raro raios, lendário sol negro */
-function iconImg(k,ink,rar=1){const key=k+ink+rar;if(ICI[key])return ICI[key];const path=new Path2D(ICON[k]||ICON.eye);
+function iconImg(k,ink,rar=1,fill=PAL.pink){const key=k+ink+rar+fill;if(ICI[key])return ICI[key];const path=new Path2D(ICON[k]||ICON.eye);
   const cv=engrave(128,128,(g,W,H,r)=>{
     if(rar>=2){g.fillStyle=gv(.62);g.beginPath();g.arc(64,62,rar>=3?50:44,0,7);g.fill()}
     if(rar>=3){g.fillStyle=gv(rar>=4?.0:.3);for(let i=0;i<18;i++){const a=i/18*6.28+.1;g.beginPath();g.moveTo(64+Math.cos(a-.07)*40,62+Math.sin(a-.07)*40);g.lineTo(64+Math.cos(a)*64,62+Math.sin(a)*64);g.lineTo(64+Math.cos(a+.07)*40,62+Math.sin(a+.07)*40);g.fill()}}
     if(rar>=4){g.fillStyle=gv(.97);g.beginPath();g.arc(64,62,42,0,7);g.fill()}
     g.fillStyle=gv(.35);g.beginPath();g.ellipse(66,118,34,6,0,0,7);g.fill();
     g.save();g.translate(4,2);g.scale(1.88,1.88);const gr=g.createLinearGradient(8,6,56,58);gr.addColorStop(0,gv(.8));gr.addColorStop(.55,gv(.46));gr.addColorStop(1,gv(.14));
-    g.fillStyle=gr;g.fill(path,'evenodd');g.strokeStyle=gv(0);g.lineWidth=2.8;g.lineJoin='round';g.stroke(path);g.restore()},{seed:'ic'+k,ink,hi:null,per:3.1,ang:-.8,splat:0,scr:0,edge:false});
+    g.fillStyle=gr;g.fill(path,'evenodd');g.strokeStyle=gv(0);g.lineWidth=2.8;g.lineJoin='round';g.stroke(path);g.restore()},{seed:'ic'+k,ink,paper:fill,hi:null,per:3.1,ang:-.8,splat:0,scr:0,edge:false});
   return ICI[key]=cv.toDataURL('image/png')}
 const ROMAN=['','I','II','III','IV','V','VI','VII','VIII'];
 /* letras de bilhete de resgate: cada letra torta, algumas em caixa */
@@ -1496,7 +1500,7 @@ let SCENE_ON=null;
 function setScene(c){const el=document.getElementById('scene');if(!el)return;if(SCENE_ON===c)return;SCENE_ON=c;el.style.backgroundImage=`url(${sceneImg(c)})`;el.dataset.c=c}
 function vistaHTML(c,title,sub){return `<div class="vista" style="background-image:url(${sceneImg(c)})"><h2 class="rn">${ransom(title,'v'+c+title)}</h2>${sub?`<p class="tape">${sub}</p>`:''}</div>`}
 function circleCard(c){const el=document.createElement('div');el.className='ccard';el.setAttribute('role','status');
-  el.innerHTML=`<div class="ccimg" style="background-image:url(${sceneImg(c)})"></div><div class="ccin"><span class="ccn">${ROMAN[c]}</span><b class="rn">${ransom(LANG==='en'?'Circle':'Círculo','cc'+c)}</b><p class="tape">${LANDS[LANG][c-1]}</p></div>`;
+  el.innerHTML=`<div class="ccimg" style="background-image:url(${sceneImg(c)})"></div><div class="ccin"><b class="rn">${ransom(LANG==='en'?'Circle':'Círculo','cc'+c)}</b><span class="ccn" aria-label="${c}"><span class="rom">${ROMAN[c]}</span><span class="ara">${c}<small>/8</small></span></span><p class="tape">${LANDS[LANG][c-1]}</p></div>`;
   document.body.appendChild(el);const end=()=>{if(el.classList.contains('out'))return;el.classList.add('out');setTimeout(()=>el.remove(),700)};el.addEventListener('click',end);setTimeout(end,2800)}
 /* festival em panorama: tendas, bandeirolas, máscaras e forcas com lanternas */
 function festWide(g,W,H,r){sky(g,W,H,.45,.9);disc(g,1050,90,46,1);glow(g,1050,90,140,.5);
@@ -1891,18 +1895,18 @@ function wpick(keys,ex=[]){const p=keys.filter(k=>!ex.includes(k));if(!p.length)
 const CLASSES={
  cavaleiro:{n:'Cavaleiro',en:['Knight'],art:'knight',bg:'yel',hp:44,arm:2,dis:2,hs:8,sl:2,eq:['espada_longa','escudo'],cons:['pocao'],tal:['Disciplina de Aço','Steel Discipline'],td:['+5 Fúria por ponto de Armadura. Cura 3 PV sempre que joga Par de Cicatrizes ou Dois Pares da Profanação.','+5 Fury per point of Armor. Heals 3 HP whenever you play Pair of Scars or Two Pairs of Profanation.']},
  mago:{n:'Mago',en:['Wizard'],art:'mage',bg:'pink',hp:28,arm:0,dis:3,hs:8,sl:3,eq:['cajado'],cons:['misseis','escudo_arcano'],tal:['Memória Arcana','Arcane Memory'],td:['Começa cada combate com uma magia aleatória, se houver espaço. +1 Fúria a cada 2 magias conjuradas na jornada (máx. +6).','Starts each fight with a random spell, if there is room. +1 Fury for every 2 spells cast this journey (max +6).']},
- cacador:{n:'Caçador',en:['Hunter'],art:'hunter',bg:'bone',hp:36,arm:0,dis:4,hs:8,sl:2,eq:['arco_longo','faca_esfolar'],cons:['raio_gelo'],tal:['Primeira Flecha','First Arrow'],td:['As duas primeiras mãos de cada combate têm ×3 Fúria.','The first two hands of each fight have ×3 Fury.']},
+ cacador:{n:'Caçador',en:['Hunter'],art:'hunter',bg:'green',hp:36,arm:0,dis:4,hs:8,sl:2,eq:['arco_longo','faca_esfolar'],cons:['raio_gelo'],tal:['Primeira Flecha','First Arrow'],td:['As duas primeiras mãos de cada combate têm ×3 Fúria.','The first two hands of each fight have ×3 Fury.']},
  druida:{n:'Druida',en:['Druid'],art:'druid',bg:'yel',hp:30,arm:0,dis:3,hs:8,sl:2,eq:['cimitarra'],cons:['chicote'],suits:[1,2],tal:['Fera Interior','Inner Beast'],td:['×1,4 Fúria sempre; com metade dos PV ou menos, ×2,2. Baralho só de Sangue e Ossos.','×1.4 Fury always; at half HP or less, ×2.2. Deck of Blood and Bones only.']},
  clerigo:{n:'Clérigo',en:['Cleric'],art:'cleric',bg:'pink',hp:32,arm:1,dis:3,hs:8,sl:2,eq:['maca','tocha'],cons:['palavra'],tal:['Luz da Penitência','Penitent Light'],td:['Cura 3 PV a cada mão jogada. ×2 Fúria, ou ×3 contra mortos-vivos.','Heals 3 HP on every hand played. ×2 Fury, or ×3 against undead.']},
  barbaro:{n:'Bárbaro',en:['Barbarian'],art:'barbarian',bg:'pink',hp:46,arm:0,dis:3,hs:8,sl:2,eq:['machado_grande','corrente'],cons:['pocao'],tal:['Sangue Fervente','Boiling Blood'],td:['A primeira mão de cada combate tem ×1,25 Fúria, e cada mão seguinte soma ×0,5 (máx. ×2,7).','The first hand of each fight has ×1.25 Fury, and each later hand adds ×0.5 (max ×2.7).'],
    req:{st:'bestHit',goal:15000,d:['Cause {g} de dano em uma única mão.','Deal {g} damage in a single hand.']}},
- ladino:{n:'Ladino',en:['Rogue'],art:'rogue',bg:'bone',hp:34,arm:0,dis:4,hs:8,sl:2,eq:['adaga','couro'],cons:['acido'],tal:['Lâmina nas Costas','Knife in the Back'],td:['Golpe Solitário e Par de Cicatrizes têm ×2,5 Fúria. Ganha +$2 por inimigo morto.','Lone Strike and Pair of Scars have ×2.5 Fury. Gain +$2 per enemy slain.'],
+ ladino:{n:'Ladino',en:['Rogue'],art:'rogue',bg:'orange',hp:34,arm:0,dis:4,hs:8,sl:2,eq:['adaga','couro'],cons:['acido'],tal:['Lâmina nas Costas','Knife in the Back'],td:['Golpe Solitário e Par de Cicatrizes têm ×2,5 Fúria. Ganha +$2 por inimigo morto.','Lone Strike and Pair of Scars have ×2.5 Fury. Gain +$2 per enemy slain.'],
    req:{st:'maxGold',goal:60,d:['Junte ${g} de ouro ao mesmo tempo.','Hold ${g} gold at once.']}},
  bardo:{n:'Bardo',en:['Bard'],art:'bard',bg:'yel',hp:32,arm:0,dis:3,hs:9,sl:3,eq:['rapieira'],cons:['bencao'],tal:['Canção Fúnebre','Dirge'],td:['Cada tipo de mão diferente já jogado na jornada dá ×0,1 Fúria. +1 carta na mão.','Each different hand type played this journey gives ×0.1 Fury. +1 card in hand.'],
    req:{st:'handsPlayed',goal:500,d:['Jogue {g} mãos, somando todas as jornadas.','Play {g} hands across all journeys.']}},
  paladino:{n:'Paladino',en:['Paladin'],art:'paladin',bg:'yel',hp:44,arm:2,dis:3,hs:8,sl:2,eq:['martelo','escudo','tocha'],cons:['agua_benta'],tal:['Julgamento','Judgment'],td:['A primeira mão de cada combate com uma figura tem ×3 Fúria (×4,5 contra mortos-vivos).','The first hand each fight with a face card has ×3 Fury (×4.5 against undead).'],
    req:{st:'undead',goal:60,d:['Destrua {g} mortos-vivos.','Destroy {g} undead.']}},
- bruxo:{n:'Bruxo',en:['Warlock'],art:'warlock',bg:'ink',hp:30,arm:0,dis:3,hs:8,sl:3,eq:['bugiganga'],cons:['veneno'],tal:['Pacto de Sangue','Blood Pact'],td:['Toda mão tem ×1,55 Fúria, mas custa 2 PV. Cura 8 PV a cada inimigo morto.','Every hand has ×1.55 Fury but costs 2 HP. Heals 8 HP per enemy slain.'],
+ bruxo:{n:'Bruxo',en:['Warlock'],art:'warlock',bg:'red',hp:30,arm:0,dis:3,hs:8,sl:3,eq:['bugiganga'],cons:['veneno'],tal:['Pacto de Sangue','Blood Pact'],td:['Toda mão tem ×1,55 Fúria, mas custa 2 PV. Cura 8 PV a cada inimigo morto.','Every hand has ×1.55 Fury but costs 2 HP. Heals 8 HP per enemy slain.'],
    req:{st:'spells',goal:100,d:['Use {g} magias, somando todas as jornadas.','Cast {g} spells across all journeys.']}},
 };
 const cn=k=>LANG==='en'?CLASSES[k].en[0]:CLASSES[k].n;
@@ -1994,7 +1998,7 @@ const ABIL={
 };
 const LANDS={pt:['A estrada dos enforcados','O pântano que respira','A abadia queimada','As minas do verme','A cidade sem sinos','O vale dos mortos sem descanso','A torre de porcelana','O fim do mundo'],
  en:['The road of the hanged','The breathing swamp','The burned abbey','The mines of the worm','The city without bells','The valley of the restless dead','The porcelain tower','The end of the world']};
-const BGS=['yel','pink','bone','ink'];
+const BGS=['yel','pink','green','orange','cyan','red'];
 
 /* ================= progressão (meta) ================= */
 const DEFAULT_UNL=['espada_longa','escudo','tocha','adaga','lanca','cimitarra','maca','couro','cajado','arco_longo','kit','corda','misseis','escudo_arcano','raio_gelo','chicote','palavra','pocao','acido','orientacao'];
@@ -2248,7 +2252,7 @@ function codexScreen(){const tab=UI.cx||'best';META.seen=META.seen||{};META.foun
     body=`<p class="cxn">${L(`${seen} de ${all.length} criaturas abatidas`,`${seen} of ${all.length} creatures slain`)}</p><div class="cxgrid">${all.map(m=>{const n=META.seen[m.a]||0;
       if(!n)return `<div class="cx unk"><div class="cxart">?</div><div><h4>???</h4><p>${tyN(m.ty)}</p></div></div>`;
       const ab=m.ab?ABIL[m.ab][LANG==='en'?1:0]:null;
-      return `<div class="cx"><img src="${art(m.a,m.n,'bone',120,150)}" alt="${fn_(m)}"><div><h4>${fn_(m)}</h4><p class="cxt">${tyN(m.ty)}${ab?' · '+ab[0]:''}</p><p class="lore">${MLORE[m.a]?LP(MLORE[m.a]):''}</p><p class="cxk">${L('Abatidos','Slain')}: <b>${n}</b></p></div></div>`}).join('')}</div>`}
+      return `<div class="cx"><img src="${art(m.a,m.n,'auto',120,150)}" alt="${fn_(m)}"><div><h4>${fn_(m)}</h4><p class="cxt">${tyN(m.ty)}${ab?' · '+ab[0]:''}</p><p class="lore">${MLORE[m.a]?LP(MLORE[m.a]):''}</p><p class="cxk">${L('Abatidos','Slain')}: <b>${n}</b></p></div></div>`}).join('')}</div>`}
   else{const keys=[...Object.keys(EQ),...Object.keys(CONS).filter(k=>!k.startsWith('man_'))];const got=keys.filter(k=>META.found[k]).length;
     body=`<p class="cxn">${L(`${got} de ${keys.length} itens encontrados`,`${got} of ${keys.length} items found`)}</p><div class="cxgrid items">${keys.map(k=>{const D=EQ[k]||CONS[k];const n=META.found[k]||0;
       const slot=EQ[k]?eqSlot({id:k,v:1},'x',{act:'none',lock:!n}):consSlot(k,'x',{act:'none',lock:!n});
@@ -2592,7 +2596,7 @@ function cardHTML(c,opt={}){
 }
 function eqSlot(e,i,opt={}){const E=EQ[e.id];return `<button class="slot full y rar${E.r}${opt.lock?' locked':''}" data-eq="${i}" data-act="${opt.act||'eqpop'}" data-k="${e.id}" aria-label="${nm(E)}"><img class="ic" src="${iconImg(E.ic,PAL.ink,E.r)}" alt="">${e.id==='alabarda'&&e.v>1?`<span class="vv">×${fmtx(e.v)}</span>`:''}<span class="gem" title="${rarN(E.r)}"></span><span class="nm">${nm(E)}</span></button>`}
 function consSlot(k,i,opt={}){const C=CONS[k];const cl=C.k==='magia'?'p':C.k==='item'?'w':'k';
-  return `<button class="slot full ${cl} rar${C.r}${opt.lock?' locked':''}" data-cons="${i}" data-act="${opt.act||'conspop'}" data-k="${k}" aria-label="${nm(C)}">${C.k==='magia'?sigilSVG(k):`<img class="ic" src="${iconImg(C.ic,C.k==='manual'?PAL.yel:PAL.ink,C.r)}" alt="">`}<span class="gem" title="${rarN(C.r)}"></span><span class="nm">${nm(C).replace('Manual: ','')}</span></button>`}
+  return `<button class="slot full ${cl} rar${C.r}${opt.lock?' locked':''}" data-cons="${i}" data-act="${opt.act||'conspop'}" data-k="${k}" aria-label="${nm(C)}">${C.k==='magia'?sigilSVG(k):`<img class="ic" src="${iconImg(C.ic,C.k==='manual'?PAL.yel:PAL.ink,C.r,C.k==='manual'?PAL.pink:PAL.cyan)}" alt="">`}<span class="gem" title="${rarN(C.r)}"></span><span class="nm">${nm(C).replace('Manual: ','')}</span></button>`}
 function renderBelt(){
   const es=[];for(let i=0;i<5;i++)es.push(R.eq[i]?eqSlot(R.eq[i],i):`<span class="slot" aria-hidden="true"></span>`);
   const cs=[];for(let i=0;i<slots();i++)cs.push(R.cons[i]?consSlot(R.cons[i],i):`<span class="slot" aria-hidden="true"></span>`);
@@ -2682,7 +2686,7 @@ function renderStage(){
       <button class="big play" data-act="topath">${t('Seguir caminho')}</button></div>
      ${S.bones?`<button class="bonecall" data-act="bones"><img src="${art('bonemancer','ossomante','pink',120,150)}" alt=""><span><b>${t('Ossomante')}</b><small>${t('Ele joga os ossos e lê o que dizem. Por ouro, ensina suas mãos a ferir mais fundo.')}</small><em>${R.shop.read?t('Os ossos já falaram. Volte no próximo Festival.'):t('Consultar o Ossomante')}</em></span></button>`:''}`;
   } else if(R.phase==='path'){
-    st.innerHTML=`${vistaHTML(R.c,t('Círculo')+' '+ROMAN[R.c],LANDS[LANG][R.c-1]+' · '+L('Escolha seu caminho.','Choose your path.'))}${mapHTML()}`;
+    st.innerHTML=`${vistaHTML(R.c,t('Círculo')+' '+R.c,ROMAN[R.c]+' · '+LANDS[LANG][R.c-1]+' · '+L('Escolha seu caminho.','Choose your path.'))}${mapHTML()}`;
   } else if(R.phase==='event'&&R.ev){st.innerHTML=eventHTML();
   } else st.innerHTML='';
 }

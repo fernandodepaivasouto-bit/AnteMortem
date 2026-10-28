@@ -379,6 +379,148 @@ button:focus-visible,.card:focus-visible,.slot:focus-visible{outline:3px solid v
 .card.stone{filter:grayscale(1) contrast(.7) brightness(.8)}
 .card.stone::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(135deg,transparent 0 6px,rgba(11,11,10,.18) 6px 8px);border-radius:4px;pointer-events:none}
 .card svg{fill:currentColor}
+
+/* ===== raridade ===== */
+.slot .gem{position:absolute;top:4px;left:4px;width:10px;height:10px;transform:rotate(45deg);border:2px solid var(--ink);background:var(--bone2)}
+.slot.rar2 .gem{background:var(--bone)}
+.slot.rar3 .gem{background:var(--pink)}
+.slot.rar4 .gem{background:var(--yel);box-shadow:0 0 0 2px var(--pink)}
+.slot.rar4{box-shadow:0 0 0 3px var(--pink),0 0 14px var(--pink)}
+.slot.k .gem{border-color:var(--yel)}
+.rtag{display:inline-block;font-family:var(--f-ui);font-weight:700;font-size:10px;letter-spacing:.14em;text-transform:uppercase;padding:1px 6px;margin-bottom:3px;border:1px solid var(--ash);color:var(--bone2)}
+.rtag.r2{color:var(--bone);border-color:var(--bone)}
+.rtag.r3{color:var(--pink);border-color:var(--pink)}
+.rtag.r4{color:var(--ink);background:var(--yel);border-color:var(--yel)}
+.ware p .rtag{margin-right:4px}
+/* ---------- caminho com bifurcações ---------- */
+.map{display:grid;gap:10px}
+.mrow{display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:stretch}
+.mstep{font-family:var(--f-dirt);font-size:26px;color:var(--ash);display:grid;place-items:center;border-right:3px dotted var(--ash)}
+.mrow.now .mstep{color:var(--yel);border-color:var(--yel)}
+.mopts{display:flex;gap:10px;align-items:stretch;flex-wrap:wrap}
+.mor{align-self:center;font-family:var(--f-black);font-size:22px;color:var(--bone2)}
+.map .pnode{flex:1 1 220px;grid-template-rows:none;grid-template-columns:86px 1fr;text-align:left;color:var(--bone);font:inherit;padding:0;min-height:96px}
+.map .pnode img,.map .pnode .nic{width:86px;height:100%;min-height:96px;object-fit:cover;aspect-ratio:auto}
+.map .pnode .nic{display:grid;place-items:center;background:var(--bone);color:var(--ink)}
+.map .pnode .nic .ic{width:54px;height:54px}
+.map .pnode.n-santuario .nic,.map .pnode.n-cripta .nic{background:var(--pink)}
+.map .pnode.n-festival .nic{background:var(--yel)}
+.map .pnode .pi{padding:6px 10px 8px;gap:3px}
+.map .pnode h4{font-size:20px}
+.map .pnode .pi p{font-size:12px;line-height:1.25}
+.pnode .pab{color:var(--pink)!important}.pnode .pty{color:var(--yel)!important}.pnode .pel{color:var(--yel)!important;font-weight:700}
+.ntag{justify-self:start;font-family:var(--f-ui);font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase;background:var(--bone);color:var(--ink);padding:1px 6px}
+.ntag.n-elite,.ntag.n-boss{background:var(--pink)}.ntag.n-festival{background:var(--yel)}
+.pnode.open{cursor:pointer;outline:3px solid var(--yel);transition:transform .12s}
+.pnode.open:hover,.pnode.open:focus-visible{transform:translateY(-3px);outline-color:var(--pink)}
+.pnode.later{opacity:.55}
+.pnode.skip{opacity:.18}
+.pnode.done{opacity:.35}
+.map .pnode.done::after{content:"";}
+.mrow.past .mstep{color:var(--ash);border-color:var(--ash)}
+/* ---------- intenção e condições ---------- */
+.intent{position:absolute;top:8px;left:8px;display:flex;align-items:center;gap:5px;background:var(--ink);color:var(--yel);border:2px solid var(--yel);padding:3px 8px 3px 4px;font-family:var(--f-ui);font-size:13px;z-index:3;max-width:calc(100% - 16px);flex-wrap:wrap}
+.intent .ic{width:22px;height:22px}
+.intent b{font-family:var(--f-black);font-weight:400;font-size:17px;line-height:1}
+.intent em{font-style:normal;font-family:var(--f-dirt);font-size:16px;color:var(--pink)}
+.intent.i-heavy,.intent.i-howl{color:var(--pink);border-color:var(--pink);animation:throb 1.2s ease-in-out infinite}
+.intent.i-guard,.intent.i-heal{color:var(--bone);border-color:var(--bone)}
+.intent.preview{color:var(--bone);border-color:var(--bone);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:11px;padding:3px 8px}
+@keyframes throb{50%{transform:scale(1.05)}}
+.conds{display:flex;flex-wrap:wrap;gap:4px}
+.conds:empty{display:none}
+.cond{display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:1px 6px 1px 3px;border:2px solid currentColor;color:var(--bone);cursor:help}
+.cond .ic{width:14px;height:14px}
+.cond.c-bleed{color:var(--pink)}.cond.c-burn{color:var(--yel)}
+.cond.inj{color:var(--ink);background:var(--pink);border-color:var(--pink);padding-left:6px}
+.cond.scar{color:var(--ink);background:var(--bone);border-color:var(--bone);padding-left:6px}
+/* ---------- selos ---------- */
+.card .seal{position:absolute;left:50%;bottom:-7px;width:14px;height:14px;transform:translateX(-50%) rotate(45deg);border:2px solid var(--ink);box-shadow:0 0 0 2px var(--bone)}
+.seal.s-sangue{background:#d4145a}.seal.s-runa{background:#6ec6ff}.seal.s-ouro{background:var(--yel)}.seal.s-profano{background:var(--ink);box-shadow:0 0 0 2px var(--pink),0 0 8px var(--pink)}
+/* ---------- encontros ---------- */
+.event{display:grid;grid-template-columns:160px 1fr;gap:18px;align-items:start}
+.evart{background:var(--bone);color:var(--ink);aspect-ratio:4/5;display:grid;place-items:center;border:3px solid var(--bone);outline:3px solid var(--ink);outline-offset:-8px}
+.evart .ic{width:70%;height:70%}
+.evtxt{display:grid;gap:12px}
+.evtxt .lore{font-size:17px;margin:0}
+.evopts{display:grid;gap:8px;justify-items:start}
+.evopts .big{text-align:left;font-size:18px}
+.evres{font-family:var(--f-type);font-size:16px;border-left:4px solid var(--yel);padding:4px 0 4px 12px;margin:0;color:var(--yel)}
+/* ---------- troféus ---------- */
+.trophy{display:grid;gap:8px}
+.trophy .big{text-align:left;font-size:18px;display:grid;gap:2px}
+.trophy .big small{font-family:var(--f-type);font-size:13px;text-transform:none;letter-spacing:0;line-height:1.3}
+/* ---------- sinais ---------- */
+.signs{display:grid;gap:8px;border:2px solid var(--ash);padding:10px 12px;margin:0 0 14px}
+.signs p{margin:0;font-family:var(--f-type);font-size:14px;color:var(--bone2)}
+.signs ul{margin:0;padding-left:18px;font-family:var(--f-type);font-size:13px;display:grid;gap:3px}
+.signs ul b{color:var(--pink);font-family:var(--f-ui);letter-spacing:.04em}
+.sigrow{display:flex;gap:6px;flex-wrap:wrap}
+.sig{min-width:44px;font-family:var(--f-black);font-size:20px;padding:4px 10px;background:transparent;color:var(--bone);border:2px solid var(--bone);cursor:pointer}
+.sig.on{background:var(--pink);color:var(--ink);border-color:var(--pink)}
+.sig:disabled{opacity:.25;cursor:not-allowed}
+.sigw{color:var(--pink);font-size:11px;letter-spacing:.06em;text-transform:uppercase}
+/* ---------- jornada do dia e códex ---------- */
+.big.daily{display:grid;gap:2px;text-align:left;background:var(--ink);color:var(--yel)}
+.big.daily small,.big.daily em{font-family:var(--f-type);font-size:12px;text-transform:none;letter-spacing:0;font-style:normal;color:var(--bone)}
+.big.daily em{color:var(--pink)}
+.cxn{font-family:var(--f-type);color:var(--bone2);margin:0}
+.cxgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px}
+.cx{display:grid;grid-template-columns:84px 1fr;gap:10px;border:2px solid var(--ash);padding:8px;align-items:start}
+.cx img{width:84px;aspect-ratio:4/5;object-fit:cover;display:block}
+.cx .cxart{width:84px;aspect-ratio:4/5;display:grid;place-items:center;font-family:var(--f-dirt);font-size:44px;color:var(--ash);border:2px dashed var(--ash)}
+.cx h4{margin:2px 0;font-family:var(--f-black);font-weight:400;font-size:20px;line-height:1}
+.cx p{margin:0;font-family:var(--f-type);font-size:12px;color:var(--bone2);line-height:1.3}
+.cx .cxt{color:var(--yel)}.cx .lore{color:var(--bone);font-size:13px;margin-top:3px}
+.cx .cxk{margin-top:4px}.cx .cxk b{color:var(--pink);font-family:var(--f-dirt);font-weight:400;font-size:15px}
+.cx.unk{opacity:.5}
+.cxgrid.items .cx{grid-template-columns:76px 1fr;--ew:76px}
+/* ---------- ossomante: pagamento em sangue ---------- */
+.bonerow .bb{display:grid;gap:4px}
+.bonerow .buy.blood{background:var(--ink);color:var(--pink);outline-color:var(--pink)}
+@media (max-width:720px){
+  .event{grid-template-columns:1fr}.evart{max-width:140px}
+  .mrow{grid-template-columns:24px 1fr;gap:6px}.mstep{font-size:18px}
+  .map .pnode{flex-basis:100%;grid-template-columns:72px 1fr}
+  .map .pnode img,.map .pnode .nic{width:72px}
+  .mor{display:none}
+}
+/* ================= cenários e estilo de zine ================= */
+#scene{position:fixed;inset:0;z-index:0;background:var(--ink) center/cover no-repeat;pointer-events:none;opacity:.5;transition:opacity .6s}
+#scene::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,rgba(11,11,10,.25),rgba(11,11,10,.85) 75%),linear-gradient(rgba(11,11,10,.35),rgba(11,11,10,.75))}
+body.ingame #scene{opacity:1}
+#app{position:relative;z-index:1}
+#ov{z-index:20}
+
+.stats{background-color:rgba(11,11,10,.92)}
+.slot img.ic{position:absolute;left:8%;top:5%;width:84%;height:66%;object-fit:contain;pointer-events:none}
+.slot.full{background-image:radial-gradient(rgba(11,11,10,.16) 1px,transparent 1.4px);background-size:5px 5px}
+.slot.full:nth-child(3n+1){transform:rotate(-1.2deg)}.slot.full:nth-child(3n+2){transform:rotate(.8deg)}
+.slot.full:hover{transform:translateY(-4px) rotate(-2deg)}
+/* vista: faixa do cenário com título de bilhete de resgate */
+.vista{position:relative;min-height:clamp(150px,22vw,230px);background:center 62%/cover no-repeat;border:3px solid var(--ink);outline:3px solid var(--bone);display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-start;padding:12px 14px;gap:8px;overflow:hidden}
+.vista.fest{background-position:center 70%}
+.vista::before{content:"";position:absolute;inset:0;background:linear-gradient(transparent 40%,rgba(11,11,10,.55))}
+.rn{position:relative;margin:0;font-family:var(--f-dirt);font-weight:400;font-size:clamp(34px,5.4vw,64px);line-height:.9;color:var(--bone);display:flex;flex-wrap:wrap;text-shadow:3px 3px 0 var(--ink);letter-spacing:-.01em}
+.rn span{display:inline-block}
+.rn span.box{background:var(--ink);color:var(--yel);padding:0 .06em;text-shadow:none}
+.rn i.sp{width:.3em}
+.tape{position:relative;margin:0;background:var(--bone);color:var(--ink);font-family:var(--f-type);font-size:14px;padding:3px 10px;transform:rotate(-1.2deg);box-shadow:3px 3px 0 var(--ink);max-width:100%}
+.banner.ev{border-bottom:none}.banner.ev .rn{font-size:clamp(30px,4.4vw,52px)}
+.map .pnode img{filter:contrast(1.05)}
+.evart{padding:0;background:var(--ink);outline:none;border:3px solid var(--bone);transform:rotate(-1.5deg);box-shadow:6px 6px 0 var(--pink)}
+.evart img{width:100%;height:100%;object-fit:cover;display:block}
+/* cartão de entrada do Círculo */
+.ccard{position:fixed;inset:0;z-index:40;display:grid;place-items:center;background:var(--ink);animation:ccin .5s ease-out;cursor:pointer}
+.ccard.out{animation:ccout .7s forwards}
+.ccimg{position:absolute;inset:0;background:center/cover no-repeat;animation:cczoom 3.4s ease-out forwards}
+.ccimg::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 30%,rgba(11,11,10,.7))}
+.ccin{position:relative;display:grid;justify-items:center;gap:6px;text-align:center;padding:16px}
+.ccn{font-family:var(--f-black);font-size:clamp(120px,24vw,260px);line-height:.8;color:var(--bone);text-shadow:6px 6px 0 var(--ink),-2px -2px 0 var(--ink)}
+.ccin .rn{font-size:clamp(36px,6vw,72px);justify-content:center}
+.ccin .tape{font-size:clamp(15px,2vw,20px);transform:rotate(1.5deg)}
+@keyframes ccin{from{opacity:0}}@keyframes ccout{to{opacity:0;visibility:hidden}}@keyframes cczoom{from{transform:scale(1.12)}to{transform:scale(1)}}
+@media (prefers-reduced-motion:reduce){.ccimg{animation:none}.intent.i-heavy,.intent.i-howl{animation:none}}
 </style>
 </head>
 <body>
@@ -392,6 +534,7 @@ button:focus-visible,.card:focus-visible,.slot:focus-visible{outline:3px solid v
   <symbol id="su3" viewBox="0 0 24 24"><path d="M2 19V7l5 4.5L12 3l5 8.5L22 7v12z M2 20.5h20V23H2z"/></symbol>
 </svg>
 
+<div id="scene" aria-hidden="true"></div>
 <div id="app">
   <aside id="side"></aside>
   <main id="main">
@@ -411,7 +554,9 @@ button:focus-visible,.card:focus-visible,.slot:focus-visible{outline:3px solid v
 /* ================= utilidades ================= */
 const $=s=>document.querySelector(s);
 let wait=ms=>new Promise(r=>setTimeout(r,ms));
-const rnd=n=>Math.floor(Math.random()*n);
+/* aleatoriedade da jornada: com semente na Jornada do Dia */
+function grand(){try{if(R&&R.seed!=null){R.seed=(R.seed+0x6D2B79F5)|0;let t=R.seed;t=Math.imul(t^t>>>15,1|t);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}catch(e){}return Math.random()}
+const rnd=n=>Math.floor(grand()*n);
 const pick=a=>a[rnd(a.length)];
 const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=rnd(i+1);[a[i],a[j]]=[a[j],a[i]]}return a};
 function mulberry(a){return()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
@@ -484,7 +629,7 @@ const EN={
  'Ele joga os ossos e lê o que dizem. Por ouro, ensina suas mãos a ferir mais fundo.':'He casts the bones and reads what they say. For gold, he teaches your hands to cut deeper.',
  'Uma leitura por visita. Cada nível custa mais que o anterior.':'One reading per visit. Each level costs more than the last.','Os ossos já falaram. Volte no próximo Festival.':'The bones have spoken. Come back at the next Festival.',
  'Subir · ${c}':'Level up · ${c}','nv {a} → {b}':'lv {a} → {b}','Os ossos falam: {n} chega ao nível {l}.':'The bones speak: {n} reaches level {l}.',
- 'O Ossomante, coberto de ossos, lendo o destino':'The Bonemancer, draped in bones, reading fate','MORTO':'SLAIN','O sal quebra a maldição.':'The salt breaks the curse.','{n} fica preso na armadilha!':'{n} is caught in the trap!','sangra {n}':'bleeds {n}','{n} se ergue do filactério!':'{n} rises from its phylactery!','O olhar antimágico apaga sua magia.':'The antimagic gaze snuffs out your magic.','um jogo de':'a game by','Nova classe liberada: {c}!':'New class unlocked: {c}!','Pilhagem':'Plunder','Bloqueada':'Locked','Para liberar':'To unlock',
+ 'O Ossomante, coberto de ossos, lendo o destino':'The Bonemancer, draped in bones, reading fate','MORTO':'SLAIN','Força dos inimigos':'Enemy strength','Os inimigos ficam mais fortes conforme seu arsenal cresce: hoje estão em {p}%.':'Enemies grow stronger as your arsenal grows: they are at {p}% now.','O sal quebra a maldição.':'The salt breaks the curse.','{n} fica preso na armadilha!':'{n} is caught in the trap!','sangra {n}':'bleeds {n}','{n} se ergue do filactério!':'{n} rises from its phylactery!','O olhar antimágico apaga sua magia.':'The antimagic gaze snuffs out your magic.','um jogo de':'a game by','Nova classe liberada: {c}!':'New class unlocked: {c}!','Pilhagem':'Plunder','Bloqueada':'Locked','Para liberar':'To unlock',
  'Classes ocultas':'Hidden classes','{n} de {m} liberadas. O progresso conta em qualquer classe.':'{n} of {m} unlocked. Progress counts with any class.','Golpe crítico!':'Critical blow!',
 };
 
@@ -1113,6 +1258,248 @@ warlock(P){const{g,r,INK,BONE}=P;
   for(let i=0;i<6;i++){const x=20+r()*200,y=200+r()*90;ring(P,x,y,6,INK,1.5);line(P,x-6,y,x+6,y,INK,1.5,1,0)}},
 };
 
+/* ================= gravura: cenários, ilustrações de encontros e ícones =================
+   Técnica: a cena é desenhada em tons de cinza (luz) e depois "gravada" como xilogravura/água-forte:
+   tons escuros viram tinta sólida, os médios viram linhas de gravura (como Dürer e Doré),
+   os claros mostram o papel colorido e as luzes mais fortes ficam cor de osso. Depois vem o grão. */
+const PAL={yel:'#ffe500',pink:'#ff2fa6',bone:'#f4f1e8',green:'#b8ff1f',orange:'#ff5a1f',cyan:'#8ee8ff',red:'#e1061c',ink:'#0b0b0a'};
+const hexRGB=h=>[1,3,5].map(i=>parseInt(h.slice(i,i+2),16));
+const gv=v=>{const c=Math.round(Math.max(0,Math.min(1,v))*255);return `rgb(${c},${c},${c})`};
+const ga=(v,a)=>{const c=Math.round(v*255);return `rgba(${c},${c},${c},${a})`};
+function wave(r,n=4,base=.004){const p=[];for(let i=0;i<n;i++)p.push([r()*6.28,base*(1+i*1.9)*(.7+r()*.6),1/(i+1)]);return x=>p.reduce((a,[ph,f,am])=>a+Math.sin(x*f+ph)*am,0)}
+function sky(g,W,H,top,bot,mid){const gr=g.createLinearGradient(0,0,0,H);gr.addColorStop(0,gv(top));if(mid!=null)gr.addColorStop(.55,gv(mid));gr.addColorStop(1,gv(bot));g.fillStyle=gr;g.fillRect(0,0,W,H)}
+function ridge(g,r,y0,amp,v,W,H,base){const n=wave(r,4,base||.004);g.fillStyle=gv(v);g.beginPath();g.moveTo(-10,H+10);for(let x=-10;x<=W+10;x+=6)g.lineTo(x,y0+n(x)*amp);g.lineTo(W+10,H+10);g.closePath();g.fill()}
+function glow(g,x,y,r,a=.9,v=1){const gr=g.createRadialGradient(x,y,0,x,y,r);gr.addColorStop(0,ga(v,a));gr.addColorStop(1,ga(v,0));g.fillStyle=gr;g.fillRect(x-r,y-r,2*r,2*r)}
+function disc(g,x,y,r,v){g.fillStyle=gv(v);g.beginPath();g.arc(x,y,r,0,7);g.fill()}
+function ell(g,x,y,rx,ry,v,rot=0){g.fillStyle=gv(v);g.beginPath();g.ellipse(x,y,rx,ry,rot,0,7);g.fill()}
+function ln(g,pts,w,v){g.strokeStyle=gv(v);g.lineWidth=w;g.lineCap='round';g.lineJoin='round';g.beginPath();pts.forEach((p,i)=>i?g.lineTo(p[0],p[1]):g.moveTo(p[0],p[1]));g.stroke()}
+function pg(g,pts,v){g.fillStyle=gv(v);g.beginPath();pts.forEach((p,i)=>i?g.lineTo(p[0],p[1]):g.moveTo(p[0],p[1]));g.closePath();g.fill()}
+function tree(g,r,x,y,len,ang,w,d,v=.03){if(d<=0||len<3)return;const x2=x+Math.cos(ang)*len,y2=y+Math.sin(ang)*len;ln(g,[[x,y],[(x+x2)/2+(r()-.5)*len*.25,(y+y2)/2+(r()-.5)*len*.15],[x2,y2]],w,v);
+  const k=d>3?2+(r()<.5?1:0):2;for(let i=0;i<k;i++)tree(g,r,x2,y2,len*(.6+r()*.2),ang+(r()-.5)*1.25,Math.max(1,w*.66),d-1,v)}
+function hanged(g,x,y,len,s=1,v=.03){ln(g,[[x,y],[x,y+len]],1.6*s,v);const hy=y+len;disc(g,x+1*s,hy+9*s,8*s,v);
+  pg(g,[[x-9*s,hy+16*s],[x+10*s,hy+16*s],[x+8*s,hy+52*s],[x+4*s,hy+80*s],[x-4*s,hy+80*s],[x-7*s,hy+52*s]],v);ln(g,[[x-2*s,hy+78*s],[x-3*s,hy+100*s]],3*s,v);ln(g,[[x+3*s,hy+78*s],[x+2*s,hy+101*s]],3*s,v)}
+function crow(g,x,y,s,v=.02){g.fillStyle=gv(v);g.beginPath();g.moveTo(x-14*s,y-2*s);g.quadraticCurveTo(x-6*s,y-9*s,x,y);g.quadraticCurveTo(x+6*s,y-9*s,x+14*s,y-3*s);g.quadraticCurveTo(x+6*s,y-3*s,x,y+4*s);g.quadraticCurveTo(x-6*s,y-3*s,x-14*s,y-2*s);g.fill()}
+function cross(g,x,y,s,tilt=0,v=.03){g.save();g.translate(x,y);g.rotate(tilt);g.fillStyle=gv(v);g.fillRect(-3*s,-40*s,6*s,40*s);g.fillRect(-13*s,-31*s,26*s,6*s);g.restore()}
+function tomb(g,x,y,s,tilt=0,v=.05){g.save();g.translate(x,y);g.rotate(tilt);g.fillStyle=gv(v);g.beginPath();g.moveTo(-12*s,0);g.lineTo(-12*s,-24*s);g.arc(0,-24*s,12*s,Math.PI,0);g.lineTo(12*s,0);g.fill();g.restore()}
+function hooded(g,x,y,s,v=.03){pg(g,[[x,y-60*s],[x+11*s,y-50*s],[x+15*s,y-30*s],[x+20*s,y],[x-20*s,y],[x-15*s,y-30*s],[x-11*s,y-50*s]],v)}
+function scratch(g,r,n,W,H,v){for(let i=0;i<n;i++){const x=r()*W,y=r()*H,l=10+r()*60,a=r()*6.28;ln(g,[[x,y],[x+Math.cos(a)*l,y+Math.sin(a)*l]],.8+r()*1.2,v)}}
+function rain(g,r,n,W,H,a=.35){g.strokeStyle=ga(1,a);g.lineWidth=1.3;g.beginPath();for(let i=0;i<n;i++){const x=r()*W*1.2,y=r()*H,l=18+r()*30;g.moveTo(x,y);g.lineTo(x-l*.35,y+l)}g.stroke()}
+
+/* gravação: luz em cinza → tinta, linhas de gravura, papel colorido e luzes de osso */
+function engrave(W,H,draw,o={}){
+  const cv=document.createElement('canvas');cv.width=W;cv.height=H;const g=cv.getContext('2d',{willReadFrequently:true});
+  const r=mulberry(hash(o.seed||'x'));g.fillStyle='#fff';g.fillRect(0,0,W,H);g.save();g.scale(W/(o.dw||W),H/(o.dh||H));draw(g,o.dw||W,o.dh||H,r);g.restore();
+  const src=g.getImageData(0,0,W,H),d=src.data;const out=g.createImageData(W,H),q=out.data;
+  const paper=o.paper?hexRGB(o.paper):null,ink=hexRGB(o.ink||PAL.ink),hi=o.hi===null?null:hexRGB(o.hi||PAL.bone);
+  const per=o.per||Math.max(3.2,W/260),a=o.ang??-.42,ca=Math.cos(a),sa=Math.sin(a),TW=Math.PI*2;
+  const nz=mulberry(hash((o.seed||'x')+'n'));
+  for(let y=0;y<H;y++)for(let x=0;x<W;x++){const i=(y*W+x)*4;const L=d[i]/255;let c;
+    if(L>.935)c=hi;
+    else if(L<.12)c=ink;
+    else{const u=(x*ca+y*sa)/per+.9*Math.sin(x*.011+y*.003)+.55*Math.sin(y*.019-x*.002);let on=(.5+.5*Math.sin(u*TW))>L*1.04+.02;
+      if(!on&&L<.42){const u2=(x*sa-y*ca)/(per*1.15)+.5*Math.sin(y*.013);on=(.5+.5*Math.sin(u2*TW))>L*2.1}
+      c=on?ink:paper}
+    const n=nz();if(n<.0035)c=c===ink?paper||hi:ink;
+    if(c){q[i]=c[0];q[i+1]=c[1];q[i+2]=c[2];q[i+3]=255}else q[i+3]=0}
+  g.putImageData(out,0,0);
+  if(o.grit!==false)grit(g,W,H,mulberry(hash((o.seed||'x')+'g')),o);
+  return cv}
+/* grão de fotocópia: respingos, riscos claros, bordas comidas */
+function grit(g,W,H,r,o){const ink=o.ink||PAL.ink,k=W/600;
+  g.fillStyle=ink;for(let s=0;s<(o.splat??3);s++){const x=r()*W,y=r()*H;for(let i=0;i<14;i++){const a=r()*6.28,dd=r()*28*k;g.beginPath();g.arc(x+Math.cos(a)*dd,y+Math.sin(a)*dd,(.6+r()*2.6)*k,0,7);g.fill()}}
+  if(o.hi!==null){g.strokeStyle=o.hi||PAL.bone;g.globalAlpha=.55;for(let i=0;i<(o.scr??10);i++){const x=r()*W,y=r()*H;g.lineWidth=(.5+r())*k;g.beginPath();g.moveTo(x,y);g.lineTo(x+(r()-.5)*90*k,y+(r()-.3)*20*k);g.stroke()}g.globalAlpha=1}
+  if(o.edge!==false){g.fillStyle=ink;const e=(o.edgeW||7)*k;for(const side of [0,1,2,3]){g.beginPath();const len=side%2?H:W;const pts=[];for(let t=0;t<=len;t+=6*k)pts.push([t,e*(.3+r()*1.1)]);
+    const map=([t,v])=>side===0?[t,v]:side===1?[W-v,t]:side===2?[t,H-v]:[v,t];g.moveTo(...map([0,0]));pts.forEach(p=>g.lineTo(...map(p)));g.lineTo(...map([len,0]));g.closePath();g.fill()}}}
+
+/* ---------- os oito cenários ---------- */
+const SCENE_PAPER={1:'yel',2:'green',3:'orange',4:'yel',5:'pink',6:'bone',7:'cyan',8:'red'};
+const SCENE={
+ 1:(g,W,H,r)=>{ /* a estrada dos enforcados */
+  sky(g,W,H,.8,.97);disc(g,880,300,120,1);glow(g,880,300,260,.6);
+  for(let i=0;i<22;i++)crow(g,200+r()*900,60+r()*220,.5+r()*.9,.05);
+  ridge(g,r,430,30,.62,W,H);ridge(g,r,500,22,.4,W,H,.006);
+  pg(g,[[600,470],[680,470],[1000,H],[280,H]],.58);ridge(g,r,560,12,.1,W,H,.01);pg(g,[[610,500],[670,500],[860,H],[420,H]],.5);
+  for(let i=0;i<5;i++){const x=640+(r()-.5)*40,y=500+i*45;ln(g,[[x-30+i*6,y],[x+30-i*6,y+4]],2,.3)}
+  tree(g,r,150,H,170,-1.45,26,7);tree(g,r,1150,H,190,-1.7,30,7);
+  [[95,240,120],[210,205,160],[280,270,90],[1050,230,140],[1180,200,110],[1235,250,170]].forEach(([x,y,l])=>hanged(g,x,y,l,1.1));
+  pg(g,[[440,520],[452,520],[452,330],[440,330]],.03);pg(g,[[430,330],[560,330],[560,342],[430,342]],.03);ln(g,[[452,380],[500,331]],7,.03);hanged(g,545,342,60,.9);
+  glow(g,640,480,90,.25,1);scratch(g,r,40,W,H,.2)},
+ 2:(g,W,H,r)=>{ /* o pântano que respira */
+  sky(g,W,H,.72,.9);disc(g,330,220,90,.97);glow(g,330,220,220,.5);
+  for(let i=0;i<6;i++)ell(g,r()*W,330+r()*120,200+r()*220,18+r()*16,.95,0);
+  ridge(g,r,420,26,.38,W,H,.008);
+  sky;g.fillStyle=gv(.55);g.fillRect(0,470,W,H-470);
+  for(let i=0;i<70;i++){const y=480+r()*240,x=r()*W;ln(g,[[x,y],[x+40+r()*120,y]],1.2,.85)}
+  [[180,480,150],[520,470,120],[930,490,180],[1130,470,110]].forEach(([x,y,l])=>{tree(g,r,x,y,l,-1.57+(r()-.5)*.4,16,6,.06);ell(g,x,y+6,60,8,.15)});
+  for(let i=0;i<7;i++){const x=150+r()*1000,y=560+r()*130,s=.7+r()*.8;ell(g,x,y,14*s,6*s,.05);disc(g,x-6*s,y,3*s,1);disc(g,x+6*s,y,3*s,1)}
+  for(let i=0;i<30;i++){const x=r()*W,y=500+r()*200,rr=2+r()*7;g.strokeStyle=gv(.95);g.lineWidth=1.4;g.beginPath();g.arc(x,y,rr,0,7);g.stroke()}
+  for(let x=0;x<W;x+=7+r()*9){const h=60+r()*150;ln(g,[[x,H],[x+(r()-.5)*30,H-h]],2+r()*2,.02);if(r()<.2)ell(g,x,H-h,4,14,.02)}},
+ 3:(g,W,H,r)=>{ /* a abadia queimada */
+  sky(g,W,H,.45,.92,.7);
+  for(let i=0;i<9;i++){const x=200+r()*900,y=80+r()*200;glow(g,x,y,160+r()*120,.55,.15)}
+  glow(g,640,430,420,.7,1);
+  pg(g,[[300,H],[300,330],[360,260],[360,200],[390,150],[420,200],[420,260],[520,260],[640,120],[760,260],[860,260],[860,200],[890,150],[920,200],[920,260],[980,330],[980,H]],.04);
+  disc(g,640,300,82,.97);g.strokeStyle=gv(.04);g.lineWidth=9;for(let i=0;i<10;i++){const a=i/10*6.28;g.beginPath();g.moveTo(640,300);g.lineTo(640+Math.cos(a)*82,300+Math.sin(a)*82);g.stroke()}
+  g.beginPath();g.arc(640,300,82,0,7);g.stroke();disc(g,640,300,20,.04);pg(g,[[640,215],[700,250],[690,330],[610,380],[566,300]],.04);
+  [[380,430],[470,430],[810,430],[900,430]].forEach(([x,y])=>{pg(g,[[x-26,y+90],[x-26,y],[x,y-40],[x+26,y],[x+26,y+90]],.92);glow(g,x,y+30,70,.5,1)});
+  pg(g,[[560,H],[560,520],[640,440],[720,520],[720,H]],.9);
+  for(let i=0;i<14;i++){const x=560+r()*160,b=H;pg(g,[[x-20,b],[x+(r()-.5)*20,b-60-r()*120],[x+20,b]],.99)}
+  for(let i=0;i<90;i++)disc(g,r()*W,r()*560,1+r()*2.4,1);
+  ridge(g,r,650,18,.06,W,H,.02);cross(g,1110,690,2.2,.25);cross(g,180,700,1.6,-.3)},
+ 4:(g,W,H,r)=>{ /* as minas do verme */
+  g.fillStyle=gv(.08);g.fillRect(0,0,W,H);
+  for(let i=9;i>0;i--){const k=i/9;ell(g,640,360,560*k+30,330*k+20,.1+.85*(1-k)**1.6)}
+  for(let i=0;i<6;i++){const k=1-i/7,cx=640,hw=500*k,hh=300*k,t=26*k;pg(g,[[cx-hw,360+hh],[cx-hw,360-hh*.8],[cx-hw+t,360-hh*.8],[cx-hw+t,360+hh]],.04);pg(g,[[cx+hw-t,360+hh],[cx+hw-t,360-hh*.8],[cx+hw,360-hh*.8],[cx+hw,360+hh]],.04);pg(g,[[cx-hw-10,360-hh*.8],[cx+hw+10,360-hh*.8],[cx+hw+10,360-hh*.8+t],[cx-hw-10,360-hh*.8+t]],.04)}
+  ln(g,[[480,H],[630,400]],7,.03);ln(g,[[800,H],[650,400]],7,.03);for(let i=0;i<9;i++){const k=i/9,y=H-(H-400)*k**.7;ln(g,[[480+150*k**.7-14,y],[800-150*k**.7+14,y]],5,.06)}
+  [[300,260],[980,260],[450,330],[830,330]].forEach(([x,y])=>{glow(g,x,y,110,.8,1);disc(g,x,y,9,1)});
+  g.save();for(let i=0;i<16;i++){const t=i/15,x=-60+t*420,y=700-Math.sin(t*3)*260;const rr=110-i*3;ell(g,x,y,rr,rr*.9,.3);g.strokeStyle=gv(.05);g.lineWidth=7;g.beginPath();g.ellipse(x,y,rr,rr*.9,0,0,7);g.stroke();glow(g,x-rr*.35,y-rr*.4,rr*.5,.5,1)}g.restore();
+  disc(g,1120,520,150,.05);for(let i=0;i<22;i++){const a=i/22*6.28;pg(g,[[1120+Math.cos(a)*150,520+Math.sin(a)*150],[1120+Math.cos(a+.12)*150,520+Math.sin(a+.12)*150],[1120+Math.cos(a+.06)*95,520+Math.sin(a+.06)*95]],.97)}disc(g,1120,520,70,.0);
+  scratch(g,r,60,W,H,.5)},
+ 5:(g,W,H,r)=>{ /* a cidade sem sinos */
+  sky(g,W,H,.7,.95);disc(g,1000,170,70,1);glow(g,1000,170,200,.5);
+  let x=0;while(x<W){const w=40+r()*90,h=140+r()*260,y=560-h;pg(g,[[x,H],[x,y],[x+w/2,y-30-r()*90],[x+w,y],[x+w,H]],.3+r()*.15);x+=w-6}
+  x=-20;while(x<W){const w=60+r()*110,h=90+r()*170,y=620-h;const tower=r()<.3;
+    pg(g,[[x,H],[x,y],[x+w/2,y-(tower?160:40)],[x+w,y],[x+w,H]],.05);
+    if(tower){pg(g,[[x+w*.3,y-10],[x+w*.3,y-70],[x+w*.5,y-95],[x+w*.7,y-70],[x+w*.7,y-10]],.75);ln(g,[[x+w/2,y-170],[x+w/2,y-215]],4,.05);ln(g,[[x+w/2-14,y-200],[x+w/2+14,y-200]],4,.05)}
+    for(let k=0;k<3;k++)if(r()<.5){const wx=x+10+r()*(w-26),wy=y+20+r()*(h-60);g.fillStyle=gv(.97);g.fillRect(wx,wy,9,14)}x+=w}
+  g.fillStyle=gv(.08);g.fillRect(0,640,W,80);for(let i=0;i<80;i++){const xx=r()*W,yy=650+r()*70;ell(g,xx,yy,12,4,.3)}
+  const px=330;pg(g,[[px-28,700],[px-14,560],[px-24,545],[px,520],[px+24,545],[px+14,560],[px+28,700]],.02);pg(g,[[px+6,530],[px+70,560],[px+10,548]],.02);pg(g,[[px-30,520],[px+30,520],[px+20,505],[px-20,505]],.02);disc(g,px+6,532,4,1);
+  rain(g,r,420,W,H,.5)},
+ 6:(g,W,H,r)=>{ /* o vale dos mortos sem descanso */
+  sky(g,W,H,.82,.98);for(let i=0;i<7;i++)ell(g,r()*W,60+r()*160,160+r()*200,30+r()*30,.97);
+  ridge(g,r,330,40,.55,W,H,.005);
+  for(let i=0;i<26;i++){const x=200+i*34,y=318+Math.sin(i*.5)*14;hooded(g,x,y,.42,.05);if(i%4===0){ln(g,[[x+7,y-30],[x+7,y-12]],2,.05);glow(g,x+7,y-34,18,.9,1)}}
+  ridge(g,r,450,30,.32,W,H,.007);ridge(g,r,560,16,.14,W,H,.01);
+  for(let i=0;i<36;i++){const x=r()*W,y=540+r()*170,s=.8+r()*1.1;r()<.5?cross(g,x,y,s,(r()-.5)*.6,.03):tomb(g,x,y,s,(r()-.5)*.4,.04)}
+  for(let i=0;i<6;i++){const x=100+r()*1080,y=680+r()*30;pg(g,[[x-7,y],[x-5,y-40],[x-14,y-60],[x-6,y-62],[x-1,y-48],[x,y-70],[x+4,y-70],[x+5,y-48],[x+10,y-66],[x+14,y-60],[x+6,y-40],[x+8,y]],.02)}
+  tree(g,r,1080,600,140,-1.5,20,7,.03);for(let i=0;i<9;i++)crow(g,900+r()*300,200+r()*200,.6,.05)},
+ 7:(g,W,H,r)=>{ /* a torre de porcelana */
+  sky(g,W,H,.6,.93);for(let i=0;i<120;i++)disc(g,r()*W,r()*360,.6+r()*1.6,1);
+  ridge(g,r,600,14,.12,W,H,.01);
+  const c=640;pg(g,[[c-95,640],[c-58,60],[c+58,60],[c+95,640]],.97);pg(g,[[c+15,640],[c+20,60],[c+58,60],[c+95,640]],.66);
+  pg(g,[[c-70,60],[c,-10],[c+70,60]],.9);
+  for(let y=110;y<620;y+=48){const k=(y-60)/580,hw=58+37*k;ln(g,[[c-hw,y],[c+hw,y+30]],3,.35);g.fillStyle=gv(.04);g.fillRect(c-8,y+8,12,20)}
+  let px=c-20,py=80;g.strokeStyle=gv(.03);g.lineWidth=2.4;g.beginPath();g.moveTo(px,py);for(let i=0;i<40;i++){px+=(r()-.5)*26;py+=14;g.lineTo(px,py)}g.stroke();
+  px=c+40;py=200;g.beginPath();g.moveTo(px,py);for(let i=0;i<22;i++){px+=(r()-.45)*22;py+=13;g.lineTo(px,py)}g.stroke();
+  for(let i=0;i<50;i++){const x=c+(r()-.5)*900,y=40+r()*560,s=4+r()*18,a=r()*6.28;pg(g,[[x,y],[x+Math.cos(a)*s,y+Math.sin(a)*s],[x+Math.cos(a+2)*s*.6,y+Math.sin(a+2)*s*.6]],r()<.5?.97:.08)}
+  for(let i=0;i<70;i++){const x=r()*W,y=620+r()*100,s=6+r()*20;pg(g,[[x,y],[x+s,y-s*.4],[x+s*.6,y+s*.3]],r()<.6?.92:.2)}
+  hooded(g,c-170,655,.5,.03)},
+ 8:(g,W,H,r)=>{ /* o fim do mundo */
+  sky(g,W,H,.32,.97,.6);
+  disc(g,640,250,150,.0);g.strokeStyle=gv(1);for(let i=0;i<64;i++){const a=i/64*6.28,l=170+r()*90;g.lineWidth=1+r()*3;g.beginPath();g.moveTo(640+Math.cos(a)*158,250+Math.sin(a)*158);g.lineTo(640+Math.cos(a)*l,250+Math.sin(a)*l);g.stroke()}
+  for(let i=0;i<16;i++){const x=r()*W,y=r()*300,l=80+r()*160;ln(g,[[x,y],[x-l*.5,y+l]],2.4,1);glow(g,x-l*.5,y+l,22,.9,1)}
+  pg(g,[[150,H],[170,460],[230,380],[300,300],[360,330],[420,270],[480,310],[560,250],[640,300],[720,240],[800,300],[880,260],[960,330],[1050,300],[1110,400],[1140,H]],.02);
+  pg(g,[[420,280],[380,150],[440,250]],.02);pg(g,[[860,280],[900,150],[840,250]],.02);disc(g,560,330,10,1);disc(g,720,330,10,1);glow(g,560,330,40,.9,1);glow(g,720,330,40,.9,1);
+  for(let i=0;i<30;i++){const x=i*44+r()*20;pg(g,[[x-30,560],[x,470-r()*80],[x+30,560]],.97)}
+  g.fillStyle=gv(.97);g.fillRect(0,540,W,30);ridge(g,r,575,10,.03,W,H,.02);
+  for(let i=0;i<14;i++){let x=r()*W,y=600;const p=[[x,y]];for(let k=0;k<6;k++){x+=(r()-.5)*60;y+=20;p.push([x,y])}ln(g,p,3,1)}
+  for(let i=0;i<14;i++)crow(g,r()*W,120+r()*300,.5+r()*.6,.05)},
+};
+const SCN={};
+function sceneImg(c){c=Math.min(8,Math.max(1,c));if(SCN[c])return SCN[c];
+  const cv=engrave(1280,720,SCENE[c],{seed:'circulo'+c,paper:PAL[SCENE_PAPER[c]],per:4.6,dw:1280,dh:720,splat:6,scr:24,edge:false});
+  return SCN[c]=cv.toDataURL('image/png')}
+
+/* ---------- ilustrações de encontros e lugares ---------- */
+const EVA={
+ mendigo:['bone',(g,W,H,r)=>{sky(g,W,H,.9,.6);g.fillStyle=gv(.45);for(let y=0;y<200;y+=22)for(let x=(y/22%2)*20;x<W;x+=40)g.fillRect(x+2,y+2,36,18);
+  pg(g,[[150,70],[205,110],[220,200],[250,375],[50,375],[80,200],[95,110]],.04);ell(g,150,150,34,42,.7);ell(g,136,145,9,12,.0);ell(g,164,145,9,12,.0);disc(g,136,147,2,1);disc(g,164,147,2,1);pg(g,[[140,175],[160,175],[150,190]],.2);
+  pg(g,[[95,250],[175,270],[200,262],[205,276],[180,290],[100,280]],.55);ell(g,215,282,34,12,.85);ell(g,215,276,28,6,.1);for(let i=0;i<5;i++)disc(g,204+i*6,276,3,1)}],
+ poco:['green',(g,W,H,r)=>{sky(g,W,H,.75,.95);disc(g,220,70,34,1);glow(g,220,70,90,.6);ln(g,[[150,40],[150,150]],3,.05);
+  pg(g,[[60,170],[240,170],[240,140],[60,140]],.05);ln(g,[[80,140],[80,40],[220,40],[220,140]],8,.05);pg(g,[[140,150],[160,150],[156,175],[144,175]],.1);
+  ell(g,150,230,110,30,.05);g.fillStyle=gv(.55);g.fillRect(40,230,220,120);ell(g,150,350,110,26,.4);for(let y=240;y<345;y+=18)for(let x=48+(y%36?0:16);x<250;x+=32){g.fillStyle=gv(.25);g.fillRect(x,y,28,14)}
+  ell(g,150,230,96,22,.02);disc(g,150,228,8,.9);ell(g,150,228,40,6,.7)}],
+ carroca:['yel',(g,W,H,r)=>{sky(g,W,H,.85,.96);for(let i=0;i<10;i++)crow(g,40+r()*220,40+r()*90,.6+r()*.5,.05);
+  pg(g,[[20,210],[250,180],[262,250],[30,280]],.08);for(let i=0;i<6;i++){const x=40+i*36;ln(g,[[x,205-i*4],[x+10+r()*20,140+r()*30]],8,.6);disc(g,x+18,140,8,.6)}
+  pg(g,[[60,190],[110,185],[120,150],[150,145],[140,190]],.7);
+  disc(g,90,300,62,.04);disc(g,90,300,48,.85);for(let i=0;i<8;i++){const a=i/8*6.28;ln(g,[[90,300],[90+Math.cos(a)*50,300+Math.sin(a)*50]],7,.04)}disc(g,90,300,12,.04);
+  ridge(g,r,330,8,.15,W,H,.03);ln(g,[[262,240],[300,300]],7,.05)}],
+ acougueiro:['pink',(g,W,H,r)=>{sky(g,W,H,.85,.95);ln(g,[[0,30],[W,30]],6,.05);
+  [[60,.0],[150,.1],[240,.05]].forEach(([x])=>{ln(g,[[x,30],[x,60]],3,.05);pg(g,[[x,60],[x+28,90],[x+34,170],[x+16,240],[x-16,240],[x-34,170],[x-28,90]],.42);for(let k=0;k<5;k++)ln(g,[[x-24,100+k*24],[x+24,104+k*24]],3,.85)});
+  pg(g,[[60,300],[220,250],[250,262],[244,300],[90,345]],.92);ln(g,[[225,268],[290,240]],14,.05);pg(g,[[60,300],[220,250],[226,262],[70,318]],.4);
+  for(let i=0;i<14;i++)disc(g,40+r()*220,340+r()*30,2+r()*4,.0)}],
+ altar:['bone',(g,W,H,r)=>{sky(g,W,H,.4,.75);glow(g,150,180,170,.7,1);
+  pg(g,[[50,240],[250,240],[240,375],[60,375]],.3);pg(g,[[40,215],[260,215],[260,240],[40,240]],.15);ln(g,[[150,215],[140,260],[160,300],[148,375]],5,.98);
+  [[70,215,40],[95,215,60],[205,215,55],[232,215,38]].forEach(([x,y,h])=>{g.fillStyle=gv(.92);g.fillRect(x-6,y-h,12,h);glow(g,x,y-h-8,26,.95,1);ell(g,x,y-h-8,3,8,1)});
+  pg(g,[[150,60],[180,120],[150,190],[120,120]],.06);disc(g,150,120,10,.95)}],
+ cartomante:['pink',(g,W,H,r)=>{sky(g,W,H,.3,.15);glow(g,150,120,160,.55,1);
+  pg(g,[[150,30],[215,80],[240,240],[60,240],[85,80]],.08);ell(g,150,115,36,44,.55);for(let i=0;i<10;i++)ln(g,[[118+i*7,80],[114+i*8,170]],1.5,.08);
+  pg(g,[[0,260],[300,260],[300,375],[0,375]],.25);
+  [[85,-.35],[150,0],[215,.35]].forEach(([x,a])=>{g.save();g.translate(x,300);g.rotate(a);g.fillStyle=gv(.97);g.fillRect(-26,-40,52,76);g.strokeStyle=gv(.05);g.lineWidth=3;g.strokeRect(-26,-40,52,76);disc(g,0,-2,10,.05);g.restore()});
+  pg(g,[[40,270],[75,262],[80,280],[45,292]],.7);pg(g,[[260,270],[225,262],[220,280],[255,292]],.7)}],
+ duelo:['yel',(g,W,H,r)=>{sky(g,W,H,.82,.96);ridge(g,r,250,10,.5,W,H,.02);pg(g,[[130,250],[170,250],[300,375],[0,375]],.65);
+  ln(g,[[255,150],[255,330]],7,.05);pg(g,[[225,160],[295,170],[285,185],[225,180]],.05);pg(g,[[220,200],[285,195],[290,210],[220,215]],.05);
+  pg(g,[[60,330],[60,170],[75,120],[120,105],[160,120],[175,170],[175,330]],.06);pg(g,[[80,130],[155,130],[155,190],[80,190]],.12);ln(g,[[85,150],[150,150]],5,.9);
+  ln(g,[[195,345],[195,160]],8,.85);ln(g,[[175,180],[215,180]],8,.05);disc(g,195,155,8,.05)}],
+ monges:['green',(g,W,H,r)=>{sky(g,W,H,.75,.95);disc(g,220,70,40,1);glow(g,220,70,110,.5);
+  tree(g,r,60,375,120,-1.5,20,6,.04);ln(g,[[30,110],[290,95]],10,.04);
+  [[100,.9],[170,1.05],[240,.95]].forEach(([x,s])=>{ln(g,[[x,100],[x,140]],2,.05);pg(g,[[x,140],[x+16*s,160],[x+24*s,300*s],[x-24*s,300*s],[x-16*s,160]],.06);ell(g,x,150,10*s,13*s,.06);disc(g,x,152,3,.9)});
+  ridge(g,r,345,10,.1,W,H,.02)}],
+ bruxa:['orange',(g,W,H,r)=>{sky(g,W,H,.7,.96);glow(g,150,250,160,.4,1);
+  pg(g,[[105,375],[120,170],[180,170],[195,375]],.06);pg(g,[[110,175],[150,120],[190,175]],.06);disc(g,150,160,9,.95);
+  for(let i=0;i<4;i++){const a=i*Math.PI/2+.4;g.save();g.translate(150,160);g.rotate(a);pg(g,[[0,-5],[150,-12],[150,12],[0,5]],.05);for(let k=0;k<5;k++)ln(g,[[30+k*24,-10],[30+k*24,10]],2,.8);g.restore()}
+  pg(g,[[140,375],[150,300],[160,375]],.9);ridge(g,r,355,6,.1,W,H,.03)}],
+ ferreiro:['orange',(g,W,H,r)=>{sky(g,W,H,.25,.5);glow(g,150,210,150,.85,1);
+  pg(g,[[60,230],[240,230],[230,250],[190,255],[190,300],[220,330],[80,330],[110,300],[110,255],[70,250]],.04);pg(g,[[40,230],[60,215],[240,215],[240,230]],.6);
+  for(let i=0;i<40;i++){const a=-Math.PI*r(),l=20+r()*90;ln(g,[[150,212],[150+Math.cos(a)*l,212+Math.sin(a)*l]],1.6,1)}
+  ln(g,[[210,90],[160,200]],10,.05);pg(g,[[180,70],[240,95],[230,120],[170,95]],.05);ln(g,[[60,120],[110,170]],22,.35);disc(g,112,172,12,.3)}],
+ ponte:['cyan',(g,W,H,r)=>{sky(g,W,H,.8,.06,.4);pg(g,[[0,160],[40,165],[60,375],[0,375]],.05);pg(g,[[300,150],[255,160],[240,375],[300,375]],.05);
+  g.strokeStyle=gv(.95);g.lineWidth=12;g.beginPath();g.moveTo(40,170);g.quadraticCurveTo(150,240,260,160);g.stroke();
+  for(let i=0;i<9;i++){const t=i/8,x=40+220*t,y=170+Math.sin(t*Math.PI)*36;disc(g,x,y-28,8,.95);disc(g,x-3,y-29,2,.0);disc(g,x+3,y-29,2,.0);ln(g,[[x,y-20],[x,y]],3,.95)}
+  pg(g,[[262,145],[290,145],[290,128],[262,128]],.7);disc(g,276,128,4,1)}],
+ dentes:['bone',(g,W,H,r)=>{sky(g,W,H,.55,.8);
+  pg(g,[[150,40],[200,60],[280,375],[20,375],[100,60]],.05);ell(g,150,70,26,32,.6);ell(g,141,66,5,7,.0);ell(g,159,66,5,7,.0);
+  pg(g,[[105,130],[195,130],[210,375],[90,375]],.3);for(let y=140;y<370;y+=14)for(let x=100+((y/14)%2)*6;x<205;x+=12)ell(g,x,y,4,6,.97)}],
+ espelho:['cyan',(g,W,H,r)=>{sky(g,W,H,.85,.95);ell(g,150,190,110,150,.04);ell(g,150,190,92,132,.12);
+  for(let i=0;i<14;i++){const a=i/14*6.28;disc(g,150+Math.cos(a)*102,190+Math.sin(a)*141,7,.7)}
+  hooded(g,150,300,1.5,.0);ell(g,150,145,14,16,.25);disc(g,145,143,2,1);disc(g,155,143,2,1);ln(g,[[110,80],[170,170],[150,260]],2,.85)}],
+ cripta:['pink',(g,W,H,r)=>{sky(g,W,H,.3,.55);glow(g,150,140,150,.55,1);for(let i=0;i<5;i++)pg(g,[[i*70,0],[i*70+40,0],[i*70+28,120],[i*70+12,120]],.08);
+  pg(g,[[40,230],[260,230],[245,340],[55,340]],.35);pg(g,[[30,205],[270,205],[260,232],[40,232]],.6);ell(g,150,200,95,18,.75);ell(g,105,195,12,14,.9);
+  ln(g,[[40,215],[260,330]],6,.04);ln(g,[[260,215],[40,330]],6,.04);for(let i=0;i<10;i++){ell(g,40+i*22,215+i*11.5,7,4,.04)}disc(g,150,272,14,.04)}],
+ santuario:['pink',(g,W,H,r)=>{sky(g,W,H,.2,.45);glow(g,150,170,160,.7,1);
+  pg(g,[[150,50],[190,80],[205,170],[230,330],[70,330],[95,170],[110,80]],.88);ell(g,150,110,34,40,.95);for(let i=0;i<14;i++)disc(g,128+r()*44,160+r()*120,3,.1);
+  for(let i=0;i<6;i++){const x=125+i*10;ln(g,[[x,140],[x+(r()-.5)*4,150+r()*50]],3,.75)}
+  [[55,330,55],[80,330,35],[220,330,45],[248,330,60]].forEach(([x,y,h])=>{g.fillStyle=gv(.95);g.fillRect(x-6,y-h,12,h);glow(g,x,y-h-8,24,.95,1)});pg(g,[[0,330],[300,330],[300,375],[0,375]],.1)}],
+ festival:['yel',(g,W,H,r)=>{sky(g,W,H,.4,.85);for(let i=0;i<7;i++){const x=20+i*45;ln(g,[[x,30],[x+45,40]],2,.05);pg(g,[[x+10,32],[x+30,36],[x+20,60]],i%2?.9:.05)}
+  [[70,170,70],[220,160,80]].forEach(([x,y,w])=>{pg(g,[[x-w,y+120],[x,y],[x+w,y+120]],.92);for(let k=-3;k<=3;k++)pg(g,[[x,y],[x+k*w/3.5,y+120],[x+(k+.5)*w/3.5,y+120]],.05);pg(g,[[x-14,y+120],[x,y+70],[x+14,y+120]],.0)});
+  [[60,330],[150,320],[240,335]].forEach(([x,y])=>{hooded(g,x,y+45,.9,.04);ell(g,x,y-32,14,17,.95);disc(g,x-5,y-34,3,.0);disc(g,x+5,y-34,3,.0);pg(g,[[x-6,y-22],[x+6,y-22],[x,y-16]],.0)});
+  [[40,110],[260,110]].forEach(([x,y])=>{glow(g,x,y,30,.9,1);disc(g,x,y,6,1)})}],
+};
+const EVI={};
+function evImg(k){if(!EVA[k])k='mendigo';if(EVI[k])return EVI[k];const[p,f]=EVA[k];
+  return EVI[k]=engrave(300,375,f,{seed:'ev'+k,paper:PAL[p],per:3.4,splat:2,scr:6,edgeW:6}).toDataURL('image/png')}
+
+/* ---------- ícones gravados: o mesmo desenho, com volume em linhas e grão ---------- */
+const ICI={};
+/* raridade vira o fundo da gravura: comum liso, incomum auréola pontilhada, raro raios, lendário sol negro */
+function iconImg(k,ink,rar=1){const key=k+ink+rar;if(ICI[key])return ICI[key];const path=new Path2D(ICON[k]||ICON.eye);
+  const cv=engrave(128,128,(g,W,H,r)=>{
+    if(rar>=2){g.fillStyle=gv(.62);g.beginPath();g.arc(64,62,rar>=3?50:44,0,7);g.fill()}
+    if(rar>=3){g.fillStyle=gv(rar>=4?.0:.3);for(let i=0;i<18;i++){const a=i/18*6.28+.1;g.beginPath();g.moveTo(64+Math.cos(a-.07)*40,62+Math.sin(a-.07)*40);g.lineTo(64+Math.cos(a)*64,62+Math.sin(a)*64);g.lineTo(64+Math.cos(a+.07)*40,62+Math.sin(a+.07)*40);g.fill()}}
+    if(rar>=4){g.fillStyle=gv(.97);g.beginPath();g.arc(64,62,42,0,7);g.fill()}
+    g.fillStyle=gv(.35);g.beginPath();g.ellipse(66,118,34,6,0,0,7);g.fill();
+    g.save();g.translate(4,2);g.scale(1.88,1.88);const gr=g.createLinearGradient(8,6,56,58);gr.addColorStop(0,gv(.8));gr.addColorStop(.55,gv(.46));gr.addColorStop(1,gv(.14));
+    g.fillStyle=gr;g.fill(path,'evenodd');g.strokeStyle=gv(0);g.lineWidth=2.8;g.lineJoin='round';g.stroke(path);g.restore()},{seed:'ic'+k,ink,hi:null,per:3.1,ang:-.8,splat:0,scr:0,edge:false});
+  return ICI[key]=cv.toDataURL('image/png')}
+const ROMAN=['','I','II','III','IV','V','VI','VII','VIII'];
+/* letras de bilhete de resgate: cada letra torta, algumas em caixa */
+function ransom(txt,seed){const r=mulberry(hash(seed||txt));return [...txt].map(ch=>ch===' '?'<i class="sp"></i>':`<span style="transform:rotate(${((r()-.5)*12).toFixed(1)}deg) translateY(${((r()-.5)*6).toFixed(1)}px)" class="${r()<.18?'box':''}">${ch}</span>`).join('')}
+let SCENE_ON=null;
+function setScene(c){const el=document.getElementById('scene');if(!el)return;if(SCENE_ON===c)return;SCENE_ON=c;el.style.backgroundImage=`url(${sceneImg(c)})`;el.dataset.c=c}
+function vistaHTML(c,title,sub){return `<div class="vista" style="background-image:url(${sceneImg(c)})"><h2 class="rn">${ransom(title,'v'+c+title)}</h2>${sub?`<p class="tape">${sub}</p>`:''}</div>`}
+function circleCard(c){const el=document.createElement('div');el.className='ccard';el.setAttribute('role','status');
+  el.innerHTML=`<div class="ccimg" style="background-image:url(${sceneImg(c)})"></div><div class="ccin"><span class="ccn">${ROMAN[c]}</span><b class="rn">${ransom(LANG==='en'?'Circle':'Círculo','cc'+c)}</b><p class="tape">${LANDS[LANG][c-1]}</p></div>`;
+  document.body.appendChild(el);const end=()=>{if(el.classList.contains('out'))return;el.classList.add('out');setTimeout(()=>el.remove(),700)};el.addEventListener('click',end);setTimeout(end,2800)}
+/* festival em panorama: tendas, bandeirolas, máscaras e forcas com lanternas */
+function festWide(g,W,H,r){sky(g,W,H,.45,.9);disc(g,1050,90,46,1);glow(g,1050,90,140,.5);
+  for(let k=0;k<3;k++){const y0=40+k*18;g.strokeStyle=gv(.05);g.lineWidth=2;g.beginPath();g.moveTo(0,y0);for(let x=0;x<=W;x+=80)g.quadraticCurveTo(x+40,y0+26,x+80,y0);g.stroke();for(let x=10;x<W;x+=40)pg(g,[[x,y0+8],[x+20,y0+8],[x+10,y0+30]],(x/40+k)%2?.95:.05)}
+  ridge(g,r,300,10,.5,W,H,.01);
+  [[160,150,120],[470,120,150],[820,140,130],[1130,160,110]].forEach(([x,y,w])=>{pg(g,[[x-w,y+190],[x,y],[x+w,y+190]],.93);for(let k=-4;k<=4;k++)pg(g,[[x,y],[x+k*w/4.5,y+190],[x+(k+.5)*w/4.5,y+190]],.05);pg(g,[[x-22,y+190],[x,y+110],[x+22,y+190]],.0);ln(g,[[x,y],[x,y-40]],3,.05);pg(g,[[x,y-40],[x+30,y-32],[x,y-24]],.05)});
+  [[320,360],[660,350],[990,360]].forEach(([x,y])=>{ln(g,[[x,y],[x,y-210]],7,.04);ln(g,[[x,y-205],[x+60,y-205]],6,.04);ln(g,[[x+55,y-205],[x+55,y-180]],2,.04);glow(g,x+55,y-165,34,.95,1);disc(g,x+55,y-168,8,1)});
+  for(let i=0;i<16;i++){const x=30+i*80+r()*30,y=400;hooded(g,x,y,.9+r()*.3,.04);ell(g,x,y-58,13,16,.95);disc(g,x-5,y-60,3,0);disc(g,x+5,y-60,3,0);pg(g,[[x-5,y-48],[x+5,y-48],[x,y-43]],0)}
+  g.fillStyle=gv(.06);g.fillRect(0,395,W,H-395)}
+let FW=null;function festImg(){return FW||(FW=engrave(1280,400,festWide,{seed:'festw',paper:PAL.yel,per:4.4,splat:4,scr:14,edge:false}).toDataURL('image/png'))}
+
 
 /* ================= áudio: trilha procedural =================
    Valsa de cassino em Ré menor harmônica: órgão em drone, cravo nos tempos 2 e 3,
@@ -1194,7 +1581,7 @@ function schedule(){const c=AUDIO.ctx;if(!c||c.state!=='running')return;
       else if(S.comp==='glass'){cc.forEach((m,i)=>voice(t0+sw+i*BEAT/4,m+24,{type:'triangle',vol:.03,dec:.35,cut:7000,rev:.5,dly:.25}));}
     }
     if(S.drum){thud(t0,beat===0?.5:.28,beat===0?95:80,40,.25);if(beat===2)noiseSweep(t0+BEAT*.5,.08,1200,600,.12,'bandpass',2)}
-    if(S.drip&&Math.random()<.35)voice(t0+Math.random()*BEAT,84+tr+[0,3,7,12][rnd(4)],{type:'sine',vol:.035,dec:.25,cut:9000,rev:.7,dly:.4});
+    if(S.drip&&Math.random()<.35)voice(t0+Math.random()*BEAT,84+tr+[0,3,7,12][Math.floor(Math.random()*4)],{type:'sine',vol:.035,dec:.25,cut:9000,rev:.7,dly:.4});
     if(!S.drum)tick(t0+BEAT*.5,.018,7000);
     if(S.mel&&bar%8>=2&&Math.random()<(beat===0?S.mel+.1:S.mel*.6)){
       let target=AUDIO.mel+[-2,-1,1,2,0,3,-3][rnd(7)];
@@ -1305,12 +1692,14 @@ function sigilSVG(seed){const r=mulberry(hash(seed));const n=5+Math.floor(r()*4)
 
 /* ================= equilíbrio (ajustado por simulação) ================= */
 const BAL={
-  hp:[900,2400,4200,6600,9200,12500,16500,21000],   /* vida base por Círculo (comum) */
+  hp:[1100,3300,5900,8200,11300,15200,20000,25600],   /* vida base por Círculo (comum) */
   mult:[1,1.3,1.75],
-  tal:{bruxoCost:2,barbBase:1.25,barbMax:3,barb:.5,caca:2.2,druida:[1.4,2.2],cav:5,ladino:2,bardo:.12,bruxo:1.7,mago:6,cler:[1.75,2.75],pal:[2.5,4]},  /* força dos talentos */
-  atk:{small:[4,1],big:[5,1.5],boss:[6,2.2]},     /* ataque = a + b × Círculo */
+  dyn:.8,dynCurve:.8,earlyFloor:.8,earlyAtk:[0,1,0],   /* Círculos 1–3: força mínima de 80% e ataque extra */                               /* vida dos inimigos com o arsenal inicial (fração) e curva até o arsenal completo */
+  tal:{bruxoCost:2,barbBase:1.25,barbMax:2.7,barb:.5,caca:3,druida:[1.4,2.2],cav:5,ladino:2.5,bardo:.1,bruxo:1.55,mago:6,cler:[2,3],pal:[3,4.5]},  /* força dos talentos */
+  atk:{small:[3.5,.9],big:[4.5,1.3],boss:[5.5,1.9]},     /* ataque = a + b × Círculo */
   healWin:.25,healBoss:.7,hpBoss:6,hpCircle:2,      /* curas e crescimento de PV */
-  bone:[5,1.5],boneChance:.4,                     /* chance de o Ossomante estar no Festival */
+  bone:[5,1.5],boneChance:.4,boneBlood:5,
+  elite:[1.25,1],eliteGold:3,injAt:.25,scarAt:.3,      /* elites: vida ×1,25 e +1 ataque; ferimento abaixo de 25% da vida; cicatriz ao vencer chefe com até 30% */                     /* chance de o Ossomante estar no Festival */
                                       /* Ossomante: preço = 5 × 1,5^(nível-1), uma leitura por visita */
 };
 
@@ -1328,6 +1717,7 @@ const HANDS={
  seqcor:{n:'Procissão Maldita',d:'Sequência de um só naipe.',en:['Cursed Procession','A sequence in one suit.'],c:110,m:8,lc:36,lm:4}};
 const HORDER=['seqcor','quadra','full','cor','seq','trinca','dois','par','alta'];
 const lvl=h=>R.lv[h]||1;
+function lvUp(h,n=1,quiet){R.lv[h]=lvl(h)+n;if(!quiet)toast(t('{n} agora é nível {l}.',{n:nm(HANDS[h]),l:lvl(h)}))}
 const hv=h=>{const H=HANDS[h],l=lvl(h);return{c:H.c+(l-1)*H.lc,m:H.m+(l-1)*H.lm}};
 function evalHand(cs){
   if(!cs.length)return null;
@@ -1360,13 +1750,13 @@ const EQ={
  besta:{n:'Besta Leve',en:['Light Crossbow','+50 Blow, but it must reload: works every other hand.'],ic:'xbow',p:5,r:1,d:'+50 Golpe, mas precisa recarregar: funciona uma mão sim, outra não.',hand:x=>{if(F&&F.n%2===0)x.addC(50)}},
  rapieira:{n:'Rapieira',en:['Rapier','Duel: hands of 1 or 2 cards get +6 Fury and +30 Blow.'],ic:'rapier',p:6,r:2,d:'Duelo: mãos de 1 ou 2 cartas ganham +6 Fúria e +30 Golpe.',hand:x=>{if(x.cards.length<=2){x.addC(30);x.addM(6)}}},
  machadinha:{n:'Machadinha',en:['Handaxe','+20 Blow, plus +5 more for each fight won while carrying it.'],ic:'hatchet',p:5,r:1,d:'+20 Golpe, e mais +5 por combate vencido com ela.',v:0,hand:(x,e)=>x.addC(20+(e.v||0)),win:e=>{e.v=(e.v||0)+5}},
- adaga:{n:'Adaga',en:['Dagger','Blades cards that score give +15 Blow and make the enemy bleed 1% of max life.'],ic:'dagger',p:4,r:1,d:'Cartas de Lâminas que pontuam dão +15 Golpe e fazem o inimigo sangrar 1% da vida máxima.',card:(x,c)=>{if(c.s===0){x.addC(15);x.bleed++}}},
+ adaga:{n:'Adaga',en:['Dagger','Blades cards that score give +15 Blow and 1 bleed.'],ic:'dagger',p:4,r:1,d:'Cartas de Lâminas que pontuam dão +15 Golpe e 1 de sangramento.',card:(x,c)=>{if(c.s===0){x.addC(15);x.bleed++}}},
  lanca:{n:'Lança',en:['Spear','Blood cards that score give +10 Blow and heal you 1 HP.'],ic:'spear',p:4,r:1,d:'Cartas de Sangue que pontuam dão +10 Golpe e curam 1 PV.',card:(x,c)=>{if(c.s===1){x.addC(10);x.heal++}}},
  cimitarra:{n:'Cimitarra',en:['Scimitar','Bones cards that score give +2 Fury (+5 against beasts).'],ic:'scim',p:4,r:1,d:'Cartas de Ossos que pontuam dão +2 Fúria (+5 contra Bestas).',card:(x,c)=>{if(c.s===2)x.addM(isT('beast')?5:2)}},
  maca:{n:'Maça',en:['Mace','Crowns cards that score give +10 Blow and +1 Armor for this fight (max +4).'],ic:'mace',p:4,r:1,d:'Cartas de Coroas que pontuam dão +10 Golpe e +1 Armadura neste combate (máx. +4).',card:(x,c)=>{if(c.s===3){x.addC(10);x.guard++}}},
  martelo:{n:'Martelo de Guerra',en:['Warhammer','Crushes stone: ignores Stone Skin and Carapace. +5 Fury, and ×2 against constructs.'],ic:'hammer',p:6,r:2,d:'Esmaga pedra: ignora Pele de Pedra e Carapaça. +5 Fúria, e ×2 contra Constructos.',hand:x=>x.addM(5),mul:x=>{if(isT('construct'))x.mulM(2)}},
  cajado:{n:'Cajado',en:['Quarterstaff','Damage spells and items deal +50%. +10 Blow per spell cast this journey.'],ic:'staff',p:6,r:2,d:'Magias e itens de dano causam +50%. +10 Golpe por magia conjurada nesta jornada.',hand:x=>{if(R.spells)x.addC(10*R.spells)}},
- tocha:{n:'Tocha',en:['Torch','+25 Blow. Against undead, +75 instead.'],ic:'torch',p:3,r:1,d:'+25 Golpe. Contra mortos-vivos, +75.',hand:x=>x.addC(F&&F.foe.u?75:25)},
+ tocha:{n:'Tocha',en:['Torch','+25 Blow and burns 1. Against undead, +75 instead.'],ic:'torch',p:3,r:1,d:'+25 Golpe e queima 1. Contra mortos-vivos, +75.',hand:x=>{x.addC(F&&F.foe.u?75:25);x.burn++}},
  simbolo:{n:'Símbolo Sagrado',en:['Holy Symbol','×1.5 Fury. Against undead, ×2.'],ic:'holy',p:8,r:3,d:'×1,5 Fúria. Contra mortos-vivos, ×2.',mul:x=>x.mulM(F&&F.foe.u?2:1.5)},
  alabarda:{n:'Alabarda',en:['Halberd','×Fury that grows +0.4 for each boss slain while carrying it.'],ic:'halberd',p:8,r:3,d:'×Fúria que cresce +0,4 a cada chefe morto com ela.',v:1,mul:(x,e)=>{if(e.v>1)x.mulM(e.v)},win:(e,f)=>{if(f&&f.kind==='boss')e.v+=.4}},
  bugiganga:{n:'Ídolo Profano',en:['Unholy Idol','+10 Fury, but enemies strike 20% harder.'],ic:'eye',p:4,r:1,d:'+10 Fúria, mas os inimigos atacam com 20% mais força.',hand:x=>x.addM(10)},
@@ -1396,61 +1786,87 @@ const EQ={
  sino:{n:'Sino Fúnebre',en:['Funeral Bell','Every third hand of a fight has ×2 Fury.'],ic:'bell',p:6,r:2,d:'Toda terceira mão de um combate tem ×2 Fúria.',mul:x=>{if(F&&F.n%3===2)x.mulM(2)}},
  coracao:{n:'Coração Seco',en:['Dried Heart','After each boss slain, +3 max HP for good.'],ic:'heart',p:5,r:2,d:'A cada chefe morto, +3 PV máximos para sempre.',win:(e,f)=>{if(f&&f.kind==='boss'){R.maxHp+=3;heal(3)}}},
  dado:{n:'Dado Viciado',en:['Loaded Die','Each hand has a 1 in 4 chance of ×2 Fury (the die is cast before you choose).'],ic:'die',p:5,r:2,d:'Cada mão tem 1 chance em 4 de ×2 Fúria (o dado já foi lançado antes de você escolher).',mul:x=>{if(F&&F.rolls&&F.rolls[F.n])x.mulM(2)}},
+ tomo_guerra:{n:'Tomo da Guerra',en:['War Tome','Every 4th time you play the same hand type, it gains a level.'],ic:'book',p:8,r:3,d:'Toda 4ª vez que você joga o mesmo tipo de mão, ele sobe 1 nível.'},
+ rosario:{n:'Rosário de Dentes',en:['Rosary of Teeth','After each boss slain, your most played hand gains a level.'],ic:'ring',p:6,r:2,d:'A cada chefe morto, sua mão mais jogada sobe 1 nível.'},
+ serra:{n:'Serra de Ossos',en:['Bone Saw','Pairs and Two Pairs make the enemy bleed 2.'],ic:'knife',p:5,r:1,d:'Par e Dois Pares fazem o inimigo sangrar 2.',hand:x=>{if(x.t==='par'||x.t==='dois')x.bleed+=2}},
  corrente:{n:'Corrente com Ganchos',en:['Hooked Chain','+4 Fury. Enemies can\'t regenerate.'],ic:'chain',p:5,r:1,d:'+4 Fúria. Inimigos não conseguem se regenerar.',hand:x=>x.addM(4)},
 
 };
 const CONS={
  misseis:{n:'Agulhas Arcanas',en:['Arcane Needles','Deals damage equal to 12% of the enemy\'s max life.'],k:'magia',p:3,d:'Causa dano igual a 12% da vida máxima do inimigo.',f:'fight',use:()=>spellDmg(.12)},
- bola_fogo:{n:'Esfera de Brasas',en:['Ember Sphere','Deals damage equal to 30% of the enemy\'s max life.'],k:'magia',p:5,d:'Causa dano igual a 30% da vida máxima do inimigo.',f:'fight',use:()=>spellDmg(.30)},
+ bola_fogo:{n:'Esfera de Brasas',en:['Ember Sphere','Deals damage equal to 30% of the enemy\'s max life and burns 3.'],k:'magia',p:5,d:'Causa dano igual a 30% da vida máxima do inimigo e queima 3.',f:'fight',use:()=>{F.ec.burn+=3;spellDmg(.30)}},
  raio_gelo:{n:'Sopro Gélido',en:['Frost Breath','The enemy doesn\'t strike back after your next hand.'],k:'magia',p:3,d:'O inimigo não contra-ataca na sua próxima mão.',f:'fight',use:()=>{F.freeze+=1;toast(t('O inimigo está congelado.'))}},
  sono:{n:'Canção de Ninar',en:['Lullaby','The enemy doesn\'t strike back for your next 2 hands.'],k:'magia',p:4,d:'O inimigo não contra-ataca nas suas próximas 2 mãos.',f:'fight',use:()=>{F.freeze+=2;toast(t('O inimigo adormece.'))}},
  escudo_arcano:{n:'Pele de Runa',en:['Rune Skin','+3 Armor until the end of this fight.'],k:'magia',p:3,d:'+3 Armadura até o fim deste combate.',f:'fight',use:()=>{F.armB+=3}},
  palavra:{n:'Prece Breve',en:['Short Prayer','Heals 10 HP.'],k:'magia',p:3,d:'Cura 10 PV.',use:()=>heal(10)},
- curar:{n:'Costurar a Carne',en:['Mend the Flesh','Heals 20 HP.'],k:'magia',p:4,d:'Cura 20 PV.',use:()=>heal(20)},
+ curar:{n:'Costurar a Carne',en:['Mend the Flesh','Heals 20 HP and stops bleeding and burns.'],k:'magia',p:4,d:'Cura 20 PV e estanca sangramento e queimadura.',use:()=>{cureDots();heal(20)}},
  bencao:{n:'Unção',en:['Anointing','Up to 3 selected cards become Blessed: +4 Fury when scoring.'],k:'magia',p:4,sel:3,d:'Até 3 cartas selecionadas ficam Abençoadas: +4 Fúria ao pontuar.',f:'fight',use:cs=>cs.forEach(c=>{deckCard(c).e='b'})},
  lamina:{n:'Fio em Brasa',en:['Glowing Edge','Up to 2 selected cards become Flaming: +30 Blow when scoring.'],k:'magia',p:3,sel:2,d:'Até 2 cartas selecionadas ficam Flamejantes: +30 Golpe ao pontuar.',f:'fight',use:cs=>cs.forEach(c=>{deckCard(c).e='f'})},
  chicote:{n:'Ossificar',en:['Ossify','Up to 3 selected cards become Bones.'],k:'magia',p:3,sel:3,d:'Até 3 cartas selecionadas viram Ossos.',f:'fight',use:cs=>cs.forEach(c=>{deckCard(c).s=2})},
  onda:{n:'Trovão Oco',en:['Hollow Thunder','Destroys up to 2 selected cards from your deck.'],k:'magia',p:3,sel:2,d:'Destrói até 2 cartas selecionadas do seu baralho.',f:'fight',use:cs=>{const ids=new Set(cs.map(c=>c.id));R.deck=R.deck.filter(c=>!ids.has(c.id));F.hand=F.hand.filter(c=>!ids.has(c.id));drawUp()}},
- orientacao:{n:'Presságio',en:['Omen','Levels up the hand formed by the selected cards (or your last hand).'],k:'magia',p:3,d:'Sobe 1 nível da mão formada pelas cartas selecionadas (ou da última mão jogada).',use:cs=>{let h=cs&&cs.length?evalHand(cs).t:R.lastT;if(!h)h='par';R.lv[h]=lvl(h)+1;toast(t('{n} agora é nível {l}.',{n:nm(HANDS[h]),l:lvl(h)}))}},
+ orientacao:{n:'Presságio',en:['Omen','Levels up the hand formed by the selected cards (or your last hand).'],k:'magia',p:3,d:'Sobe 1 nível da mão formada pelas cartas selecionadas (ou da última mão jogada).',use:cs=>{let h=cs&&cs.length?evalHand(cs).t:R.lastT;if(!h)h='par';lvUp(h)}},
  veneno:{n:'Névoa Pútrida',en:['Putrid Mist','The enemy loses 6% of max life after each of your hands this fight.'],k:'magia',p:4,d:'O inimigo perde 6% da vida máxima após cada mão sua neste combate.',f:'fight',use:()=>{F.poison+=.06}},
  constricao:{n:'Raízes Famintas',en:['Hungry Roots','The enemy deals half damage until the end of this fight.'],k:'magia',p:4,d:'O inimigo causa metade do dano até o fim deste combate.',f:'fight',use:()=>{F.half=true}},
  chama:{n:'Fogo Santo',en:['Holy Fire','Your next hand has ×2 Fury.'],k:'magia',p:4,d:'Sua próxima mão tem ×2 Fúria.',f:'fight',use:()=>{F.chama=true}},
- pocao:{n:'Poção de Cura',en:['Potion of Healing','Heals 15 HP.'],k:'item',ic:'potion',p:3,d:'Cura 15 PV.',use:()=>heal(15)},
+ pocao:{n:'Poção de Cura',en:['Potion of Healing','Heals 15 HP and stops bleeding and burns.'],k:'item',ic:'potion',p:3,d:'Cura 15 PV e estanca sangramento e queimadura.',use:()=>{cureDots();heal(15)}},
  acido:{n:'Frasco de Ácido',en:['Acid Vial','Deals damage equal to 8% of the enemy\'s max life.'],k:'item',ic:'drop',p:2,d:'Causa dano igual a 8% da vida máxima do inimigo.',f:'fight',use:()=>spellDmg(.08)},
- fogo_alq:{n:'Fogo Alquímico',en:['Alchemist\'s Fire','Deals damage equal to 20% of the enemy\'s max life.'],k:'item',ic:'fire',p:4,d:'Causa dano igual a 20% da vida máxima do inimigo.',f:'fight',use:()=>spellDmg(.20)},
+ fogo_alq:{n:'Fogo Alquímico',en:['Alchemist\'s Fire','Deals damage equal to 20% of the enemy\'s max life and burns 2.'],k:'item',ic:'fire',p:4,d:'Causa dano igual a 20% da vida máxima do inimigo e queima 2.',f:'fight',use:()=>{F.ec.burn+=2;spellDmg(.20)}},
  agua_benta:{n:'Água Benta',en:['Holy Water','35% of an undead\'s max life. 6% of anything else.'],k:'item',ic:'potion',p:3,d:'35% da vida máxima de um morto-vivo. 6% de qualquer outro.',f:'fight',use:()=>spellDmg(F.foe.u?.35:.06)},
  racao:{n:'Ração',en:['Ration','+5 max HP, permanently.'],k:'item',ic:'bread',p:3,d:'+5 PV máximos, permanentes.',use:()=>{R.maxHp+=5;heal(5)}},
  enxame:{n:'Enxame de Moscas',en:['Fly Swarm','18% of max life to beasts and humanoids; 6% to anything else.'],k:'magia',p:4,d:'18% da vida máxima de Bestas e Humanoides; 6% de qualquer outro.',f:'fight',use:()=>spellDmg(isT('beast')||isT('humanoid')?.18:.06)},
  mao_tumulo:{n:'Mão do Túmulo',en:['Grave Hand','Drains 8% of the enemy\'s max life and heals you 8 HP.'],k:'magia',p:4,d:'Drena 8% da vida máxima do inimigo e cura 8 PV.',f:'fight',use:()=>{heal(8);spellDmg(.08)}},
- clarao:{n:'Clarão Solar',en:['Sunburst','25% of max life to undead and aberrations; 6% to anything else.'],k:'magia',p:5,d:'25% da vida máxima de Mortos-vivos e Aberrações; 6% de qualquer outro.',f:'fight',use:()=>spellDmg(isT('undead')||isT('aberration')?.25:.06)},
+ clarao:{n:'Clarão Solar',en:['Sunburst','25% of max life to undead and aberrations; 6% to anything else. Frightens 2.'],k:'magia',p:5,d:'25% da vida máxima de Mortos-vivos e Aberrações; 6% de qualquer outro. Amedronta 2.',f:'fight',use:()=>{F.ec.fear+=2;spellDmg(isT('undead')||isT('aberration')?.25:.06)}},
  comando:{n:'Palavra de Comando',en:['Word of Command','The enemy doesn\'t strike back after your next hand, and you gain +1 discard.'],k:'magia',p:4,d:'O inimigo não contra-ataca na sua próxima mão, e você ganha +1 descarte.',f:'fight',use:()=>{F.freeze+=1;F.dis+=1}},
  muralha_ossos:{n:'Muralha de Ossos',en:['Bone Wall','+5 Armor until the end of this fight.'],k:'magia',p:4,d:'+5 Armadura até o fim deste combate.',f:'fight',use:()=>{F.armB+=5}},
  maldicao:{n:'Maldição do Sangue',en:['Blood Curse','Every hand this fight has ×1.25 Fury.'],k:'magia',p:5,d:'Todas as suas mãos neste combate têm ×1,25 Fúria.',f:'fight',use:()=>{F.curse=true}},
- ritual:{n:'Ritual da Lua Negra',en:['Black Moon Rite','Levels up two random hand types.'],k:'magia',p:4,d:'Sobe 1 nível de duas mãos aleatórias.',use:()=>{shuffle(HORDER).slice(0,2).forEach(h=>{R.lv[h]=lvl(h)+1;toast(t('{n} agora é nível {l}.',{n:nm(HANDS[h]),l:lvl(h)}))})}},
+ ritual:{n:'Ritual da Lua Negra',en:['Black Moon Rite','Levels up two random hand types.'],k:'magia',p:4,d:'Sobe 1 nível de duas mãos aleatórias.',use:()=>{shuffle(HORDER).slice(0,2).forEach(h=>lvUp(h))}},
  ouro_tolo:{n:'Ouro de Tolo',en:['Fool\'s Gold','Up to 3 selected cards become Crowns.'],k:'magia',p:3,sel:3,d:'Até 3 cartas selecionadas viram Coroas.',f:'fight',use:cs=>cs.forEach(c=>{deckCard(c).s=3})},
  oleo:{n:'Óleo Corrosivo',en:['Corrosive Oil','30% of a construct\'s max life; 8% of anything else.'],k:'item',ic:'vial',p:3,d:'30% da vida máxima de Constructos; 8% de qualquer outro.',f:'fight',use:()=>spellDmg(isT('construct')?.3:.08)},
  fumaca:{n:'Bomba de Fumaça',en:['Smoke Bomb','The enemy doesn\'t strike back after your next hand.'],k:'item',ic:'smoke',p:3,d:'O inimigo não contra-ataca na sua próxima mão.',f:'fight',use:()=>{F.freeze+=1}},
  sal:{n:'Sal Grosso',en:['Coarse Salt','Breaks the enemy\'s ability or curse for this fight.'],k:'item',ic:'salt',p:6,d:'Quebra a habilidade ou maldição do inimigo neste combate.',f:'fight',use:()=>{F.foe.ab=null;toast(t('O sal quebra a maldição.'))}},
  erva_lobo:{n:'Erva-de-Lobo',en:['Wolfsbane','30% of a beast\'s max life; 6% of anything else.'],k:'item',ic:'herb',p:3,d:'30% da vida máxima de Bestas; 6% de qualquer outro.',f:'fight',use:()=>spellDmg(isT('beast')?.3:.06)},
- tonico:{n:'Tônico de Sangue',en:['Blood Tonic','Heals 25 HP.'],k:'item',ic:'potion',p:4,d:'Cura 25 PV.',use:()=>heal(25)},
+ selo_sangue:{n:'Selo de Sangue',en:['Blood Seal','Up to 2 selected cards get a Blood Seal: heal 2 HP when they score.'],k:'magia',sel:2,d:'Até 2 cartas selecionadas recebem o Selo de Sangue: curam 2 PV ao pontuar.',f:'fight',use:cs=>cs.forEach(c=>{deckCard(c).sl='sangue'})},
+ selo_runa:{n:'Runa Gravada',en:['Carved Rune','Up to 2 selected cards get a Rune Seal: give back 1 discard when they score.'],k:'magia',sel:2,d:'Até 2 cartas selecionadas recebem o Selo de Runa: devolvem 1 descarte ao pontuar.',f:'fight',use:cs=>cs.forEach(c=>{deckCard(c).sl='runa'})},
+ selo_ouro:{n:'Dente de Ouro',en:['Gold Tooth','Up to 2 selected cards get a Gold Seal: +$1 when they score.'],k:'magia',sel:2,d:'Até 2 cartas selecionadas recebem o Selo de Ouro: +$1 ao pontuar.',f:'fight',use:cs=>cs.forEach(c=>{deckCard(c).sl='ouro'})},
+ selo_profano:{n:'Marca Profana',en:['Unholy Brand','1 selected card gets the Unholy Seal: ×2 Fury when it scores, but costs 3 HP.'],k:'magia',sel:1,d:'1 carta selecionada recebe o Selo Profano: ×2 Fúria ao pontuar, mas custa 3 PV.',f:'fight',use:cs=>cs.forEach(c=>{deckCard(c).sl='profano'})},
+ litania:{n:'Litania dos Pares',en:['Litany of Pairs','Levels up Pair, Two Pairs and Trio.'],k:'magia',d:'Sobe 1 nível de Par, Dois Pares e Trinca.',use:()=>['par','dois','trinca'].forEach(h=>lvUp(h))},
+ eclipse:{n:'Eclipse Negro',en:['Black Eclipse','Levels up every hand type.'],k:'magia',d:'Sobe 1 nível de todos os tipos de mão.',use:()=>{HORDER.forEach(h=>{R.lv[h]=lvl(h)+1});toast(L('O sol some. Todas as mãos sobem de nível.','The sun vanishes. Every hand levels up.'))}},
+ atadura:{n:'Atadura de Linho',en:['Linen Bandage','Cures your bleeding, burns, fear and stun, and heals 6 HP.'],k:'item',ic:'kit',d:'Cura sangramento, queimadura, medo e atordoamento, e cura 6 PV.',use:()=>{if(F&&F.pc)F.pc={bleed:0,burn:0,fear:0,stun:0};heal(6)}},
+ tonico:{n:'Tônico de Sangue',en:['Blood Tonic','Heals 25 HP and stops bleeding and burns.'],k:'item',ic:'potion',p:4,d:'Cura 25 PV e estanca sangramento e queimadura.',use:()=>{cureDots();heal(25)}},
 };
-HORDER.forEach(h=>{CONS['man_'+h]={get n(){return 'Manual: '+HANDS[h].n},get en(){return['Manual: '+HANDS[h].en[0],'Levels up '+HANDS[h].en[0]+'.']},k:'manual',ic:'book',p:3,get d(){return 'Sobe 1 nível de '+HANDS[h].n+'.'},use:()=>{R.lv[h]=lvl(h)+1;toast(t('{n} agora é nível {l}.',{n:nm(HANDS[h]),l:lvl(h)}))}}});
+HORDER.forEach(h=>{CONS['man_'+h]={get n(){return 'Manual: '+HANDS[h].n},get en(){return['Manual: '+HANDS[h].en[0],'Levels up '+HANDS[h].en[0]+'.']},k:'manual',ic:'book',p:3,get d(){return 'Sobe 1 nível de '+HANDS[h].n+'.'},use:()=>lvUp(h)}});
+
+/* ================= raridade ================= */
+const RAR={1:{n:['Comum','Common'],w:55,pe:4,pc:2,xp:20},2:{n:['Incomum','Uncommon'],w:28,pe:6,pc:3,xp:40},3:{n:['Raro','Rare'],w:13,pe:8,pc:5,xp:70},4:{n:['Lendário','Legendary'],w:4,pe:11,pc:7,xp:110}};
+const rarN=r=>RAR[r].n[LANG==='en'?1:0];
+(()=>{const E={1:'espada_longa escudo couro tocha adaga lanca cimitarra maca kit corda racoes arco_curto besta machadinha faca_esfolar manto corrente serra',
+  2:'espada_grande machado_grande arco_longo rapieira martelo cajado cota rede grimorio componentes mochila kit_venenos garrote espelho funda elmo_chumbo escamas armadilha anel_osso coracao bugiganga rosario',
+  3:'machado_batalha mangual tridente placas estaca sino dado lanca_dragao tomo_guerra',4:'simbolo alabarda'};
+ const C={1:'acido pocao palavra misseis raio_gelo fumaca ouro_tolo chicote lamina selo_sangue atadura',
+  2:'escudo_arcano curar bencao onda orientacao veneno enxame mao_tumulo oleo erva_lobo agua_benta tonico muralha_ossos comando fogo_alq selo_runa selo_ouro litania',
+  3:'bola_fogo sono constricao chama clarao maldicao ritual racao selo_profano',4:'sal eclipse'};
+ for(const r in E)E[r].split(' ').forEach(k=>{EQ[k].r=+r;EQ[k].p=RAR[r].pe+(EQ[k].arm>=3?1:0)});
+ for(const r in C)C[r].split(' ').forEach(k=>{CONS[k].r=+r;CONS[k].p=RAR[r].pc});
+ Object.keys(CONS).filter(k=>k.startsWith('man_')).forEach(k=>{CONS[k].r=2;CONS[k].p=RAR[2].pc});
+ Object.keys(EQ).forEach(k=>{if(!EQ[k].r){EQ[k].r=1;EQ[k].p=RAR[1].pe}});Object.keys(CONS).forEach(k=>{if(!CONS[k].r){CONS[k].r=1;CONS[k].p=RAR[1].pc}});
+})();
+function wpick(keys,ex=[]){const p=keys.filter(k=>!ex.includes(k));if(!p.length)return null;const w=k=>RAR[(EQ[k]||CONS[k]).r].w;let tot=p.reduce((a,k)=>a+w(k),0),x=grand()*tot;for(const k of p){x-=w(k);if(x<=0)return k}return p[p.length-1]}
 
 const CLASSES={
  cavaleiro:{n:'Cavaleiro',en:['Knight'],art:'knight',bg:'yel',hp:44,arm:2,dis:2,hs:8,sl:2,eq:['espada_longa','escudo'],cons:['pocao'],tal:['Disciplina de Aço','Steel Discipline'],td:['+5 Fúria por ponto de Armadura. Cura 3 PV sempre que joga Par de Cicatrizes ou Dois Pares da Profanação.','+5 Fury per point of Armor. Heals 3 HP whenever you play Pair of Scars or Two Pairs of Profanation.']},
- mago:{n:'Mago',en:['Wizard'],art:'mage',bg:'pink',hp:24,arm:0,dis:3,hs:8,sl:3,eq:['cajado'],cons:['misseis','escudo_arcano'],tal:['Memória Arcana','Arcane Memory'],td:['Começa cada combate com uma magia aleatória, se houver espaço. +1 Fúria a cada 2 magias conjuradas na jornada (máx. +6).','Starts each fight with a random spell, if there is room. +1 Fury for every 2 spells cast this journey (max +6).']},
- cacador:{n:'Caçador',en:['Hunter'],art:'hunter',bg:'bone',hp:30,arm:0,dis:4,hs:8,sl:2,eq:['arco_longo'],cons:['raio_gelo'],tal:['Primeira Flecha','First Arrow'],td:['As duas primeiras mãos de cada combate têm ×2,2 Fúria.','The first two hands of each fight have ×2.2 Fury.']},
+ mago:{n:'Mago',en:['Wizard'],art:'mage',bg:'pink',hp:28,arm:0,dis:3,hs:8,sl:3,eq:['cajado'],cons:['misseis','escudo_arcano'],tal:['Memória Arcana','Arcane Memory'],td:['Começa cada combate com uma magia aleatória, se houver espaço. +1 Fúria a cada 2 magias conjuradas na jornada (máx. +6).','Starts each fight with a random spell, if there is room. +1 Fury for every 2 spells cast this journey (max +6).']},
+ cacador:{n:'Caçador',en:['Hunter'],art:'hunter',bg:'bone',hp:36,arm:0,dis:4,hs:8,sl:2,eq:['arco_longo','faca_esfolar'],cons:['raio_gelo'],tal:['Primeira Flecha','First Arrow'],td:['As duas primeiras mãos de cada combate têm ×3 Fúria.','The first two hands of each fight have ×3 Fury.']},
  druida:{n:'Druida',en:['Druid'],art:'druid',bg:'yel',hp:30,arm:0,dis:3,hs:8,sl:2,eq:['cimitarra'],cons:['chicote'],suits:[1,2],tal:['Fera Interior','Inner Beast'],td:['×1,4 Fúria sempre; com metade dos PV ou menos, ×2,2. Baralho só de Sangue e Ossos.','×1.4 Fury always; at half HP or less, ×2.2. Deck of Blood and Bones only.']},
- clerigo:{n:'Clérigo',en:['Cleric'],art:'cleric',bg:'pink',hp:32,arm:1,dis:3,hs:8,sl:2,eq:['maca'],cons:['palavra'],tal:['Luz da Penitência','Penitent Light'],td:['Cura 3 PV a cada mão jogada. ×1,75 Fúria, ou ×2,75 contra mortos-vivos.','Heals 3 HP on every hand played. ×1.75 Fury, or ×2.75 against undead.']},
- barbaro:{n:'Bárbaro',en:['Barbarian'],art:'barbarian',bg:'pink',hp:46,arm:0,dis:3,hs:8,sl:2,eq:['machado_grande'],cons:['pocao'],tal:['Sangue Fervente','Boiling Blood'],td:['A primeira mão de cada combate tem ×1,3 Fúria, e cada mão seguinte soma ×0,6 (máx. ×3).','The first hand of each fight has ×1.3 Fury, and each later hand adds ×0.6 (max ×3).'],
+ clerigo:{n:'Clérigo',en:['Cleric'],art:'cleric',bg:'pink',hp:32,arm:1,dis:3,hs:8,sl:2,eq:['maca','tocha'],cons:['palavra'],tal:['Luz da Penitência','Penitent Light'],td:['Cura 3 PV a cada mão jogada. ×2 Fúria, ou ×3 contra mortos-vivos.','Heals 3 HP on every hand played. ×2 Fury, or ×3 against undead.']},
+ barbaro:{n:'Bárbaro',en:['Barbarian'],art:'barbarian',bg:'pink',hp:46,arm:0,dis:3,hs:8,sl:2,eq:['machado_grande','corrente'],cons:['pocao'],tal:['Sangue Fervente','Boiling Blood'],td:['A primeira mão de cada combate tem ×1,25 Fúria, e cada mão seguinte soma ×0,5 (máx. ×2,7).','The first hand of each fight has ×1.25 Fury, and each later hand adds ×0.5 (max ×2.7).'],
    req:{st:'bestHit',goal:15000,d:['Cause {g} de dano em uma única mão.','Deal {g} damage in a single hand.']}},
- ladino:{n:'Ladino',en:['Rogue'],art:'rogue',bg:'bone',hp:32,arm:0,dis:4,hs:8,sl:2,eq:['adaga','couro'],cons:['acido'],tal:['Lâmina nas Costas','Knife in the Back'],td:['Golpe Solitário e Par de Cicatrizes têm ×2 Fúria. Ganha +$2 por inimigo morto.','Lone Strike and Pair of Scars have ×2 Fury. Gain +$2 per enemy slain.'],
+ ladino:{n:'Ladino',en:['Rogue'],art:'rogue',bg:'bone',hp:34,arm:0,dis:4,hs:8,sl:2,eq:['adaga','couro'],cons:['acido'],tal:['Lâmina nas Costas','Knife in the Back'],td:['Golpe Solitário e Par de Cicatrizes têm ×2,5 Fúria. Ganha +$2 por inimigo morto.','Lone Strike and Pair of Scars have ×2.5 Fury. Gain +$2 per enemy slain.'],
    req:{st:'maxGold',goal:60,d:['Junte ${g} de ouro ao mesmo tempo.','Hold ${g} gold at once.']}},
- bardo:{n:'Bardo',en:['Bard'],art:'bard',bg:'yel',hp:32,arm:0,dis:3,hs:9,sl:3,eq:['rapieira'],cons:['bencao'],tal:['Canção Fúnebre','Dirge'],td:['Cada tipo de mão diferente já jogado na jornada dá ×0,12 Fúria. +1 carta na mão.','Each different hand type played this journey gives ×0.12 Fury. +1 card in hand.'],
+ bardo:{n:'Bardo',en:['Bard'],art:'bard',bg:'yel',hp:32,arm:0,dis:3,hs:9,sl:3,eq:['rapieira'],cons:['bencao'],tal:['Canção Fúnebre','Dirge'],td:['Cada tipo de mão diferente já jogado na jornada dá ×0,1 Fúria. +1 carta na mão.','Each different hand type played this journey gives ×0.1 Fury. +1 card in hand.'],
    req:{st:'handsPlayed',goal:500,d:['Jogue {g} mãos, somando todas as jornadas.','Play {g} hands across all journeys.']}},
- paladino:{n:'Paladino',en:['Paladin'],art:'paladin',bg:'yel',hp:44,arm:2,dis:3,hs:8,sl:2,eq:['martelo','escudo'],cons:['agua_benta'],tal:['Julgamento','Judgment'],td:['A primeira mão de cada combate com uma figura tem ×2,5 Fúria (×4 contra mortos-vivos).','The first hand each fight with a face card has ×2.5 Fury (×4 against undead).'],
+ paladino:{n:'Paladino',en:['Paladin'],art:'paladin',bg:'yel',hp:44,arm:2,dis:3,hs:8,sl:2,eq:['martelo','escudo','tocha'],cons:['agua_benta'],tal:['Julgamento','Judgment'],td:['A primeira mão de cada combate com uma figura tem ×3 Fúria (×4,5 contra mortos-vivos).','The first hand each fight with a face card has ×3 Fury (×4.5 against undead).'],
    req:{st:'undead',goal:60,d:['Destrua {g} mortos-vivos.','Destroy {g} undead.']}},
- bruxo:{n:'Bruxo',en:['Warlock'],art:'warlock',bg:'ink',hp:30,arm:0,dis:3,hs:8,sl:3,eq:['bugiganga'],cons:['veneno'],tal:['Pacto de Sangue','Blood Pact'],td:['Toda mão tem ×1,7 Fúria, mas custa 2 PV. Cura 8 PV a cada inimigo morto.','Every hand has ×1.7 Fury but costs 2 HP. Heals 8 HP per enemy slain.'],
+ bruxo:{n:'Bruxo',en:['Warlock'],art:'warlock',bg:'ink',hp:30,arm:0,dis:3,hs:8,sl:3,eq:['bugiganga'],cons:['veneno'],tal:['Pacto de Sangue','Blood Pact'],td:['Toda mão tem ×1,55 Fúria, mas custa 2 PV. Cura 8 PV a cada inimigo morto.','Every hand has ×1.55 Fury but costs 2 HP. Heals 8 HP per enemy slain.'],
    req:{st:'spells',goal:100,d:['Use {g} magias, somando todas as jornadas.','Cast {g} spells across all journeys.']}},
 };
 const cn=k=>LANG==='en'?CLASSES[k].en[0]:CLASSES[k].n;
@@ -1553,7 +1969,11 @@ const PERKS={
  feira:{n:'Contatos no Festival',en:['Festival Contacts','The Festival offers one extra piece of gear.'],ic:'bag',d:'O Festival oferece um equipamento a mais.',max:1,cost:[90]},
  espaco:{n:'Algibeira Funda',en:['Deep Pouch','+1 spell and item slot.'],ic:'pouch',d:'+1 espaço de magias e itens.',max:1,cost:[120]},
 };
-const unlCost=k=>EQ[k]?({1:25,2:45,3:80})[EQ[k].r]:CONS[k].p*7;
+function inDaily(){try{return !!(R&&R.daily)}catch(e){return false}}
+const unlCost=k=>RAR[(EQ[k]||CONS[k]).r].xp;
+/* dificuldade adaptativa: a vida dos inimigos acompanha o arsenal liberado */
+function arsenalFrac(){const all=ALL_UNLOCKABLE.length,base=ALL_UNLOCKABLE.filter(k=>DEFAULT_UNL.includes(k)).length,now=ALL_UNLOCKABLE.filter(isUnl).length;return Math.max(0,Math.min(1,(now-base)/Math.max(1,all-base)))}
+function worldScale(){if(inDaily())return 1;const u=arsenalFrac();return BAL.dyn+(1-BAL.dyn)*Math.pow(u,BAL.dynCurve)}
 let META=Object.assign({xp:0,earned:0,runs:0,wins:0,kills:0,best:{},unl:[],perks:{},cls:[],st:{}},LS.get('ruina-meta',{}));
 META.cls=META.cls||[];META.st=Object.assign({bestHit:0,maxGold:0,handsAll:0,handsPlayed:0,undead:0,spells:0},META.st||{});
 const clsOpen=k=>!CLASSES[k].req||META.cls.includes(k);
@@ -1564,48 +1984,285 @@ function bumpStat(k,v,mode='max'){const s=META.st;const old=s[k]||0;s[k]=mode===
   for(const c of Object.keys(CLASSES)){const q=CLASSES[c].req;if(q&&q.st===k&&!META.cls.includes(c)&&s[k]>=q.goal){META.cls.push(c);setTimeout(()=>toast(t('Nova classe liberada: {c}!',{c:cn(c)})),900)}}
   saveMeta()}
 function saveMeta(){LS.set('ruina-meta',META)}
-const isUnl=k=>k.startsWith('man_')||DEFAULT_UNL.includes(k)||META.unl.includes(k);
+const isUnl=k=>k.startsWith('man_')||inDaily()||DEFAULT_UNL.includes(k)||META.unl.includes(k);
 const perk=k=>META.perks[k]||0;
 const ALL_UNLOCKABLE=[...Object.keys(EQ),...Object.keys(CONS).filter(k=>!k.startsWith('man_'))];
 const spellPool=()=>Object.keys(CONS).filter(k=>CONS[k].k==='magia'&&isUnl(k));
 const itemPool=()=>Object.keys(CONS).filter(k=>CONS[k].k==='item'&&isUnl(k));
 
 
+/* ================= sistemas: intenções, condições, selos, ferimentos, sinais, caminho, encontros ================= */
+const L=(pt,en)=>LANG==='en'?en:pt;
+const LP=a=>a[LANG==='en'?1:0];
+CONS.palavra.use=()=>{if(F&&F.pc){F.pc.fear=0;F.pc.stun=0}heal(10)};
+CONS.palavra.d='Cura 10 PV e afasta o medo e o atordoamento.';CONS.palavra.en=['Short Prayer','Heals 10 HP and drives away fear and stun.'];
+
+/* ---------- intenção do inimigo ---------- */
+const INTENT={
+ atk:{ic:'sword',n:['Ataque','Attack'],m:1,d:['Ataca normalmente.','A normal attack.']},
+ heavy:{ic:'axe2',n:['Golpe Pesado','Heavy Blow'],m:1.8,d:['Ataca com 80% mais força.','Strikes 80% harder.']},
+ guard:{ic:'shield',n:['Defesa','Guard'],m:.5,d:['Sua próxima mão causa 40% menos dano; ele ataca fraco.','Your next hand deals 40% less damage; it strikes weakly.']},
+ heal:{ic:'heart',n:['Regenerar','Regenerate'],m:.4,d:['Recupera 8% da vida e ataca fraco.','Recovers 8% of its life and strikes weakly.']},
+ howl:{ic:'bell',n:['Uivo','Howl'],m:0,d:['Não ataca agora. O próximo golpe será pesado.','Doesn\'t attack now. Its next blow will be heavy.']},
+ afflict:{ic:'drop',n:['Aflição','Affliction'],m:.6,d:['Ataca fraco e aplica {c}.','Strikes weakly and inflicts {c}.']},
+};
+const IW={small:{atk:6,heavy:1.5,guard:1,afflict:1.5},big:{atk:5,heavy:2,guard:1.5,heal:1,howl:1,afflict:1.5},boss:{atk:4,heavy:2,guard:1.5,heal:1,howl:1.2,afflict:2}};
+function nextIntent(f,prev){
+  if(prev==='howl')return 'heavy';
+  const w=Object.assign({},IW[f.kind]||IW.small);
+  if(f.hp>f.max*.85)delete w.heal;
+  if(prev&&prev!=='atk')delete w[prev];
+  let tot=0;for(const k in w)tot+=w[k];let x=grand()*tot;
+  for(const k in w){x-=w[k];if(x<=0)return k}return 'atk'}
+/* condição que a aflição aplica, pelo tipo da criatura */
+const afflOf=ty=>['dragon'].includes(ty)?['burn',3]:['undead','aberration'].includes(ty)?['fear',2]:['giant','construct'].includes(ty)?['stun',1]:['bleed',3];
+
+/* ---------- condições ---------- */
+const COND={
+ bleed:{n:['Sangramento','Bleeding'],c:'pink',d:['Perde {n}% da vida após cada mão; diminui 1 por vez.','Loses {n}% of life after each hand; drops by 1 each time.'],dp:['Perde {n} PV após cada mão sua; diminui 1 por vez.','Lose {n} HP after each of your hands; drops by 1 each time.']},
+ burn:{n:['Queimadura','Burn'],c:'yel',d:['Perde 2% da vida após cada mão, por {n} mãos.','Loses 2% of life after each hand, for {n} hands.'],dp:['Perde 3 PV após cada mão sua, por {n} mãos.','Lose 3 HP after each of your hands, for {n} hands.']},
+ fear:{n:['Medo','Fear'],c:'bone',d:['Causa 30% menos dano por {n} ataques.','Deals 30% less damage for {n} attacks.'],dp:['Suas mãos têm ×0,75 Fúria por {n} mãos.','Your hands have ×0.75 Fury for {n} hands.']},
+ stun:{n:['Atordoado','Stunned'],c:'bone',d:['Não ataca.','Can\'t attack.'],dp:['Só pode jogar até 3 cartas por {n} mãos.','You can play at most 3 cards for {n} hands.']},
+};
+const condName=k=>LP(COND[k].n);
+function cureDots(){if(F&&F.pc){F.pc.bleed=0;F.pc.burn=0}}
+function condChips(map,player){return Object.keys(COND).filter(k=>map[k]>0).map(k=>{const C=COND[k];const d=LP(player?C.dp:C.d).split('{n}').join(map[k]);
+  return `<span class="cond c-${k}" title="${d}">${iconSVG(k==='bleed'?'drop':k==='burn'?'fire':k==='fear'?'eye':'hammer')}${condName(k)} ${map[k]}</span>`}).join('')}
+
+/* ---------- selos nas cartas ---------- */
+const SEAL={sangue:{n:['Selo de Sangue','Blood Seal'],d:['cura 2 PV ao pontuar','heals 2 HP when scoring']},runa:{n:['Selo de Runa','Rune Seal'],d:['devolve 1 descarte ao pontuar','gives back 1 discard when scoring']},
+ profano:{n:['Selo Profano','Unholy Seal'],d:['×2 Fúria ao pontuar, custa 3 PV','×2 Fury when scoring, costs 3 HP']},ouro:{n:['Selo de Ouro','Gold Seal'],d:['+$1 ao pontuar','+$1 when scoring']}};
+function sealRandom(kind,n,filter){const pool=shuffle(R.deck.filter(c=>!c.sl&&(!filter||filter(c))));pool.slice(0,n).forEach(c=>c.sl=kind);return pool.slice(0,n)}
+
+/* ---------- ferimentos e cicatrizes ---------- */
+const INJ={
+ braco:{n:['Braço Quebrado','Broken Arm'],d:['−1 carta na mão.','−1 card in hand.']},
+ olho:{n:['Olho Vazado','Gouged Eye'],d:['−1 descarte por combate.','−1 discard per fight.']},
+ costela:{n:['Costela Partida','Cracked Rib'],d:['Você recebe 20% mais dano.','You take 20% more damage.']},
+ febre:{n:['Febre do Pântano','Swamp Fever'],d:['Toda cura vale metade.','All healing is halved.']},
+};
+const SCAR={
+ pele:{n:['Pele Calejada','Calloused Hide'],d:['+1 Armadura.','+1 Armor.']},
+ odio:{n:['Ódio Antigo','Old Hatred'],d:['+5 Fúria em toda mão.','+5 Fury on every hand.']},
+ firme:{n:['Mão Firme','Steady Hand'],d:['+1 descarte por combate.','+1 discard per fight.']},
+ couro:{n:['Couro de Sobrevivente','Survivor\'s Hide'],d:['+8 PV máximos.','+8 max HP.']},
+ abismo:{n:['Olhar do Abismo','Abyssal Stare'],d:['Todo inimigo começa o combate sangrando 3.','Every enemy starts the fight bleeding 3.']},
+};
+const hasInj=k=>!!(R&&R.inj&&R.inj.includes(k));
+const hasScar=k=>!!(R&&R.scar&&R.scar.includes(k));
+function gainInjury(k){const free=Object.keys(INJ).filter(x=>!R.inj.includes(x));if(!free.length)return null;k=k&&free.includes(k)?k:pick(free);R.inj.push(k);
+  setTimeout(()=>toast(L('Ferimento: ','Injury: ')+LP(INJ[k].n)+'. '+LP(INJ[k].d)),200);return k}
+function gainScar(){const free=Object.keys(SCAR).filter(x=>!R.scar.includes(x));if(!free.length)return null;const k=pick(free);R.scar.push(k);if(k==='couro'){R.maxHp+=8;R.hp+=8}return k}
+function woundChips(){return [...R.inj.map(k=>`<span class="cond inj" title="${LP(INJ[k].d)}">${LP(INJ[k].n)}</span>`),...R.scar.map(k=>`<span class="cond scar" title="${LP(SCAR[k].d)}">${LP(SCAR[k].n)}</span>`)].join('')}
+
+/* ---------- os Sete Sinais do Fim ---------- */
+const SIGNS=[null,
+ {n:['A Lua Sangra','The Moon Bleeds'],d:['Inimigos têm 10% mais vida.','Enemies have 10% more life.']},
+ {n:['Os Corvos Calam','The Crows Fall Silent'],d:['Tudo no Festival custa $1 a mais.','Everything at the Festival costs $1 more.']},
+ {n:['A Peste','The Plague'],d:['−1 descarte por combate.','−1 discard per fight.']},
+ {n:['O Rio de Sangue','The River of Blood'],d:['A cura após cada combate vale metade.','Healing after each fight is halved.']},
+ {n:['Os Mortos Andam','The Dead Walk'],d:['Inimigos atacam com 15% mais força.','Enemies strike 15% harder.']},
+ {n:['As Estrelas Caem','The Stars Fall'],d:['Chefes têm 25% mais vida.','Bosses have 25% more life.']},
+ {n:['O Sol se Apaga','The Sun Goes Out'],d:['Você começa com 8 PV máximos a menos.','You start with 8 less max HP.']}];
+const sg=n=>!!(R&&R.sign>=n);
+const signMax=k=>Math.min(7,(META.sig||{})[k]||0);
+const priceOf=D=>D.p+(sg(2)?1:0);
+function signsTxt(s){return SIGNS.slice(1,s+1).map((S,i)=>`<li><b>${['I','II','III','IV','V','VI','VII'][i]}. ${LP(S.n)}</b> ${LP(S.d)}</li>`).join('')}
+
+/* ---------- caminho com bifurcações ---------- */
+const NODE={comum:{n:['Combate','Fight'],ic:'sword'},elite:{n:['Elite','Elite'],ic:'axe2'},encontro:{n:['Encontro','Encounter'],ic:'eye'},
+ santuario:{n:['Santuário','Shrine'],ic:'holy'},cripta:{n:['Cripta','Crypt'],ic:'stake'},festival:{n:['Festival','Festival'],ic:'coin'},boss:{n:['Chefe','Boss'],ic:'flail'}};
+function mkFoe(base,kind,i,elite){const c=R.c;const ws=c<=3?Math.max(worldScale(),BAL.earlyFloor):worldScale();
+  let max=BAL.hp[c-1]*BAL.mult[i]*ws*(elite?BAL.elite[0]:1)*(sg(1)?1.1:1)*(kind==='boss'&&sg(6)?1.25:1);
+  const A=BAL.atk[kind];const atk=Math.round(A[0]+A[1]*c+(BAL.earlyAtk[c-1]||0)+(elite?BAL.elite[1]:0));
+  if(base.ab==='muralha')max*=1.4;if(base.ab==='tarrasque')max*=1.2;max=Math.round(max);
+  const f={a:base.a,ty:base.ty,u:base.u||0,ab:base.ab||null,kind,elite:!!elite,max,hp:max,atk,bg:pick(BGS),reward:kind==='small'?3:kind==='big'?4:6};
+  if(f.ab==='naipe')f.suit=pick(CLASSES[R.cls].suits||[0,1,2,3]);return f}
+function chooseMon(k){const c=R.c;let pool=MONSTERS.filter(m=>m.k===k&&m.min<=c&&m.max>=c&&!R.used.includes(m.a));if(!pool.length)pool=MONSTERS.filter(m=>m.k===k&&m.min<=c&&m.max>=c);const m=pick(pool);R.used.push(m.a);return m}
+function pickEvent(){let pool=Object.keys(EVENTS).filter(k=>!R.usedEv.includes(k));if(!pool.length){R.usedEv=[];pool=Object.keys(EVENTS)}const k=pick(pool);R.usedEv.push(k);return k}
+function mkNode(t,row){const n={t};
+  if(t==='comum')n.foe=row===0?mkFoe(chooseMon('small'),'small',0):mkFoe(chooseMon('big'),'big',1);
+  if(t==='elite')n.foe=mkFoe(chooseMon('big'),'big',1,true);
+  if(t==='boss')n.foe=mkFoe(R.c===8?FINAL:FOEDB[R.bossPool[(R.c-1)%R.bossPool.length]],'boss',2);
+  if(t==='encontro')n.ev=pickEvent();
+  if(t==='santuario')n.hs=shuffle(HORDER).slice(0,2);
+  return n}
+function makeMap(){
+  const rows=[['comum',pick(['encontro','elite','encontro'])],['festival',pick(['santuario','cripta','encontro'])],[pick(['comum','elite','comum']),pick(['encontro','cripta','santuario'])],['festival'],['boss']];
+  R.map=rows.map((r,i)=>shuffle(r).map(t=>mkNode(t,i)));R.row=0;R.pick=null}
+const curNode=()=>R&&R.map&&R.pick!=null&&R.map[R.row]?R.map[R.row][R.pick]:null;
+const curFoe=()=>{const n=curNode();return n&&n.foe};
+const bossOf=()=>R.map&&R.map[4]?R.map[4][0].foe:null;
+function advanceRow(){R.row++;R.pick=null;if(R.row>=R.map.length){R.c++;if(R.c<=8)makeMap()}}
+function enterNode(i){const n=R.map[R.row][i];if(!n)return;R.pick=i;closePop();
+  if(n.foe){startFight();return}
+  if(n.t==='festival'){toShop();return}
+  R.phase='event';R.ev={k:n.t==='encontro'?n.ev:n.t,res:null};render()}
+function nodeHTML(n,i,state){const N=NODE[n.t];const f=n.foe;const ab=f&&abilTxt(f);
+  const head=f?`<img src="${foeImg(f,150,188)}" alt="${fn_(f)}">`:`<img src="${evImg(n.t==='encontro'?n.ev:n.t)}" alt="">`;
+  let info='';
+  if(f)info=`<h4>${fn_(f)}</h4><p>${t('Vida {a} · Ataque {b} · ${c}',{a:fmt(f.max),b:atkOf(f),c:f.reward+(f.elite?BAL.eliteGold:0)})}</p>${ab?`<p class="pab"><b>${ab.t}:</b> ${ab.d}</p>`:''}<p class="pty">${tyN(f.ty)}</p>${f.elite?`<p class="pel">${L('Troféu garantido: item raro ou nível de mão.','Guaranteed trophy: rare item or hand level.')}</p>`:''}`;
+  else if(n.t==='encontro')info=`<h4>${LP(EVENTS[n.ev].n)}</h4><p>${L('Uma escolha. Pode render muito, ou custar caro.','A choice. It may pay off, or cost dearly.')}</p>`;
+  else if(n.t==='santuario')info=`<h4>${L('Santuário','Shrine')}</h4><p>${L('Ofereça carne em troca de bênçãos.','Offer flesh in exchange for blessings.')}</p>`;
+  else if(n.t==='cripta')info=`<h4>${L('Cripta','Crypt')}</h4><p>${L('Tesouros raros. Alguns amaldiçoados.','Rare treasures. Some cursed.')}</p>`;
+  else if(n.t==='festival')info=`<h4>${L('Festival','Festival')}</h4><p>${L('Compre, venda, descanse. Talvez o Ossomante.','Buy, sell, rest. Maybe the Bonemancer.')}</p>`;
+  const tag=`<span class="ntag n-${n.t}">${LP(N.n)}</span>`;
+  const inner=`${head}<div class="pi">${tag}${info}</div>`;
+  return state==='open'?`<button class="pnode open n-${n.t}" data-act="node" data-i="${i}">${inner}</button>`:`<div class="pnode ${state} n-${n.t}">${inner}</div>`}
+function mapHTML(){
+  return `<div class="map">${R.map.map((row,ri)=>`<div class="mrow${ri===R.row?' now':ri<R.row?' past':''}"><div class="mstep">${ri+1}</div><div class="mopts">${row.map((n,i)=>nodeHTML(n,i,ri<R.row?(n.went?'done':'skip'):ri===R.row?'open':'later')).join(row.length>1?`<span class="mor">${L('ou','or')}</span>`:'')}</div></div>`).join('')}</div>`}
+
+/* ---------- encontros narrativos ---------- */
+const favHand=()=>{const e=Object.entries(R.hc||{}).sort((a,b)=>b[1]-a[1]);return e.length?e[0][0]:'par'};
+const randCons=(minR=1)=>{const p=[...spellPool(),...itemPool()].filter(k=>CONS[k].r>=minR);return p.length?wpick(p):null};
+const randEq=(minR=1)=>{const own=new Set(R.eq.map(e=>e.id));const p=Object.keys(EQ).filter(k=>EQ[k].r>=minR&&!own.has(k)&&isUnl(k));return p.length?wpick(p):null};
+function giveCons(k){if(!k)return '';if(R.cons.length>=slots()){R.gold+=CONS[k].p;return L(`Sem espaço: você vende ${nm(CONS[k])} por $${CONS[k].p}.`,`No room: you sell ${nm(CONS[k])} for $${CONS[k].p}.`)}R.cons.push(k);return L(`Você recebe ${nm(CONS[k])}.`,`You receive ${nm(CONS[k])}.`)}
+function giveEq(k){if(!k)return '';if(R.eq.length>=5){R.gold+=EQ[k].p;return L(`Sem espaço: você vende ${nm(EQ[k])} por $${EQ[k].p}.`,`No room: you sell ${nm(EQ[k])} for $${EQ[k].p}.`)}equipAdd(k);return L(`Você recebe ${nm(EQ[k])}.`,`You receive ${nm(EQ[k])}.`)}
+const hurt=n=>{R.hp=Math.max(1,R.hp-n);return n};
+const maxCut=n=>{R.maxHp=Math.max(10,R.maxHp-n);R.hp=Math.min(R.hp,R.maxHp)};
+const lvTxt=(h,n=1)=>{lvUp(h,n,true);return L(`${nm(HANDS[h])} sobe para o nível ${lvl(h)}.`,`${nm(HANDS[h])} rises to level ${lvl(h)}.`)};
+const injTxt=k=>{const g=gainInjury(k);return g?L(` Ferimento: ${LP(INJ[g].n)} (${LP(INJ[g].d)})`,` Injury: ${LP(INJ[g].n)} (${LP(INJ[g].d)})`):''};
+const EVENTS={
+ mendigo:{n:['O Mendigo sem Olhos','The Eyeless Beggar'],ic:'eye',t:['Um homem sem olhos estende a mão suja. "Uma moeda, e eu leio o que suas mãos escondem."','A man with no eyes holds out a filthy hand. "A coin, and I\'ll read what your hands hide."'],
+  o:[{n:['Dar $3','Give $3'],ok:()=>R.gold>=3,go:()=>{R.gold-=3;return L('Ele toca seus dedos e sorri com gengivas pretas. ','He touches your fingers and smiles with black gums. ')+lvTxt(favHand())}},
+     {n:['Roubar a tigela (+$6)','Steal his bowl (+$6)'],go:()=>{R.gold+=6;return L('Ele crava as unhas no seu rosto antes de cair.','He digs his nails into your face before he falls.')+injTxt('olho')}},
+     {n:['Seguir em frente','Walk on'],go:()=>L('Ele ri baixo enquanto você se afasta.','He laughs quietly as you walk away.')}]},
+ poco:{n:['O Poço dos Desejos Podres','The Well of Rotten Wishes'],ic:'drop',t:['A água é preta e cheira a ferro. Moedas brilham no fundo, entre ossos de dedos.','The water is black and smells of iron. Coins glint at the bottom, among finger bones.'],
+  o:[{n:['Beber','Drink'],go:()=>{if(grand()<.5){const h=heal(Math.round(R.maxHp*.4));return L(`Tem gosto de sangue, mas fecha suas feridas. +${h} PV.`,`It tastes of blood, but closes your wounds. +${h} HP.`)}return L(`Algo se mexe no seu estômago. −${hurt(8)} PV.`,`Something moves in your stomach. −${hurt(8)} HP.`)}},
+     {n:['Jogar $2 e desejar','Toss $2 and wish'],ok:()=>R.gold>=2,go:()=>{R.gold-=2;return L('O poço engole a moeda e devolve outra coisa. ','The well swallows the coin and returns something else. ')+giveCons(randCons(2))}},
+     {n:['Pescar as moedas','Fish out the coins'],go:()=>{R.gold+=5;return L('+$5. A água morde.','+$5. The water bites.')+injTxt('febre')}}]},
+ carroca:{n:['A Carroça de Cadáveres','The Corpse Cart'],ic:'pack',t:['Uma carroça tombada. Os mortos ainda vestem anéis, e os corvos ainda não chegaram.','An overturned cart. The dead still wear rings, and the crows haven\'t arrived yet.'],
+  o:[{n:['Revirar os corpos','Search the bodies'],go:()=>{const g=4+rnd(5);R.gold+=g;return L(`+$${g}.`,`+$${g}.`)+(grand()<.45?injTxt('febre'):'')}},
+     {n:['Queimar os mortos','Burn the dead'],go:()=>{sealRandom('sangue',2);return L('A fumaça mancha suas cartas de vermelho. 2 cartas recebem o Selo de Sangue.','The smoke stains your cards red. 2 cards gain the Blood Seal.')}},
+     {n:['Deixar para os corvos','Leave it for the crows'],go:()=>L('Os corvos agradecem.','The crows thank you.')}]},
+ acougueiro:{n:['O Açougueiro de Carne Santa','The Butcher of Holy Meat'],ic:'knife',t:['"Carne de peregrino dá força às mãos", diz o açougueiro, afiando o cutelo. "Eu compro. Eu vendo."','"Pilgrim flesh gives strength to the hands," says the butcher, sharpening his cleaver. "I buy. I sell."'],
+  o:[{n:['Vender carne (−6 PV máximos)','Sell flesh (−6 max HP)'],go:()=>{maxCut(6);return L('Ele corta fundo e paga em sabedoria. ','He cuts deep and pays in wisdom. ')+lvTxt(favHand(),2)}},
+     {n:['Comprar carne ($4)','Buy meat ($4)'],ok:()=>R.gold>=4,go:()=>{R.gold-=4;R.maxHp+=5;heal(5);return L('Você não pergunta de quem era. +5 PV máximos.','You don\'t ask whose it was. +5 max HP.')}},
+     {n:['Recusar','Refuse'],go:()=>L('"Volte quando tiver fome."','"Come back when you\'re hungry."')}]},
+ altar:{n:['O Altar Rachado','The Cracked Altar'],ic:'holy',t:['Um altar partido ao meio. Quem reza aqui esquece alguma coisa.','An altar split in half. Whoever prays here forgets something.'],
+  o:[{n:['Rezar (remove 3 cartas baixas)','Pray (remove 3 low cards)'],ok:()=>R.deck.length>22,go:()=>{const low=R.deck.slice().sort((a,b)=>a.r-b.r).slice(0,3);const ids=new Set(low.map(c=>c.id));R.deck=R.deck.filter(c=>!ids.has(c.id));return L(`Você esquece ${low.map(c=>rl(c.r)).join(', ')}. O baralho fica mais leve.`,`You forget ${low.map(c=>rl(c.r)).join(', ')}. Your deck feels lighter.`)}},
+     {n:['Cuspir no altar (+$4)','Spit on the altar (+$4)'],go:()=>{R.gold+=4;return L('Moedas caem da rachadura. Algo estala no seu peito.','Coins fall from the crack. Something snaps in your chest.')+injTxt('costela')}},
+     {n:['Ir embora','Leave'],go:()=>L('O silêncio te segue por um tempo.','The silence follows you for a while.')}]},
+ cartomante:{n:['A Cartomante Cega','The Blind Card-Reader'],ic:'die',t:['Ela embaralha cartas sem figuras. "Corte. Ou pague, e eu corto por você."','She shuffles cards with no faces. "Cut. Or pay, and I\'ll cut for you."'],
+  o:[{n:['Pagar $4','Pay $4'],ok:()=>R.gold>=4,go:()=>{R.gold-=4;sealRandom('runa',1);return L('Uma carta sua ganha uma Runa. ','One of your cards gains a Rune. ')+lvTxt(pick(HORDER))}},
+     {n:['Cortar o baralho','Cut the deck'],go:()=>{if(grand()<.5){sealRandom('ouro',2);return L('Ela sorri. 2 cartas recebem o Selo de Ouro.','She smiles. 2 cards gain the Gold Seal.')}const g=Math.min(R.gold,4);R.gold-=g;return L(`Ela balança a cabeça. Você perde $${g}.`,`She shakes her head. You lose $${g}.`)}},
+     {n:['Não tocar nas cartas','Don\'t touch the cards'],go:()=>L('"Sábio. Ou covarde."','"Wise. Or a coward."')}]},
+ duelo:{n:['O Cavaleiro da Encruzilhada','The Crossroads Knight'],ic:'helm',t:['Um cavaleiro sem rosto barra o caminho. "Ninguém passa sem sangrar."','A faceless knight blocks the road. "No one passes without bleeding."'],
+  o:[{n:['Duelar (−30% PV)','Duel (−30% HP)'],go:()=>{hurt(Math.round(R.maxHp*.3));return L('Você vence, por pouco. ','You win, barely. ')+giveEq(randEq(3)||randEq(2))}},
+     {n:['Pagar pedágio ($5)','Pay the toll ($5)'],ok:()=>R.gold>=5,go:()=>{R.gold-=5;return L('Ele aceita as moedas sem uma palavra.','He takes the coins without a word.')}},
+     {n:['Contornar pelo pântano','Go around through the swamp'],go:()=>L(`O frio entra nos ossos. −${hurt(5)} PV.`,`The cold gets into your bones. −${hurt(5)} HP.`)}]},
+ monges:{n:['O Coro dos Monges Enforcados','The Choir of Hanged Monks'],ic:'bell',t:['Monges balançam nas árvores e ainda cantam. A canção conta a ordem das coisas.','Monks swing from the trees and still sing. The song tells the order of things.'],
+  o:[{n:['Ouvir em silêncio','Listen in silence'],go:()=>{const h=heal(Math.round(R.maxHp*.25));const inj=R.inj.shift();return L(`+${h} PV.`,`+${h} HP.`)+(inj?L(` ${LP(INJ[inj].n)} cicatriza.`,` ${LP(INJ[inj].n)} heals.`):'')}},
+     {n:['Cantar junto (−4 PV)','Sing along (−4 HP)'],go:()=>{hurt(4);return lvTxt('seq')+' '+lvTxt('seqcor')}},
+     {n:['Cortar as cordas (+$3)','Cut the ropes (+$3)'],go:()=>{R.gold+=3;return L('Os corpos caem e o canto para. Eles levavam moedas na boca.','The bodies fall and the singing stops. They had coins in their mouths.')}}]},
+ bruxa:{n:['A Bruxa do Moinho','The Mill Witch'],ic:'vial',t:['A pedra do moinho mói alguma coisa vermelha. "Deixa eu marcar suas cartas, querido."','The millstone grinds something red. "Let me mark your cards, dearie."'],
+  o:[{n:['Aceitar a marca (−4 PV)','Accept the brand (−4 HP)'],go:()=>{hurt(4);const c=sealRandom('profano',1,c=>c.r>=10)[0];return c?L(`${t('{r} de {s}',{r:rl(c.r),s:suitN(c.s)})} recebe o Selo Profano.`,`${t('{r} de {s}',{r:rl(c.r),s:suitN(c.s)})} gains the Unholy Seal.`):L('Nada acontece.','Nothing happens.')}},
+     {n:['Pagar por bênçãos ($5)','Pay for blessings ($5)'],ok:()=>R.gold>=5,go:()=>{R.gold-=5;shuffle(R.deck.filter(c=>!c.e)).slice(0,2).forEach(c=>c.e='b');return L('2 cartas ficam Abençoadas (+4 Fúria ao pontuar).','2 cards become Blessed (+4 Fury when scoring).')}},
+     {n:['Fugir','Run'],go:()=>L('A risada dela te segue até a estrada.','Her laughter follows you to the road.')}]},
+ ferreiro:{n:['O Ferreiro sem Mãos','The Handless Smith'],ic:'hammer',t:['Ele martela com os cotocos. "Eu reforço o que você veste. O preço é justo."','He hammers with his stumps. "I reinforce what you wear. The price is fair."'],
+  o:[{n:['Reforçar a armadura ($6)','Reinforce your armor ($6)'],ok:()=>R.gold>=6,go:()=>{R.gold-=6;R.arm++;return L('+1 Armadura para sempre.','+1 Armor for good.')}},
+     {n:['Afiar as armas ($4)','Sharpen your weapons ($4)'],ok:()=>R.gold>=4,go:()=>{R.gold-=4;shuffle(R.deck.filter(c=>!c.e)).slice(0,3).forEach(c=>c.e='f');return L('3 cartas ficam Flamejantes (+30 Golpe ao pontuar).','3 cards become Flaming (+30 Blow when scoring).')}},
+     {n:['Ir embora','Leave'],go:()=>L('O martelo continua batendo.','The hammer keeps falling.')}]},
+ ponte:{n:['A Ponte de Ossos','The Bridge of Bones'],ic:'chain',t:['A ponte range sobre o abismo. Do outro lado, um baú. Do lado de cá, uma trilha longa.','The bridge creaks over the abyss. On the other side, a chest. On this side, a long trail.'],
+  o:[{n:['Atravessar correndo','Run across'],go:()=>{if(grand()<.55){R.gold+=7;return L('Você chega. O baú tem $7.','You make it. The chest holds $7.')}hurt(6);return L('Um osso cede.','A bone gives way.')+injTxt('braco')}},
+     {n:['Atravessar devagar (−3 PV)','Cross slowly (−3 HP)'],go:()=>{hurt(3);R.gold+=3;return L('Os ossos cortam suas mãos. O baú tem $3.','The bones cut your hands. The chest holds $3.')}},
+     {n:['Pegar a trilha','Take the trail'],go:()=>L('Nada acontece, e isso já é muito.','Nothing happens, and that is plenty.')}]},
+ dentes:{n:['O Mercador de Dentes','The Tooth Merchant'],ic:'bag',t:['Ele abre o casaco: milhares de dentes costurados. "Troco. Sempre troco."','He opens his coat: thousands of sewn teeth. "I trade. I always trade."'],
+  o:[{n:['Trocar uma magia ou item por dois','Trade a spell or item for two'],ok:()=>R.cons.length>0,go:()=>{const old=R.cons.splice(rnd(R.cons.length),1)[0];return L(`Ele leva ${nm(CONS[old])}. `,`He takes ${nm(CONS[old])}. `)+giveCons(randCons())+' '+giveCons(randCons())}},
+     {n:['Vender um dente (−3 PV, +$4)','Sell a tooth (−3 HP, +$4)'],go:()=>{hurt(3);R.gold+=4;return L('Ele arranca com os dedos.','He pulls it out with his fingers.')}},
+     {n:['Recusar','Refuse'],go:()=>L('"Todo mundo troca um dia."','"Everyone trades someday."')}]},
+ espelho:{n:['O Espelho Negro','The Black Mirror'],ic:'mirror',t:['No espelho, seu reflexo segura cartas que você não tem.','In the mirror, your reflection holds cards you don\'t have.'],
+  o:[{n:['Tocar o reflexo','Touch the reflection'],go:()=>{const c=R.deck.slice().sort((a,b)=>b.r-a.r)[rnd(4)];const id=Math.max(...R.deck.map(d=>d.id))+1;R.deck.push({id,r:c.r,s:c.s,e:c.e,sl:c.sl});return L(`O reflexo te entrega uma cópia: ${t('{r} de {s}',{r:rl(c.r),s:suitN(c.s)})}.`,`The reflection hands you a copy: ${t('{r} of {s}',{r:rl(c.r),s:suitN(c.s)})}.`)}},
+     {n:['Quebrar o espelho (+$3)','Break the mirror (+$3)'],go:()=>{R.gold+=3;return L(`Os cacos cortam fundo. −${hurt(4)} PV.`,`The shards cut deep. −${hurt(4)} HP.`)}},
+     {n:['Cobrir o espelho','Cover the mirror'],go:()=>L('Algo bate do outro lado.','Something knocks from the other side.')}]},
+};
+const CRYPT={n:['Cripta','Crypt'],ic:'stake',t:['Um sarcófago lacrado com correntes. Oferendas antigas apodrecem aos pés do morto.','A sarcophagus sealed with chains. Old offerings rot at the dead one\'s feet.'],
+  o:[{n:['Abrir o sarcófago','Open the sarcophagus'],go:()=>{const cursed=grand()<.35;const loot=grand()<.6?giveEq(randEq(3)||randEq(2)):giveCons(randCons(3));
+      if(cursed){hurt(5);return L('Uma mão seca agarra seu braço. ','A dry hand grabs your arm. ')+loot+injTxt('braco')}return L('O morto não reclama. ','The dead don\'t complain. ')+loot}},
+     {n:['Pegar só as oferendas','Take only the offerings'],go:()=>{const g=3+rnd(4);R.gold+=g;return L(`+$${g}. Ninguém precisa saber.`,`+$${g}. No one needs to know.`)}},
+     {n:['Deixar o morto em paz','Leave the dead in peace'],go:()=>{const h=heal(5);return L(`O respeito acalma. +${h} PV.`,`Respect is soothing. +${h} HP.`)}}]};
+function shrineEv(n){const hs=n.hs||shuffle(HORDER).slice(0,2);return{n:['Santuário','Shrine'],ic:'holy',t:['Uma imagem sem rosto, coberta de cera e dentes. Ela aceita carne. Ela dá força.','A faceless idol, covered in wax and teeth. It accepts flesh. It gives strength.'],
+  o:[...hs.map(h=>({n:[`Oferecer carne (−5 PV máx.): ${HANDS[h].n} +2 níveis`,`Offer flesh (−5 max HP): ${HANDS[h].en[0]} +2 levels`],go:()=>{maxCut(5);return lvTxt(h,2)}})),
+     {n:['Gravar runas (−4 PV)','Carve runes (−4 HP)'],go:()=>{hurt(4);sealRandom('runa',2);return L('2 cartas recebem o Selo de Runa.','2 cards gain the Rune Seal.')}},
+     {n:['Rezar','Pray'],go:()=>{const h=heal(Math.round(R.maxHp*.3));const inj=R.inj.length;R.inj=[];return L(`+${h} PV.`,`+${h} HP.`)+(inj?L(' Seus ferimentos fecham.',' Your injuries close.'):'')}}]}}
+const evDef=k=>k==='cripta'?CRYPT:k==='santuario'?shrineEv(R.map[R.row][R.pick]):EVENTS[k];
+function eventHTML(){const E=evDef(R.ev.k);
+  const body=R.ev.res?`<p class="evres">${R.ev.res}</p><div class="actions" style="justify-content:flex-start"><button class="big play" data-act="evdone">${t('Seguir caminho')}</button></div>`
+   :`<div class="evopts">${E.o.map((o,i)=>{const ok=!o.ok||o.ok();return `<button class="big ${i===E.o.length-1?'ghost':'disc'}" data-act="evc" data-i="${i}" ${ok?'':'disabled'}>${LP(o.n)}</button>`}).join('')}</div>`;
+  return `<div class="banner ev"><h2 class="rn">${ransom(LP(E.n),'e'+R.ev.k)}</h2><p>${t('Círculo')} ${ROMAN[R.c]} · ${LANDS[LANG][R.c-1]}</p></div>
+   <div class="event"><div class="evart"><img src="${evImg(R.ev.k)}" alt="${LP(E.n)}"></div><div class="evtxt"><p class="lore">${LP(E.t)}</p>${body}</div></div>`}
+function chooseEvent(i){if(!R.ev||R.ev.res)return;const E=evDef(R.ev.k);const o=E.o[i];if(!o||(o.ok&&!o.ok()))return;R.ev.res=o.go()||'';sfx('coin');render()}
+
+/* ---------- troféus (elite) e espólios (chefe) ---------- */
+function trophyOpts(){const o=[];const e=randEq(3);if(e)o.push({ty:'eq',k:e});const c=randCons(3);if(c)o.push({ty:'cons',k:c});o.push({ty:'lv',h:favHand()});return o}
+function spoilOpts(){return shuffle(HORDER).slice(0,3).map(h=>({ty:'lv',h}))}
+function optLabel(o){if(o.ty==='eq')return `${nm(EQ[o.k])} <small>${rarN(EQ[o.k].r)} · ${ds(EQ[o.k])}</small>`;if(o.ty==='cons')return `${nm(CONS[o.k])} <small>${rarN(CONS[o.k].r)} · ${ds(CONS[o.k])}</small>`;
+  const now=hv(o.h),H=HANDS[o.h];return `${nm(H)} +1 <small>${t('nv {a} → {b}',{a:lvl(o.h),b:lvl(o.h)+1})} · ${now.c}×${now.m} → ${now.c+H.lc}×${now.m+H.lm}</small>`}
+function takeOpt(i){const w=R.rw;if(!w||w.done||!w.opts[i])return;const o=w.opts[i];
+  if(o.ty==='eq'){if(R.eq.length>=5){toast(L('Sem espaço de equipamento. Venda algo primeiro.','No gear room. Sell something first.'));return}equipAdd(o.k)}
+  else if(o.ty==='cons'){if(R.cons.length>=slots()){toast(L('Sem espaço. Use ou venda algo primeiro.','No room. Use or sell something first.'));return}R.cons.push(o.k)}
+  else lvUp(o.h);
+  w.done=true;w.took=i;sfx('coin');saveRun();rewardOv();renderBelt()}
+
+/* ---------- bestiário e grimório ---------- */
+const MLORE={goblin:['Rouba, morde, foge. Volta à noite.','Steals, bites, flees. Comes back at night.'],kobold:['Jura que um dragão é seu pai.','Swears a dragon is its father.'],skeleton:['Esqueceu o próprio nome, não a espada.','Forgot its own name, not its sword.'],zombie:['Anda devagar. Nunca para.','Walks slowly. Never stops.'],stirge:['Bebe até inchar e cair.','Drinks until it swells and falls.'],hand:['Ninguém sabe de quem era.','No one knows whose it was.'],frog:['Coaxa orações para um deus afogado.','Croaks prayers to a drowned god.'],kenku:['Imita a voz de quem já morreu.','Mimics the voices of the dead.'],gnoll:['Ri enquanto come.','Laughs while it eats.'],ghoul:['Uma mordida, e as pernas não obedecem.','One bite, and your legs stop obeying.'],grimlock:['Não tem olhos. Não precisa.','Has no eyes. Doesn\'t need them.'],jackal:['Guarda tumbas que ninguém visita.','Guards tombs no one visits.'],wisp:['A luz no pântano nunca é ajuda.','The light in the swamp is never help.'],flameskull:['Ri em chamas há três séculos.','Has laughed in flames for three centuries.'],shadow:['Sua própria sombra, com fome.','Your own shadow, hungry.'],bugbear:['Debaixo da cama era só o começo.','Under the bed was only the beginning.'],ogre:['Conta até três. Nunca chega no três.','Counts to three. Never reaches three.'],mimic:['O tesouro tem dentes.','The treasure has teeth.'],harpy:['Canta bonito para comer melhor.','Sings sweetly to eat better.'],owlbear:['Penas, garras e nenhuma piedade.','Feathers, claws and no mercy.'],cockatrice:['Um bicada, e você vira estátua.','One peck, and you become a statue.'],troll:['Corte o braço. Ele cresce outro.','Cut off its arm. It grows another.'],gargoyle:['Vigia a catedral. Ninguém vigia ele.','Watches the cathedral. No one watches it.'],minotaur:['O labirinto era para nos proteger dele.','The labyrinth was built to protect us from it.'],cube:['Tudo que entra, dissolve.','Everything that goes in dissolves.'],mummy:['Enfaixado com orações que não funcionaram.','Wrapped in prayers that didn\'t work.'],banshee:['Grita o nome de quem vai morrer.','Screams the name of who will die.'],ettin:['As duas cabeças discordam. Os punhos, não.','The two heads disagree. The fists don\'t.'],ankheg:['A terra treme antes da mordida.','The earth trembles before the bite.'],manticore:['Cauda de espinhos, rosto de homem.','A tail of spikes, a man\'s face.'],wraith:['Ódio que esqueceu de morrer.','Hatred that forgot to die.'],hag:['Vende remédios. Cobra em anos.','Sells remedies. Charges in years.'],cyclops:['Um olho só, e ele já viu demais.','A single eye, and it has seen too much.'],otyugh:['Come o lixo da cidade. E quem cai nele.','Eats the city\'s garbage. And whoever falls in.'],golem:['Feito de mortos costurados. Obedece.','Made of sewn-together dead. It obeys.'],werewolf:['Na lua cheia, todos os amigos viram presa.','Under the full moon, every friend becomes prey.'],specter:['Frio que atravessa armadura.','Cold that passes through armor.'],beholder:['Cada olho, uma maldição.','Each eye, a curse.'],mindflayer:['Bebe pensamentos como vinho.','Drinks thoughts like wine.'],medusa:['Os jardins dela são cheios de heróis.','Her gardens are full of heroes.'],hydra:['Corte uma cabeça e pague por duas.','Cut one head and pay for two.'],vampire:['Nobre, faminto, eterno.','Noble, hungry, eternal.'],deathknight:['Jurou servir até a morte. Não parou.','Swore to serve until death. Didn\'t stop.'],lich:['Escondeu a alma onde ninguém procura.','Hid its soul where no one looks.'],aboleth:['Lembra do mundo antes da luz.','Remembers the world before light.'],worm:['A estrada termina na boca dele.','The road ends in its mouth.'],dragon:['Dorme sobre ouro e cinzas de reis.','Sleeps on gold and the ashes of kings.'],tarrasque:['Quando acordar, o mundo acaba.','When it wakes, the world ends.']};
+function codexScreen(){const tab=UI.cx||'best';META.seen=META.seen||{};META.found=META.found||{};
+  let body='';
+  if(tab==='best'){const all=[...MONSTERS,...BOSSES,FINAL];const seen=all.filter(m=>META.seen[m.a]).length;
+    body=`<p class="cxn">${L(`${seen} de ${all.length} criaturas abatidas`,`${seen} of ${all.length} creatures slain`)}</p><div class="cxgrid">${all.map(m=>{const n=META.seen[m.a]||0;
+      if(!n)return `<div class="cx unk"><div class="cxart">?</div><div><h4>???</h4><p>${tyN(m.ty)}</p></div></div>`;
+      const ab=m.ab?ABIL[m.ab][LANG==='en'?1:0]:null;
+      return `<div class="cx"><img src="${art(m.a,m.n,'bone',120,150)}" alt="${fn_(m)}"><div><h4>${fn_(m)}</h4><p class="cxt">${tyN(m.ty)}${ab?' · '+ab[0]:''}</p><p class="lore">${MLORE[m.a]?LP(MLORE[m.a]):''}</p><p class="cxk">${L('Abatidos','Slain')}: <b>${n}</b></p></div></div>`}).join('')}</div>`}
+  else{const keys=[...Object.keys(EQ),...Object.keys(CONS).filter(k=>!k.startsWith('man_'))];const got=keys.filter(k=>META.found[k]).length;
+    body=`<p class="cxn">${L(`${got} de ${keys.length} itens encontrados`,`${got} of ${keys.length} items found`)}</p><div class="cxgrid items">${keys.map(k=>{const D=EQ[k]||CONS[k];const n=META.found[k]||0;
+      const slot=EQ[k]?eqSlot({id:k,v:1},'x',{act:'none',lock:!n}):consSlot(k,'x',{act:'none',lock:!n});
+      return n?`<div class="cx">${slot}<div><span class="rtag r${D.r}">${rarN(D.r)}</span><h4>${nm(D)}</h4><p>${ds(D)}</p><p class="cxk">${L('Encontrado','Found')}: <b>${n}×</b></p></div></div>`
+       :`<div class="cx unk">${slot}<div><span class="rtag r${D.r}">${rarN(D.r)}</span><h4>???</h4><p>${L('Ainda não encontrado.','Not found yet.')}</p></div></div>`}).join('')}</div>`}
+  showOv(`<div class="ovin wide"><div class="banner"><h2>${tab==='best'?L('Bestiário','Bestiary'):L('Grimório','Grimoire')}</h2><p>${L('Tudo o que você matou e tudo o que carregou.','Everything you have killed and everything you have carried.')}</p></div>
+   <div class="tabs" role="tablist"><button role="tab" aria-selected="${tab==='best'}" class="tab${tab==='best'?' on':''}" data-act="cxtab" data-k="best">${L('Bestiário','Bestiary')}</button><button role="tab" aria-selected="${tab==='grim'}" class="tab${tab==='grim'?' on':''}" data-act="cxtab" data-k="grim">${L('Grimório','Grimoire')}</button></div>
+   ${body}<div class="actions" style="justify-content:flex-start"><button class="big play" data-act="title">${t('Tela inicial')}</button></div></div>`);
+  UI.screen=codexScreen}
+function trackFound(){if(!R)return;R.got=R.got||[];META.found=META.found||{};let ch=false;
+  for(const k of [...R.eq.map(e=>e.id),...R.cons]){if(k.startsWith('man_')||R.got.includes(k))continue;R.got.push(k);META.found[k]=(META.found[k]||0)+1;ch=true}if(ch)saveMeta()}
+
+/* ---------- Jornada do Dia ---------- */
+const todayKey=()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
+function dailySpec(){const d=todayKey();const r=mulberry(hash('ante-mortem-'+d));const base=Object.keys(CLASSES).filter(k=>!CLASSES[k].req);
+  return{d,cls:base[Math.floor(r()*base.length)],sign:1+Math.floor(r()*3)}}
+function dailyHTML(){const s=dailySpec();const rec=META.daily&&META.daily.d===s.d?META.daily:null;
+  return `<button class="big daily" data-act="daily"><span>${L('Jornada do Dia','Daily Journey')}</span><small>${cn(s.cls)} · ${L('Sinal','Sign')} ${['I','II','III'][s.sign-1]} · ${L('mesma semente para todos','same seed for everyone')}</small>${rec?`<em>${rec.won?L('Vencida hoje!','Won today!'):L(`Seu melhor hoje: Círculo ${rec.best}`,`Your best today: Circle ${rec.best}`)}</em>`:''}</button>`}
+
+/* ---------- intenção no painel do inimigo ---------- */
+function intentHTML(f){if(!F||!F.int)return '';const k=F.int;const I=INTENT[k];let ic=I.ic,extra='';
+  if(k==='afflict'){const[c,n]=afflOf(f.ty);ic=c==='bleed'?'drop':c==='burn'?'fire':c==='fear'?'eye':'hammer';extra=condName(c)+' '+n}
+  const d=LP(I.d).replace('{c}',extra);const hit=incoming(f);
+  return `<span class="intent i-${k}" title="${d}">${iconSVG(ic)}<b>${LP(I.n)}</b>${F.freeze?`<em>${condName('stun')}</em>`:k==='howl'?'':`<em>−${hit}</em>`}${extra?`<em>${extra}</em>`:''}</span>`}
+
+
 /* ================= estado ================= */
 let R=null,F=null;const UI={sel:new Set(),busy:false,sort:'r',cur:null,upTab:'eq',confirm:null,screen:null};
-function armor(){return R.arm+R.eq.reduce((a,e)=>a+(EQ[e.id].arm||0),0)+(F?F.armB:0)+(hasEq('escamas')&&isT('dragon')?4:0)}
+function armor(){return R.arm+R.eq.reduce((a,e)=>a+(EQ[e.id].arm||0),0)+(F?F.armB:0)+(hasEq('escamas')&&isT('dragon')?4:0)+(hasScar('pele')?1:0)}
 function equipAdd(id){const E=EQ[id];R.eq.push({id,v:E.v||0});if(E.hpb){R.maxHp+=E.hpb;R.hp+=E.hpb}}
 function equipRemove(i){const E=EQ[R.eq[i].id];R.eq.splice(i,1);if(E.hpb){R.maxHp=Math.max(5,R.maxHp-E.hpb);R.hp=Math.min(R.hp,R.maxHp)}}
 function slots(){return R.sl+R.eq.reduce((a,e)=>a+(EQ[e.id].slots||0),0)}
-function handSize(){return R.hs+R.eq.reduce((a,e)=>a+(EQ[e.id].hs||0),0)}
-function discards(){return R.dis+R.eq.reduce((a,e)=>a+(EQ[e.id].dis||0),0)}
+function handSize(){return R.hs+R.eq.reduce((a,e)=>a+(EQ[e.id].hs||0),0)-(hasInj('braco')?1:0)}
+function discards(){return Math.max(0,R.dis+R.eq.reduce((a,e)=>a+(EQ[e.id].dis||0),0)-(hasInj('olho')?1:0)+(hasScar('firme')?1:0)-(sg(3)?1:0))}
 const hasEq=id=>R.eq.some(e=>e.id===id);
 const deckCard=c=>R.deck.find(d=>d.id===c.id)||c;
-function heal(n){const b=R.hp;R.hp=Math.min(R.maxHp,R.hp+n);return R.hp-b}
+function heal(n){if(hasInj('febre'))n=Math.ceil(n/2);const b=R.hp;R.hp=Math.min(R.maxHp,R.hp+n);return R.hp-b}
 function atkOf(f){let a=f.atk;if(f.ab==='furia')a=Math.round(a*1.6);if(f.ab==='frenesi')a=Math.round(a*1.4);return a}
 const HPW=()=>LANG==='en'?'HP':'PV';
 
-function newRun(ck){
+function newRun(ck,opt={}){
   const C=CLASSES[ck];let id=0;const deck=[];
   const suits=C.suits||[0,1,2,3];const reps=4/suits.length;
   for(const s of suits)for(let k=0;k<reps;k++)for(let r=2;r<=14;r++)deck.push({id:id++,r,s,e:null});
-  const hp=C.hp+3*perk('vida');
-  R={v:3,cls:ck,deck,hp,maxHp:hp,arm:C.arm,dis:C.dis+perk('descarte'),hs:C.hs,sl:C.sl+perk('espaco'),gold:4+2*perk('ouro'),c:1,st:0,foes:[],
+  const sign=opt.sign||0;const hp=C.hp+3*perk('vida')-(sign>=7?8:0);
+  R={v:4,cls:ck,deck,hp,maxHp:hp,arm:C.arm,dis:C.dis+perk('descarte'),hs:C.hs,sl:C.sl+perk('espaco'),gold:4+2*perk('ouro'),c:1,map:null,row:0,pick:null,
     eq:C.eq.map(i=>({id:i,v:EQ[i].v||0})),cons:C.cons.slice(),lv:{},spells:0,best:0,kills:0,bosses:0,lastT:null,shop:null,phase:'path',
-    bossPool:shuffle(BOSSES).map(b=>b.a),used:[]};
-  F=null;UI.cur=null;makeFoes();saveRun();
-}
-function makeFoes(){
-  const c=R.c;
-  const choose=k=>{let pool=MONSTERS.filter(m=>m.k===k&&m.min<=c&&m.max>=c&&!R.used.includes(m.a));if(!pool.length)pool=MONSTERS.filter(m=>m.k===k&&m.min<=c&&m.max>=c);const m=pick(pool);R.used.push(m.a);return m};
-  const mk=(base,kind,i)=>{let max=Math.round(BAL.hp[c-1]*BAL.mult[i]);
-    const A=BAL.atk[kind];const atk=Math.round(A[0]+A[1]*c);
-    if(base.ab==='muralha')max=Math.round(max*1.4);
-    if(base.ab==='tarrasque')max=Math.round(max*1.2);
-    const f={a:base.a,ty:base.ty,u:base.u||0,ab:base.ab||null,kind,max,hp:max,atk,bg:pick(BGS),reward:kind==='small'?3:kind==='big'?4:6};
-    if(f.ab==='naipe')f.suit=pick(CLASSES[R.cls].suits||[0,1,2,3]);
-    return f};
-  R.foes=[mk(choose('small'),'small',0),mk(choose('big'),'big',1),mk(c===8?FINAL:FOEDB[R.bossPool[(c-1)%R.bossPool.length]],'boss',2)];
+    bossPool:[],used:[],usedEv:[],inj:[],scar:[],hc:{},got:[],sign,daily:opt.daily||null,seed:opt.daily?hash('ante-mortem-'+opt.daily):null};
+  R.bossPool=shuffle(BOSSES).map(b=>b.a);
+  F=null;UI.cur=null;makeMap();saveRun();
 }
 function abilTxt(f){if(!f.ab)return null;const[tt,d]=ABIL[f.ab][LANG==='en'?1:0];return{t:tt,d:d.replace('{s}',suitN(f.suit))}}
 function foeImg(f,w=240,h=300){return art(f.a,FOEDB[f.a].n,f.bg,w,h)}
@@ -1614,17 +2271,17 @@ function foeImg(f,w=240,h=300){return art(f.a,FOEDB[f.a].n,f.bg,w,h)}
 function saveRun(){
   if(!R||['dead','won'].includes(R.phase)){LS.del('ruina-run');return}
   const c=JSON.parse(JSON.stringify(R));
-  if(c.phase==='fight'){c.phase='path';const f=c.foes[c.st];if(f)f.hp=f.max}
-  if(c.phase==='reward'){c.phase='shop';c.shop=null}
+  if(c.phase==='fight'){c.phase='path';const n=c.map&&c.map[c.row]&&c.map[c.row][c.pick];if(n&&n.foe)n.foe.hp=n.foe.max;c.pick=null}
   LS.set('ruina-run',c);
 }
-function loadRun(){const c=LS.get('ruina-run',null);if(!c||c.v!==3||!c.cls||!CLASSES[c.cls])return null;return c}
+function loadRun(){const c=LS.get('ruina-run',null);if(!c||c.v!==4||!c.cls||!CLASSES[c.cls])return null;return c}
 
 /* ================= combate ================= */
 function startFight(){
-  const f=R.foes[R.st];
+  const f=curFoe();if(!f)return;
   let dis=f.ab==='garra'?0:discards();if(f.ab==='medo')dis=Math.max(0,dis-1);
-  F={foe:f,draw:shuffle(R.deck),disc:[],hand:[],played:[],dis,n:0,freeze:0,poison:0,half:false,chama:false,armB:0,last:null,down:new Set(),types:new Set(),smite:false,rolls:Array.from({length:60},()=>Math.random()<.25),trap:false,curse:false,stone:new Set(),discarded:0,freeDis:false,maceArm:0,revived:false};
+  F={foe:f,draw:shuffle(R.deck),disc:[],hand:[],played:[],dis,n:0,freeze:0,poison:0,half:false,chama:false,armB:0,last:null,down:new Set(),types:new Set(),smite:false,rolls:Array.from({length:60},()=>Math.random()<.25),trap:false,curse:false,stone:new Set(),discarded:0,freeDis:false,maceArm:0,revived:false,ec:{bleed:hasScar('abismo')?3:0,burn:0,fear:0},pc:{bleed:0,burn:0,fear:0,stun:0},int:null,injured:false};
+  F.int=nextIntent(f);F.rolls=F.rolls.map(()=>grand()<.25);
   if(R.cls==='mago'&&R.cons.length<slots()){const s=spellPool();if(s.length){R.cons.push(pick(s));setTimeout(()=>toast(t('Memória Arcana: uma magia surge no grimório.')),300)}}
   R.phase='fight';UI.sel.clear();UI.cur=null;drawUp();render();
 }
@@ -1633,13 +2290,15 @@ function drawUp(){while(F.hand.length<handSize()){if(!F.draw.length){if(!F.disc.
 function selCards(){return F?F.hand.filter(c=>UI.sel.has(c.id)):[]}
 function score(cards){
   const ev=evalHand(cards);const b=hv(ev.t);let chips=b.c,mult=b.m;const steps=[];let cur=null;
-  const x={bleed:0,heal:0,guard:0,t:ev.t,cards,sc:ev.sc,addC(v){chips+=v;steps.push({src:cur,c:v,chips,mult})},addM(v){mult+=v;steps.push({src:cur,m:v,chips,mult})},mulM(v){mult*=v;steps.push({src:cur,x:v,chips,mult})}};
+  const x={bleed:0,burn:0,heal:0,guard:0,rune:0,cost:0,gold:0,t:ev.t,cards,sc:ev.sc,addC(v){chips+=v;steps.push({src:cur,c:v,chips,mult})},addM(v){mult+=v;steps.push({src:cur,m:v,chips,mult})},mulM(v){mult*=v;steps.push({src:cur,x:v,chips,mult})}};
   const debuff=c=>F&&((F.foe.ab==='naipe'&&c.s===F.foe.suit)||F.stone.has(c.id));
   for(const c of ev.sc){cur='c'+c.id;if(debuff(c)){steps.push({src:cur,dead:1,chips,mult});continue}
-    x.addC(rchips(c.r)+(c.e==='f'?30:0));if(c.e==='b')x.addM(4);
+    x.addC(rchips(c.r)+(c.e==='f'?30:0));if(c.e==='f')x.burn++;if(c.e==='b')x.addM(4);
+    if(c.sl==='sangue')x.heal+=2;else if(c.sl==='runa')x.rune++;else if(c.sl==='ouro')x.gold++;else if(c.sl==='profano'){x.mulM(2);x.cost+=3}
     R.eq.forEach((e,i)=>{const E=EQ[e.id];if(E.card){cur='e'+i;E.card(x,c,e);cur='c'+c.id}})}
   R.eq.forEach((e,i)=>{const E=EQ[e.id];if(E.hand){cur='e'+i;E.hand(x,e)}});
   R.eq.forEach((e,i)=>{const E=EQ[e.id];if(E.mul){cur='e'+i;E.mul(x,e)}});
+  if(hasScar('odio')){cur='t';x.addM(5)}
   cur='t';
   const T=BAL.tal;
   if(R.cls==='cacador'&&F&&F.n<2)x.mulM(T.caca);
@@ -1656,12 +2315,14 @@ function score(cards){
   if(F&&F.chama)x.mulM(2);
   if(F&&F.curse)x.mulM(1.25);
   if(F&&F.foe.ab==='medo'&&F.n===0)x.mulM(.5);
+  if(F&&F.pc&&F.pc.fear>0)x.mulM(.75);
   let dmg=Math.floor(chips*mult);
   if(F&&(F.foe.ab==='pedra'||F.foe.ab==='tarrasque')&&!hasEq('martelo'))dmg=Math.floor(dmg*.8);
+  if(F&&F.int==='guard')dmg=Math.floor(dmg*.6);
   if(F&&F.foe.ab==='silencio'&&F.n===0)dmg=0;
-  return{t:ev.t,sc:ev.sc,steps,chips,mult,dmg,base:b,smite,bleed:x.bleed,heal:x.heal,guard:x.guard};
+  return{t:ev.t,sc:ev.sc,steps,chips,mult,dmg,base:b,smite,bleed:x.bleed,burn:x.burn,heal:x.heal,guard:x.guard,rune:x.rune,cost:x.cost,gold:x.gold};
 }
-function incoming(f){let raw=atkOf(f);if(hasEq('elmo_chumbo')&&f.ty==='aberration')raw=Math.ceil(raw/2);if(f.ab==='engolir'&&F.n>=4)raw*=3;if(hasEq('bugiganga'))raw=Math.ceil(raw*1.2);if(f.ab==='sopro'&&F.n%3===2&&!hasEq('escamas'))raw*=2;if(F.half)raw=Math.ceil(raw/2);if(hasEq('rede'))raw=Math.ceil(raw*.85);
+function incoming(f){const I=INTENT[F.int]||INTENT.atk;if(!I.m)return 0;let raw=atkOf(f)*I.m;if(hasInj('costela'))raw*=1.2;if(sg(5))raw*=1.15;if(F.ec&&F.ec.fear>0)raw*=.7;raw=Math.round(raw);if(hasEq('elmo_chumbo')&&f.ty==='aberration')raw=Math.ceil(raw/2);if(f.ab==='engolir'&&F.n>=4)raw*=3;if(hasEq('bugiganga'))raw=Math.ceil(raw*1.2);if(f.ab==='sopro'&&F.n%3===2&&!hasEq('escamas'))raw*=2;if(F.half)raw=Math.ceil(raw/2);if(hasEq('rede'))raw=Math.ceil(raw*.85);
   /* a armadura nunca bloqueia mais da metade do golpe */
   return Math.max(Math.ceil(raw/2),raw-armor())}
 async function playHand(){
@@ -1669,6 +2330,7 @@ async function playHand(){
   const f=F.foe;
   if(f.ab==='cinco'&&cs.length!==5){toast(t('{n} só aceita mãos de 5 cartas.',{n:fn_(f)}));return}
   const ht=evalHand(cs).t;
+  if(F.pc.stun>0&&cs.length>3){toast(L('Atordoado: no máximo 3 cartas por mão.','Stunned: at most 3 cards per hand.'));return}
   if(f.ab==='eco'&&F.last===ht){toast(t('{n} não aceita {h} duas vezes seguidas.',{n:fn_(f),h:nm(HANDS[ht])}));return}
   UI.busy=true;closePop();
   F.hand=F.hand.filter(c=>!UI.sel.has(c.id));F.played=cs;UI.sel.clear();
@@ -1695,8 +2357,12 @@ async function playHand(){
   const T=BAL.tal;R.best=Math.max(R.best,S.dmg);R.lastT=S.t;F.last=S.t;F.types.add(S.t);if(S.smite)F.smite=true;
   R.types=R.types||[];if(!R.types.includes(S.t))R.types.push(S.t);bumpStat('handsAll',R.types.length);bumpStat('handsPlayed',1,'add');bumpStat('bestHit',S.dmg);
   if(R.cls==='bruxo'){R.hp=Math.max(1,R.hp-T.bruxoCost);updateMeBar()}
+  R.hc[S.t]=(R.hc[S.t]||0)+1;if(hasEq('tomo_guerra')&&R.hc[S.t]%4===0)lvUp(S.t);
+  if(S.cost){R.hp=Math.max(1,R.hp-S.cost);updateMeBar()}
+  if(S.gold)R.gold+=S.gold;
+  if(S.rune)F.dis+=S.rune;
   let h=0;
-  if(S.bleed&&f.hp>0){const bd=Math.ceil(f.max*.01*S.bleed);f.hp=Math.max(0,f.hp-bd);floatOn('.foe',t('sangra {n}',{n:fmt(bd)}));updateFoeBar()}
+  F.ec.bleed+=S.bleed;F.ec.burn+=S.burn;
   if(S.heal)h+=heal(S.heal);
   if(S.guard){const g=Math.min(S.guard,4-F.maceArm);if(g>0){F.maceArm+=g;F.armB+=g}}
   if(R.cls==='clerigo')h+=heal(3);
@@ -1704,6 +2370,8 @@ async function playHand(){
   if(hasEq('kit'))h+=heal(2);
   const pois=F.poison+(hasEq('kit_venenos')?.03:0);
   if(f.hp>0&&pois){const pd=Math.ceil(f.max*pois);f.hp=Math.max(0,f.hp-pd);floatOn('.foe',t('veneno {n}',{n:fmt(pd)}));updateFoeBar();await wait(450)}
+  if(f.hp>0&&F.ec.bleed>0){const bd=Math.ceil(f.max*.01*F.ec.bleed);F.ec.bleed--;f.hp=Math.max(0,f.hp-bd);floatOn('.foe',t('sangra {n}',{n:fmt(bd)}));updateFoeBar();await wait(350)}
+  if(f.hp>0&&F.ec.burn>0){const bd=Math.ceil(f.max*.02);F.ec.burn--;f.hp=Math.max(0,f.hp-bd);floatOn('.foe',L('queima ','burns ')+fmt(bd));updateFoeBar();await wait(350)}
   F.chama=false;
   F.disc.push(...F.played);F.played=[];
   if(f.hp<=0&&f.ab==='filact'&&!F.revived){F.revived=true;f.hp=Math.round(f.max*.3);updateFoeBar();sfx('death');toast(t('{n} se ergue do filactério!',{n:fn_(f)}));await wait(900)}
@@ -1716,9 +2384,20 @@ async function playHand(){
   updateFoeBar();
   if(F.freeze>0){F.freeze--;toast(t('{n} não consegue atacar.',{n:fn_(f)}));await wait(500)}
   else if(hasEq('armadilha')&&f.ty==='beast'&&!F.trap){F.trap=true;toast(t('{n} fica preso na armadilha!',{n:fn_(f)}));await wait(600)}
-  else{const d=incoming(f);
+  else if(F.int==='howl'){toast(L('{n} uiva. O próximo golpe será pesado.','{n} howls. Its next blow will be heavy.').replace('{n}',fn_(f)));sfx('growl');await wait(700)}
+  else{
+    if(F.int==='heal'){const g=Math.round(f.max*.08);f.hp=Math.min(f.max,f.hp+g);floatOn('.foe','+'+fmt(g));updateFoeBar();await wait(350)}
+    if(F.int==='afflict'){const[k,n]=afflOf(f.ty);F.pc[k]+=n;toast(fn_(f)+': '+condName(k)+' '+F.pc[k])}
+    const d=incoming(f);
     await fxEnemyAttack(d,()=>{R.hp-=d;if(f.ab==='sede'&&d>0){f.hp=Math.min(f.max,f.hp+Math.round(f.max*.06));updateFoeBar()}if(f.ab==='mental'&&!hasEq('elmo_chumbo')&&F.hand.length>1){const c=pick(F.hand);F.hand=F.hand.filter(x=>x!==c)}if(f.ab==='dreno'&&d>0){R.maxHp=Math.max(5,R.maxHp-1);R.hp=Math.min(R.hp,R.maxHp)}updateMeBar()});
-    if(R.hp<=0){R.hp=0;renderSide();await wait(600);UI.busy=false;return gameOver()}}
+    if(R.hp<=0){R.hp=0;renderSide();await wait(600);UI.busy=false;return gameOver()}
+    if(!F.injured&&R.hp<=R.maxHp*BAL.injAt){F.injured=true;gainInjury()}}
+  if(F.ec.fear>0)F.ec.fear--;
+  /* condições do jogador */
+  let lose=0;if(F.pc.bleed>0){lose+=F.pc.bleed;F.pc.bleed--}if(F.pc.burn>0){lose+=3;F.pc.burn--}
+  if(F.pc.fear>0)F.pc.fear--;if(F.pc.stun>0)F.pc.stun--;
+  if(lose){R.hp-=lose;floatOn('.score','-'+lose+' '+HPW(),true);updateMeBar();if(R.hp<=0){R.hp=0;renderSide();await wait(600);UI.busy=false;return gameOver()}}
+  F.int=nextIntent(f,F.int);
   F.n++;
   drawUp();UI.busy=false;render();
 }
@@ -1776,37 +2455,58 @@ function useCons(i){
 }
 function win(){
   if(R.phase!=='fight')return;R.phase='reward';
-  const f=F.foe;R.kills++;if(f.kind==='boss')R.bosses++;if(f.u)bumpStat('undead',1,'add');if(R.cls==='bruxo')heal(8);
+  const f=F.foe;const nd=curNode();const elite=!!(nd&&nd.t==='elite');
+  R.kills++;if(f.kind==='boss')R.bosses++;if(f.u)bumpStat('undead',1,'add');if(R.cls==='bruxo')heal(8);
+  META.seen=META.seen||{};META.seen[f.a]=(META.seen[f.a]||0)+1;
+  if(nd)nd.went=true;
   R.eq.forEach(e=>{const E=EQ[e.id];if(E.win)E.win(e,f)});
   const lines=[[t('Recompensa: {n}',{n:fn_(f)}),f.reward]];
+  if(elite)lines.push([L('Elite abatida','Elite slain'),BAL.eliteGold]);
   if(F.dis)lines.push([t('Descartes restantes'),F.dis]);
   if(R.cls==='ladino')lines.push([t('Pilhagem'),2]);
   if(hasEq('mochila'))lines.push([nm(EQ.mochila),2]);
   const interest=Math.min(5,Math.floor(R.gold/5));if(interest)lines.push([t('Juros (1 a cada 5)'),interest]);
   const total=lines.reduce((a,l)=>a+l[1],0);R.gold+=total;
-  let healed,grow=0;
-  if(f.kind==='boss'){grow=BAL.hpBoss+BAL.hpCircle;R.maxHp+=grow;healed=heal(Math.round(R.maxHp*BAL.healBoss))}else healed=heal(Math.round(R.maxHp*BAL.healWin));
+  let healed,grow=0,scar=null,cleared=0,ros=null;const half=sg(4)?.5:1;
+  if(f.kind==='boss'){
+    if(R.hp<=R.maxHp*BAL.scarAt)scar=gainScar();
+    cleared=R.inj.length;R.inj=[];
+    grow=BAL.hpBoss+BAL.hpCircle;R.maxHp+=grow;healed=heal(Math.round(R.maxHp*BAL.healBoss*half));
+    if(hasEq('rosario')){ros=favHand();lvUp(ros,1,true)}
+  }else healed=heal(Math.round(R.maxHp*BAL.healWin*half));
   F=null;
   const final=f.kind==='boss'&&R.c===8;
-  R.st++;if(R.st>2){R.st=0;R.c++;if(R.c<=8)makeFoes()}
   if(final)return victory();
-  saveRun();
-  UI.screen=null;
-  showOv(`<div class="ovin">
-   <div class="kicker">${t('Círculo {c} · {k} abatido',{c:f.kind==='boss'?R.c-1:R.c,k:t(f.kind==='boss'?'chefe':'inimigo')})}</div>
-   <div class="endt win">${t('{n} JAZ MORTO.',{n:fn_(f).toUpperCase()})}</div>
-   <div class="ledger">${lines.map(l=>`<div><span>${l[0]}</span><b>+$${l[1]}</b></div>`).join('')}
-    <div><span>${t('Ferimentos tratados')}</span><b style="color:var(--pink)">+${healed} ${HPW()}</b></div>
-    ${grow?`<div><span>${t('Vida máxima')}</span><b style="color:var(--pink)">+${grow}</b></div>`:''}
-    <div><span>${t('Ouro na bolsa')}</span><b>$${R.gold}</b></div></div>
-   <div><button class="big play" data-act="toshop">${t('Ir ao Festival')}</button></div></div>`);
+  const c0=R.c;
+  R.rw={a:f.a,kind:f.kind,elite,c:c0,lines,healed,grow,scar,cleared,ros,opts:f.kind==='boss'?spoilOpts():elite?trophyOpts():[],done:false};
+  advanceRow();
+  saveRun();UI.screen=null;rewardOv();
 }
+function rewardOv(){const w=R.rw;if(!w){R.phase='path';render();return}
+  const opt=w.opts.length?`<div class="kicker" style="margin-top:6px">${w.kind==='boss'?L('Espólio do chefe: o crânio sussurra um segredo. Escolha uma mão.','Boss spoils: the skull whispers a secret. Choose a hand.'):L('Troféu da elite: escolha um.','Elite trophy: choose one.')}</div>
+    <div class="trophy">${w.opts.map((o,i)=>`<button class="big ${w.took===i?'play':'ghost'}" data-act="rwpick" data-i="${i}" ${w.done?'disabled':''}>${optLabel(o)}</button>`).join('')}</div>`:'';
+  showOv(`<div class="ovin">
+   <div class="kicker">${t('Círculo {c} · {k} abatido',{c:w.c,k:t(w.kind==='boss'?'chefe':'inimigo')})}</div>
+   <div class="endt win">${t('{n} JAZ MORTO.',{n:fn_({a:w.a}).toUpperCase()})}</div>
+   <div class="ledger">${w.lines.map(l=>`<div><span>${l[0]}</span><b>+$${l[1]}</b></div>`).join('')}
+    <div><span>${t('Ferimentos tratados')}</span><b style="color:var(--pink)">+${w.healed} ${HPW()}</b></div>
+    ${w.grow?`<div><span>${t('Vida máxima')}</span><b style="color:var(--pink)">+${w.grow}</b></div>`:''}
+    ${w.cleared?`<div><span>${L('Ferimentos cicatrizados','Injuries healed')}</span><b>${w.cleared}</b></div>`:''}
+    ${w.scar?`<div><span>${L('Cicatriz: ','Scar: ')}${LP(SCAR[w.scar].n)}</span><b>${LP(SCAR[w.scar].d)}</b></div>`:''}
+    ${w.ros?`<div><span>${nm(EQ.rosario)}</span><b>${nm(HANDS[w.ros])} +1</b></div>`:''}
+    <div><span>${t('Ouro na bolsa')}</span><b>$${R.gold}</b></div></div>
+   ${w.scar?`<p class="lore">${L('Você venceu por um fio. O corpo lembra, e fica mais duro.','You won by a thread. The body remembers, and hardens.')}</p>`:''}
+   ${opt}
+   <div><button class="big play" data-act="rwdone">${t('Seguir caminho')}</button></div></div>`)}
 /* ---------- fim de jornada e experiência ---------- */
-function xpFor(won){const lines=[[t('Inimigos mortos × 3'),R.kills*3],[t('Chefes mortos × 12'),R.bosses*12]];if(R.c>1)lines.push([t('Círculos alcançados × 5'),(Math.min(R.c,8)-1)*5]);if(won)lines.push([t('Vitória sobre o Colosso do Fim'),100]);return lines}
+function xpFor(won){const lines=[[t('Inimigos mortos × 3'),R.kills*3],[t('Chefes mortos × 12'),R.bosses*12]];if(R.c>1)lines.push([t('Círculos alcançados × 5'),(Math.min(R.c,8)-1)*5]);if(won)lines.push([t('Vitória sobre o Colosso do Fim'),100]);if(R.sign){const base=lines.reduce((a,l)=>a+l[1],0);lines.push([L(`Sinais do Fim (${R.sign}) +${R.sign*15}%`,`Signs of the End (${R.sign}) +${R.sign*15}%`),Math.round(base*R.sign*.15)])}return lines}
 function endRun(won){
   const lines=xpFor(won);const xp=lines.reduce((a,l)=>a+l[1],0);
   META.xp+=xp;META.earned+=xp;META.runs++;META.kills+=R.kills;if(won)META.wins++;
-  const reach=won?9:R.c;META.best[R.cls]=Math.max(META.best[R.cls]||0,reach);saveMeta();
+  const reach=won?9:R.c;META.best[R.cls]=Math.max(META.best[R.cls]||0,reach);
+  if(won){META.sig=META.sig||{};META.sig[R.cls]=Math.max(META.sig[R.cls]||0,Math.min(7,R.sign+1));META.sigWon=META.sigWon||{};META.sigWon[R.cls]=Math.max(META.sigWon[R.cls]??-1,R.sign)}
+  if(R.daily){const d=META.daily&&META.daily.d===R.daily?META.daily:{d:R.daily,best:0,won:false,tries:0};d.best=Math.max(d.best,Math.min(reach,8));d.won=d.won||won;d.tries++;META.daily=d}
+  saveMeta();
   R.phase=won?'won':'dead';LS.del('ruina-run');
   return{lines,xp};
 }
@@ -1832,17 +2532,16 @@ function abandon(){const x=endRun(false);UI.screen=null;showOv(`<div class="ovin
 function genShop(){
   const owned=new Set(R.eq.map(e=>e.id));
   const pool=Object.keys(EQ).filter(k=>!owned.has(k)&&isUnl(k));
-  const w=k=>({1:6,2:3,3:1})[EQ[k].r];
-  const pickEq=ex=>{const p=pool.filter(k=>!ex.includes(k));if(!p.length)return null;let tot=p.reduce((a,k)=>a+w(k),0),x=Math.random()*tot;for(const k of p){x-=w(k);if(x<=0)return k}return p[0]};
+  const pickEq=ex=>wpick(pool,ex);
   const eqs=[];for(let i=0;i<2+perk('feira');i++){const k=pickEq(eqs);if(k)eqs.push(k)}
   const sp=spellPool(),it=itemPool();
-  const pc=()=>{const x=Math.random();return x<.5&&sp.length?pick(sp):x<.78&&it.length?pick(it):'man_'+pick(HORDER.slice(1))};
+  const cpool=[...sp,...it,...HORDER.slice(1).map(h=>'man_'+h)];const pc=()=>wpick(cpool);
   const keep=R.shop&&R.shop.bones!==undefined;
   R.shop={eq:eqs.map(k=>({k,sold:false})),cons:[pc(),pc(),pc()].map(k=>({k,sold:false})),reroll:R.shop?.reroll??3,rested:R.shop?.rested??false,
-    bones:keep?R.shop.bones:Math.random()<BAL.boneChance,boneHands:keep?R.shop.boneHands:shuffle(HORDER).slice(0,4),read:keep?R.shop.read:false};
+    bones:keep?R.shop.bones:grand()<BAL.boneChance,boneHands:keep?R.shop.boneHands:shuffle(HORDER).slice(0,4),read:keep?R.shop.read:false,blood:keep?R.shop.blood:false};
 }
 const ossoCost=h=>Math.round(BAL.bone[0]*Math.pow(BAL.bone[1],lvl(h)-1));
-function toShop(){hideOv();R.phase='shop';R.shop=null;genShop();R.shop.reroll=3;R.shop.rested=false;render()}
+function toShop(){hideOv();R.phase='shop';R.shop=null;genShop();R.shop.reroll=3;R.shop.rested=false;R.shop.blood=false;render()}
 
 /* ================= renderização ================= */
 function cardHTML(c,opt={}){
@@ -1850,13 +2549,14 @@ function cardHTML(c,opt={}){
   const face=c.r>=11&&c.r<=13;
   const mid=face?`<div class="face">${rl(c.r)}<svg><use href="#su${c.s}"/></svg></div>`:c.r===14?`<svg viewBox="0 0 24 24" style="width:92%;height:92%"><use href="#su${c.s}"/></svg>`:`<svg viewBox="0 0 24 24"><use href="#su${c.s}"/></svg>`;
   const enh=c.e==='b'?'<span class="enh b">+4 F</span>':c.e==='f'?'<span class="enh f">+30</span>':'';
-  const lab=t('{r} de {s}',{r:rl(c.r),s:suitN(c.s)})+(c.e==='b'?t(', abençoada'):c.e==='f'?t(', flamejante'):'');
+  const lab=t('{r} de {s}',{r:rl(c.r),s:suitN(c.s)})+(c.e==='b'?t(', abençoada'):c.e==='f'?t(', flamejante'):'')+(c.sl?', '+LP(SEAL[c.sl].n):'');
+  const seal=c.sl?`<span class="seal s-${c.sl}" title="${LP(SEAL[c.sl].n)}: ${LP(SEAL[c.sl].d)}"></span>`:'';
   return `<button class="card s${c.s}${opt.sel?' sel':''}${down?' down':''}${F&&F.stone.has(c.id)?' stone':''}" data-id="${c.id}" ${opt.act?`data-act="${opt.act}"`:''} aria-label="${down?t('Carta virada'):lab}" aria-pressed="${!!opt.sel}">
-   <span class="tl">${rl(c.r)}<svg><use href="#su${c.s}"/></svg></span><span class="mid">${mid}</span><span class="br">${rl(c.r)}</span>${enh}</button>`;
+   <span class="tl">${rl(c.r)}<svg><use href="#su${c.s}"/></svg></span><span class="mid">${mid}</span><span class="br">${rl(c.r)}</span>${enh}${seal}</button>`;
 }
-function eqSlot(e,i,opt={}){const E=EQ[e.id];return `<button class="slot full y${opt.lock?' locked':''}" data-eq="${i}" data-act="${opt.act||'eqpop'}" data-k="${e.id}" aria-label="${nm(E)}">${iconSVG(E.ic)}${e.id==='alabarda'&&e.v>1?`<span class="vv">×${fmtx(e.v)}</span>`:''}<span class="nm">${nm(E)}</span></button>`}
+function eqSlot(e,i,opt={}){const E=EQ[e.id];return `<button class="slot full y rar${E.r}${opt.lock?' locked':''}" data-eq="${i}" data-act="${opt.act||'eqpop'}" data-k="${e.id}" aria-label="${nm(E)}"><img class="ic" src="${iconImg(E.ic,PAL.ink,E.r)}" alt="">${e.id==='alabarda'&&e.v>1?`<span class="vv">×${fmtx(e.v)}</span>`:''}<span class="gem" title="${rarN(E.r)}"></span><span class="nm">${nm(E)}</span></button>`}
 function consSlot(k,i,opt={}){const C=CONS[k];const cl=C.k==='magia'?'p':C.k==='item'?'w':'k';
-  return `<button class="slot full ${cl}${opt.lock?' locked':''}" data-cons="${i}" data-act="${opt.act||'conspop'}" data-k="${k}" aria-label="${nm(C)}">${C.k==='magia'?sigilSVG(k):iconSVG(C.ic)}<span class="nm">${nm(C).replace('Manual: ','')}</span></button>`}
+  return `<button class="slot full ${cl} rar${C.r}${opt.lock?' locked':''}" data-cons="${i}" data-act="${opt.act||'conspop'}" data-k="${k}" aria-label="${nm(C)}">${C.k==='magia'?sigilSVG(k):`<img class="ic" src="${iconImg(C.ic,C.k==='manual'?PAL.yel:PAL.ink,C.r)}" alt="">`}<span class="gem" title="${rarN(C.r)}"></span><span class="nm">${nm(C).replace('Manual: ','')}</span></button>`}
 function renderBelt(){
   const es=[];for(let i=0;i<5;i++)es.push(R.eq[i]?eqSlot(R.eq[i],i):`<span class="slot" aria-hidden="true"></span>`);
   const cs=[];for(let i=0;i<slots();i++)cs.push(R.cons[i]?consSlot(R.cons[i],i):`<span class="slot" aria-hidden="true"></span>`);
@@ -1872,14 +2572,15 @@ function setScore(name,lv,c,m,dmg,bump){
 }
 function showCur(){const[h,c,m,d]=UI.cur;setScore(nm(HANDS[h]),lvl(h),c,m,fmt(d))}
 function renderSide(){
-  const f=F?F.foe:(R.phase==='shop'||R.phase==='path')?R.foes[R.st]:null;
+  const f=F?F.foe:R.map&&R.c<=8?bossOf():null;
   const ab=f&&abilTxt(f);
   const pct=f?Math.max(0,f.hp/f.max*100):0;
   const foeHTML=f?`<div class="foe">
-     <div class="fart"><img src="${foeImg(f)}" alt="${t('{n} ilustração em tinta',{n:fn_(f)})}"><div class="fname">${fn_(f)}</div></div>
+     <div class="fart"><img src="${foeImg(f)}" alt="${t('{n} ilustração em tinta',{n:fn_(f)})}"><div class="fname">${fn_(f)}</div>${F?intentHTML(f):`<span class="intent preview">${L('Chefe do Círculo','Circle boss')}</span>`}</div>
      <div class="fbar"><div class="frow"><span>${t('Vida')}</span><b>${fmt(f.hp)} / ${fmt(f.max)}</b></div>
       <div class="hpbar"><i style="width:${pct}%"></i></div>
-      <div class="frow"><span>${t('Ataque')} <b>${atkOf(f)}</b></span><span><span class="tag u">${tyN(f.ty)}</span> <span class="tag">${t(f.kind==='boss'?'Chefe':f.kind==='big'?'Grande':'Comum')}</span></span></div></div>
+      <div class="frow"><span>${t('Ataque')} <b>${atkOf(f)}</b></span><span><span class="tag u">${tyN(f.ty)}</span> <span class="tag">${f.elite?L('Elite','Elite'):t(f.kind==='boss'?'Chefe':f.kind==='big'?'Grande':'Comum')}</span></span></div>
+      ${F?`<div class="conds">${condChips(F.ec,false)}${F.freeze?`<span class="cond c-stun">${condName('stun')} ${F.freeze}</span>`:''}</div>`:''}</div>
    </div>`:'';
   const abHTML=ab?`<div class="ability"><b>${ab.t}</b>${ab.d}</div>`:'';
   const hpp=R.hp/R.maxHp*100;
@@ -1892,9 +2593,10 @@ function renderSide(){
    <div class="stats">
     <div class="frow"><span>${cn(R.cls)}</span><b>${R.hp} / ${R.maxHp} ${HPW()}</b></div>
     <div class="hpbar me"><i style="width:${hpp}%"></i></div>
-    ${hit!=null?`<div class="frow warn"><span>${t('Próximo contra-ataque')}</span><b>${F.freeze?t('congelado'):'-'+hit+' '+HPW()}</b></div>`:''}
+    ${hit!=null?`<div class="frow warn"><span>${t('Próximo contra-ataque')}</span><b>${F.freeze?t('congelado'):F.int==='howl'?L('uivo','howl'):'-'+hit+' '+HPW()}</b></div>`:''}
+    ${(F&&Object.values(F.pc).some(v=>v>0))||R.inj.length||R.scar.length?`<div class="conds">${F?condChips(F.pc,true):''}${woundChips()}</div>`:''}
     <div class="srow"><div class="stat"><b>${armor()}</b><small>${t('Armadura')}</small></div><div class="stat gold"><b>$${R.gold}</b><small>${t('Ouro')}</small></div><div class="stat"><b>${F?F.dis:discards()}</b><small>${t('Descartes')}</small></div></div>
-    <div class="frow"><span>${t('Círculo')} <b>${Math.min(R.c,8)}</b>/8</span><span>${t('Inimigo')} <b>${R.st+1}</b>/3</span></div>
+    <div class="frow"><span>${t('Círculo')} <b>${Math.min(R.c,8)}</b>/8</span><span>${L('Passo','Step')} <b>${Math.min(R.row+1,5)}</b>/5</span>${R.sign?`<span>${L('Sinal','Sign')} <b>${R.sign}</b></span>`:''}</div>
     <div class="btnrow"><button class="mini" data-act="hands">${t('Mãos')}</button><button class="mini" data-act="deck">${t('Baralho')}</button><button class="mini" data-act="rules">${t('Regras')}</button></div>
    </div>`;
   updatePreview();
@@ -1924,8 +2626,8 @@ function renderStage(){
     const rows=HORDER.slice().reverse().filter(h=>R.shop.boneHands.includes(h)).map(h=>{const l=lvl(h),now=hv(h),H=HANDS[h],cost=ossoCost(h);const nx={c:now.c+H.lc,m:now.m+H.lm};
       return `<div class="bonerow"><div class="bn"><b>${nm(H)}</b><small>${t('nv {a} → {b}',{a:l,b:l+1})}</small></div>
        <div class="bv"><span class="c">${now.c}</span>×<span class="m">${now.m}</span><i>→</i><span class="c">${nx.c}</span>×<span class="m">${nx.m}</span></div>
-       <button class="buy" data-act="bonebuy" data-k="${h}" ${R.gold<cost||R.shop.read?'disabled':''}>${t('Subir · ${c}',{c:cost})}</button></div>`}).join('');
-    st.innerHTML=`<div class="banner"><h2>${t('Ossomante')}</h2><p>${R.shop.read?t('Os ossos já falaram. Volte no próximo Festival.'):t('Uma leitura por visita. Cada nível custa mais que o anterior.')}</p></div>
+       <div class="bb"><button class="buy" data-act="bonebuy" data-k="${h}" ${R.gold<cost||R.shop.read?'disabled':''}>${t('Subir · ${c}',{c:cost})}</button><button class="buy blood" data-act="boneblood" data-k="${h}" ${R.shop.blood||R.maxHp<=15?'disabled':''}>${L('Sangue · −'+BAL.boneBlood+' PV máx.','Blood · −'+BAL.boneBlood+' max HP')}</button></div></div>`}).join('');
+    st.innerHTML=`<div class="banner"><h2>${t('Ossomante')}</h2><p>${R.shop.read?t('Os ossos já falaram. Volte no próximo Festival.'):t('Uma leitura por visita. Cada nível custa mais que o anterior.')} ${L('Ele também aceita pagamento em sangue, uma vez.','He also accepts payment in blood, once.')}</p></div>
      <div class="bones"><figure class="boneart"><img src="${art('bonemancer','ossomante','pink',240,300)}" alt="${t('O Ossomante, coberto de ossos, lendo o destino')}"><figcaption>${t('Ele joga os ossos e lê o que dizem. Por ouro, ensina suas mãos a ferir mais fundo.')}</figcaption></figure>
       <div class="bonelist">${rows}</div></div>
      <div class="actions" style="justify-content:flex-start;padding-top:6px"><button class="big ghost" data-act="boneback">${t('Voltar ao Festival')}</button></div>`;
@@ -1933,9 +2635,10 @@ function renderStage(){
     const S=R.shop;
     const ware=(it,i,type)=>{const D=type==='eq'?EQ[it.k]:CONS[it.k];const full=type==='eq'?R.eq.length>=5:R.cons.length>=slots();
       const slot=type==='eq'?eqSlot({id:it.k,v:EQ[it.k].v||0},'s'+i,{act:'none'}):consSlot(it.k,'s'+i,{act:'none'});
-      return `<div class="ware${it.sold?' sold':''}"><div style="position:relative"><span class="price">$${D.p}</span>${slot}</div><p><strong>${nm(D)}</strong><br>${ds(D)}</p>
-        <button class="buy" data-act="buy" data-type="${type}" data-i="${i}" ${it.sold||R.gold<D.p||full?'disabled':''}>${full&&!it.sold?t('Sem espaço'):t('Comprar')}</button></div>`};
-    st.innerHTML=`<div class="banner"><h2>${t('O Festival dos Condenados')}</h2><p>${t('Venda o que não usa clicando no seu equipamento.')}</p></div>
+      const pr=priceOf(D);
+      return `<div class="ware${it.sold?' sold':''}"><div style="position:relative"><span class="price">$${pr}</span>${slot}</div><p><span class="rtag r${D.r}">${rarN(D.r)}</span><strong>${nm(D)}</strong><br>${ds(D)}</p>
+        <button class="buy" data-act="buy" data-type="${type}" data-i="${i}" ${it.sold||R.gold<pr||full?'disabled':''}>${full&&!it.sold?t('Sem espaço'):t('Comprar')}</button></div>`};
+    st.innerHTML=`<div class="vista fest" style="background-image:url(${festImg()})"><h2 class="rn">${ransom(t('O Festival dos Condenados'),'fest')}</h2><p class="tape">${t('Venda o que não usa clicando no seu equipamento.')}</p></div>
      <div class="shoprow">${S.eq.map((it,i)=>ware(it,i,'eq')).join('')}${S.cons.map((it,i)=>ware(it,i,'cons')).join('')}</div>
      <div class="actions" style="justify-content:flex-start;padding-top:10px">
       <button class="big ghost" data-act="reroll" ${R.gold<S.reroll?'disabled':''}>${t('Renovar')} · $${S.reroll}</button>
@@ -1943,15 +2646,11 @@ function renderStage(){
       <button class="big play" data-act="topath">${t('Seguir caminho')}</button></div>
      ${S.bones?`<button class="bonecall" data-act="bones"><img src="${art('bonemancer','ossomante','pink',120,150)}" alt=""><span><b>${t('Ossomante')}</b><small>${t('Ele joga os ossos e lê o que dizem. Por ouro, ensina suas mãos a ferir mais fundo.')}</small><em>${R.shop.read?t('Os ossos já falaram. Volte no próximo Festival.'):t('Consultar o Ossomante')}</em></span></button>`:''}`;
   } else if(R.phase==='path'){
-    const nodes=R.foes.map((f,i)=>{const ab=abilTxt(f);const cls=i<R.st?'done':i===R.st?'next':'';
-      return `<div class="pnode ${cls} ${f.kind==='boss'?'boss':''}"><img src="${foeImg(f,180,225)}" alt="${fn_(f)}"><div class="pi"><span class="kicker">${t(f.kind==='boss'?'Chefe':f.kind==='big'?'Inimigo grande':'Inimigo comum')}</span><h4>${fn_(f)}</h4>
-       <p>${t('Vida {a} · Ataque {b} · ${c}',{a:fmt(f.max),b:atkOf(f),c:f.reward})}</p>${ab?`<p style="color:var(--pink)"><b>${ab.t}:</b> ${ab.d}</p>`:''}<p style="color:var(--yel)">${tyN(f.ty)}</p></div></div>`}).join('');
-    st.innerHTML=`<div class="banner"><h2>${t('Círculo')} ${R.c}</h2><p>${LANDS[LANG][R.c-1]}</p></div>
-     <div class="path">${nodes}</div>
-     <div class="actions" style="justify-content:flex-start"><button class="big play" data-act="fight">${t('Enfrentar {n}',{n:fn_(R.foes[R.st])})}</button></div>`;
+    st.innerHTML=`${vistaHTML(R.c,t('Círculo')+' '+ROMAN[R.c],LANDS[LANG][R.c-1]+' · '+L('Escolha seu caminho.','Choose your path.'))}${mapHTML()}`;
+  } else if(R.phase==='event'&&R.ev){st.innerHTML=eventHTML();
   } else st.innerHTML='';
 }
-function render(){if(!R)return;bumpStat('maxGold',R.gold);document.body.classList.add('ingame');renderBelt();renderSide();renderStage();saveRun()}
+function render(){if(!R)return;trackFound();setScene(Math.min(R.c,8));if(R.phase==='path'&&UI.lastC!==R.c&&R.c<=8){UI.lastC=R.c;circleCard(R.c)}bumpStat('maxGold',R.gold);document.body.classList.add('ingame');renderBelt();renderSide();renderStage();saveRun()}
 
 /* ================= pop-up ================= */
 let popFor=null;
@@ -1963,17 +2662,22 @@ function closePop(){$('#pop').classList.remove('on');popFor=null}
 /* ================= telas ================= */
 function showOv(h){const o=$('#ov');o.innerHTML=h;o.classList.add('on');o.scrollTop=0;closePop()}
 function hideOv(){$('#ov').classList.remove('on');UI.screen=null}
-function rulesHTML(){return `<div class="rules"><strong>${t('Como se joga')}</strong><ol>${['Selecione até 5 cartas da mão e forme uma mão de pôquer.','Dano = <b>Golpe</b> (amarelo) × <b>Fúria</b> (rosa). Cartas que pontuam somam seu valor ao Golpe.','A vida do inimigo é a meta. Se ele sobreviver à sua mão, contra-ataca.','A Armadura reduz o dano recebido, mas nunca bloqueia mais da metade de um golpe.','Descartes trocam cartas sem provocar ataque. São poucos por combate.','Equipamentos dão bônus permanentes. Magias e itens são usados uma vez.','Cada Círculo tem três inimigos; o último é um chefe com uma maldição. Vença os 8 Círculos.','Toda jornada termina em experiência. Gaste-a em Melhorias para liberar novos itens.'].map(s=>`<li>${t(s)}</li>`).join('')}</ol></div>`}
+function rulesHTML(){return `<div class="rules"><strong>${t('Como se joga')}</strong><ol>${['Selecione até 5 cartas da mão e forme uma mão de pôquer.','Dano = <b>Golpe</b> (amarelo) × <b>Fúria</b> (rosa). Cartas que pontuam somam seu valor ao Golpe.','A vida do inimigo é a meta. Se ele sobreviver à sua mão, contra-ataca.','A Armadura reduz o dano recebido, mas nunca bloqueia mais da metade de um golpe.','Descartes trocam cartas sem provocar ataque. São poucos por combate.','Equipamentos dão bônus permanentes. Magias e itens são usados uma vez.','Cada Círculo tem três inimigos; o último é um chefe com uma maldição. Vença os 8 Círculos.','Toda jornada termina em experiência. Gaste-a em Melhorias para liberar novos itens.'].map(s=>`<li>${t(s)}</li>`).join('')}${[
+ ['Cada Círculo é um caminho com bifurcações: combates, elites, encontros, santuários, criptas e festivais. O chefe espera no fim.','Each Circle is a forking path: fights, elites, encounters, shrines, crypts and festivals. The boss waits at the end.'],
+ ['O ícone sobre o inimigo mostra o que ele fará depois da sua mão: atacar, golpe pesado, defender, regenerar, uivar ou afligir.','The icon over the enemy shows what it will do after your hand: attack, heavy blow, guard, regenerate, howl or afflict.'],
+ ['Condições: sangramento e queimadura ferem a cada mão; medo enfraquece; atordoamento limita a mão a 3 cartas.','Conditions: bleeding and burns hurt every hand; fear weakens; stun limits your hand to 3 cards.'],
+ ['Selos nas cartas: Sangue cura, Runa devolve descarte, Ouro dá moedas, Profano dobra a Fúria e custa PV.','Card seals: Blood heals, Rune returns a discard, Gold gives coins, Unholy doubles Fury and costs HP.'],
+ ['Cair abaixo de um quarto da vida causa um ferimento, que só cicatriza ao matar o chefe. Vencer um chefe por um fio deixa uma cicatriz que fortalece.','Dropping below a quarter of your life causes an injury that only heals when you kill the boss. Beating a boss by a thread leaves a scar that makes you stronger.']].map(r=>`<li>${L(r[0],r[1])}</li>`).join('')}</ol></div>`}
 function applyLangMeta(){document.title='Ante Mortem';document.documentElement.lang=LANG==='en'?'en':'pt-BR'}
 const TITLE_ART=(()=>{const pool=[...Object.keys(FOEDB).map(a=>({a,name:()=>fn_({a})})),...Object.keys(CLASSES).map(k=>({a:CLASSES[k].art,name:()=>cn(k)}))];
   const p=pick(pool);const bg=pick(BGS);const seed='titulo'+rnd(99999);return{get src(){return art(p.a,seed,bg,360,450)},get alt(){return t('{n} ilustração em tinta',{n:p.name()})}}})();
 function titleScreen(){
-  closePop();document.body.classList.remove('ingame');applyLangMeta();
+  closePop();document.body.classList.remove('ingame');applyLangMeta();UI.lastC=null;setScene(R&&R.c<=8?R.c:(loadRun()?.c||8));
   if(R&&['dead','won'].includes(R.phase)){R=null;F=null}
   $('#belt').innerHTML='';$('#side').innerHTML='';$('#stage').innerHTML='';
   const saved=R||loadRun();
   const unl=ALL_UNLOCKABLE.filter(isUnl).length,tot=ALL_UNLOCKABLE.length;
-  const best=Object.keys(CLASSES).filter(clsOpen).map(k=>{const b=META.best[k]||0;return `<div class="brow"><span>${cn(k)}</span><span class="pips">${Array.from({length:8},(_,i)=>`<i class="${i<b?'on':''}${b>8?' w':''}"></i>`).join('')}</span></div>`}).join('');
+  const best=Object.keys(CLASSES).filter(clsOpen).map(k=>{const b=META.best[k]||0;const sw=(META.sigWon||{})[k];return `<div class="brow"><span>${cn(k)}${sw!=null&&sw>0?` <small class="sigw">${L('Sinal','Sign')} ${sw}</small>`:''}</span><span class="pips">${Array.from({length:8},(_,i)=>`<i class="${i<b?'on':''}${b>8?' w':''}"></i>`).join('')}</span></div>`}).join('');
   const conf=UI.confirm==='new';
   showOv(`<div class="ovin">
    <div class="hero"><h1><span class="a">ANTE</span><span class="b">Mortem</span></h1><img src="${TITLE_ART.src}" alt="${TITLE_ART.alt}"></div>
@@ -1982,7 +2686,9 @@ function titleScreen(){
      ${saved?`<button class="big play" data-act="continue">${t('Continuar jornada')} <small>${cn(saved.cls)} · ${t('Círculo')} ${Math.min(saved.c,8)}</small></button>`:''}
      ${conf?`<div class="confirm"><p>${t('Começar outra jornada encerra a atual. Você recebe a experiência dela.')}</p><div class="actions" style="justify-content:flex-start"><button class="big disc" data-act="newyes">${t('Encerrar e começar')}</button><button class="big ghost" data-act="nono">${t('Cancelar')}</button></div></div>`
        :`<button class="big ${saved?'ghost':'play'}" data-act="${saved?'newask':'classes'}">${t('Nova jornada')}</button>`}
+     ${UI.confirm==='daily'?`<div class="confirm"><p>${t('Começar outra jornada encerra a atual. Você recebe a experiência dela.')}</p><div class="actions" style="justify-content:flex-start"><button class="big disc" data-act="dailyyes">${t('Encerrar e começar')}</button><button class="big ghost" data-act="nono">${t('Cancelar')}</button></div></div>`:dailyHTML()}
      <button class="big disc" data-act="upgrades">${t('Melhorias')} <small>${META.xp} XP</small></button>
+     <button class="big ghost" data-act="codex">${L('Bestiário e Grimório','Bestiary & Grimoire')}</button>
      <button class="big ghost" data-act="rules">${t('Como jogar')}</button>
      ${settingsHTML()}
     </div>
@@ -1992,6 +2698,7 @@ function titleScreen(){
      <div class="pstats"><div><b>${META.runs}</b><small>${t('Jornadas')}</small></div><div><b>${META.wins}</b><small>${t('Vitórias')}</small></div><div><b>${META.kills}</b><small>${t('Mortos')}</small></div><div><b>${META.earned}</b><small>${t('XP total')}</small></div></div>
      <div class="frow"><span>${t('Classes ocultas')}</span><b>${Object.keys(CLASSES).filter(k=>CLASSES[k].req&&clsOpen(k)).length}/${Object.keys(CLASSES).filter(k=>CLASSES[k].req).length}</b></div>
      <div class="frow"><span>${t('Arsenal liberado')}</span><b>${unl}/${tot}</b></div>
+     <div class="frow warn"><span>${t('Força dos inimigos')}</span><b>${Math.round(worldScale()*100)}%</b></div>
      <div class="hpbar xp"><i style="width:${unl/tot*100}%"></i></div>
      <div class="kicker" style="margin-top:6px">${t('Melhor círculo por classe')}</div>
      <div class="bests">${best}</div>
@@ -2001,17 +2708,23 @@ function titleScreen(){
 }
 function classScreen(){
   UI.confirm=null;
+  const sgn=UI.sign||0;const smax=Math.max(0,...Object.keys(CLASSES).map(signMax));
   const card=(k,C)=>{const open=clsOpen(k);
     const stats=`<div class="kv"><span class="tag">${t('{n} PV',{n:C.hp+3*perk('vida')})}</span><span class="tag">${t('Arm {n}',{n:C.arm+C.eq.reduce((a,i)=>a+(EQ[i].arm||0),0)})}</span><span class="tag">${t('{n} descartes',{n:C.dis+perk('descarte')})}</span>${C.sl+perk('espaco')>2?`<span class="tag">${t('{n} espaços',{n:C.sl+perk('espaco')})}</span>`:''}${C.hs>8?`<span class="tag">${t('{n} cartas',{n:C.hs})}</span>`:''}</div>`;
     if(!open){const p=reqProg(k),g=C.req.goal;
       return `<div class="cls locked" aria-disabled="true"><img src="${art(C.art,'cls'+k,C.bg,240,300)}" alt="${cn(k)}"><span class="lockbadge">${t('Bloqueada')}</span><h3>${cn(k)}</h3>
        <div class="cd">${stats}<div class="t">${ctal(k)}</div><p>${ctd(k)}</p>
        <div class="req"><b>${t('Para liberar')}</b><span>${reqTxt(k)}</span><div class="hpbar xp"><i style="width:${p/g*100}%"></i></div><small>${p.toLocaleString(LANG==='en'?'en-US':'pt-BR')} / ${g.toLocaleString(LANG==='en'?'en-US':'pt-BR')}</small></div></div></div>`}
+    if(signMax(k)<sgn)return `<div class="cls locked" aria-disabled="true"><img src="${art(C.art,'cls'+k,C.bg,240,300)}" alt="${cn(k)}"><span class="lockbadge">${L('Sinal','Sign')} ${sgn}</span><h3>${cn(k)}</h3><div class="cd">${stats}<div class="t">${ctal(k)}</div><div class="req"><b>${t('Para liberar')}</b><span>${L(`Vença com o ${cn(k)} no Sinal ${sgn-1}.`,`Win as the ${cn(k)} at Sign ${sgn-1}.`)}</span></div></div></div>`;
     return `<button class="cls" data-act="start" data-k="${k}"><img src="${art(C.art,'cls'+k,C.bg,240,300)}" alt="${cn(k)}"><h3>${cn(k)}</h3>
     <div class="cd">${stats}<div class="t">${ctal(k)}</div><p>${ctd(k)}</p><p style="color:var(--bone)">${t('Começa com: {l}.',{l:[...C.eq.map(i=>nm(EQ[i])),...C.cons.map(i=>nm(CONS[i]))].join(', ')})}</p></div></button>`};
   const ks=Object.keys(CLASSES);const base=ks.filter(k=>!CLASSES[k].req),extra=ks.filter(k=>CLASSES[k].req);
   const n=extra.filter(clsOpen).length;
   showOv(`<div class="ovin wide"><div class="banner"><h2>${t('Escolha seu baralho')}</h2><p>${t('Cada classe é um baralho inicial com talento, vida e equipamento próprios.')}</p></div>
+   <div class="signs"><div class="kicker">${L('Os Sete Sinais do Fim','The Seven Signs of the End')}</div>
+    <div class="sigrow">${Array.from({length:8},(_,i)=>`<button class="sig${i===sgn?' on':''}" data-act="sign" data-k="${i}" ${i>smax?'disabled':''} aria-pressed="${i===sgn}">${i?['I','II','III','IV','V','VI','VII'][i-1]:'—'}</button>`).join('')}</div>
+    <p>${sgn?L(`Sinal ${sgn}: +${sgn*15}% de experiência.`,`Sign ${sgn}: +${sgn*15}% experience.`):L('Vença uma jornada para revelar o primeiro Sinal daquela classe. Cada Sinal se soma aos anteriores.','Win a journey to reveal that class\'s first Sign. Each Sign stacks on the ones before.')}</p>
+    ${sgn?`<ul>${signsTxt(sgn)}</ul>`:''}</div>
    <div class="classes">${base.map(k=>card(k,CLASSES[k])).join('')}</div>
    <div class="banner sub"><h2>${t('Classes ocultas')}</h2><p>${t('{n} de {m} liberadas. O progresso conta em qualquer classe.',{n,m:extra.length})}</p></div>
    <div class="classes">${extra.map(k=>card(k,CLASSES[k])).join('')}</div>
@@ -2032,10 +2745,10 @@ function upgradesScreen(){
     keys.sort((a,b)=>isUnl(a)-isUnl(b)||unlCost(a)-unlCost(b));
     cards=keys.map(k=>{const D=EQ[k]||CONS[k];const u=isUnl(k),cost=unlCost(k);
       const slot=EQ[k]?eqSlot({id:k,v:1},'u',{act:'none',lock:!u}):consSlot(k,'u',{act:'none',lock:!u});
-      return `<div class="upc${u?' owned':''}">${slot}<div class="upi"><h4>${nm(D)}</h4><p>${ds(D)}</p>
+      return `<div class="upc${u?' owned':''}">${slot}<div class="upi"><span class="rtag r${D.r}">${rarN(D.r)}</span><h4>${nm(D)}</h4><p>${ds(D)}</p>
        ${u?`<span class="tag u">${t('Liberado')}</span>`:`<button class="buy" data-act="unlock" data-k="${k}" ${META.xp<cost?'disabled':''}>${t('Liberar · {c} XP',{c:cost})}</button>`}</div></div>`}).join('');
   }
-  showOv(`<div class="ovin"><div class="banner"><h2>${t('Melhorias')}</h2><p>${t('Itens liberados passam a aparecer no Festival. As bênçãos valem para toda jornada nova.')}</p></div>
+  showOv(`<div class="ovin"><div class="banner"><h2>${t('Melhorias')}</h2><p>${t('Itens liberados passam a aparecer no Festival. As bênçãos valem para toda jornada nova.')} ${t('Os inimigos ficam mais fortes conforme seu arsenal cresce: hoje estão em {p}%.',{p:Math.round(worldScale()*100)})}</p></div>
    <div class="xpline"><span class="xpbig"><b>${META.xp}</b><span>${t('XP disponível')}</span></span>
     <div class="tabs" role="tablist">${tabs.map(([k,n])=>`<button role="tab" aria-selected="${tab===k}" class="tab${tab===k?' on':''}" data-act="uptab" data-k="${k}">${t(n)}</button>`).join('')}</div></div>
    <div class="upgrid">${cards}</div>
@@ -2046,7 +2759,7 @@ function menuScreen(){
   const c=UI.confirm;
   const ask=(txt,yes)=>`<div class="confirm"><p>${txt}</p><div class="actions" style="justify-content:flex-start"><button class="big disc" data-act="${yes}">${t('Confirmar')}</button><button class="big ghost" data-act="menuno">${t('Cancelar')}</button></div></div>`;
   showOv(`<div class="ovin narrow">
-   <div class="kicker">${cn(R.cls)} · ${t('Círculo')} ${Math.min(R.c,8)} · ${t('Inimigo')} ${R.st+1}/3</div>
+   <div class="kicker">${cn(R.cls)} · ${t('Círculo')} ${Math.min(R.c,8)} · ${L('Passo','Step')} ${Math.min(R.row+1,5)}/5${R.sign?' · '+L('Sinal','Sign')+' '+R.sign:''}</div>
    <div class="endt" style="color:var(--bone)">${t('PAUSA.')}</div>
    <div class="tmenu">
     <button class="big play" data-act="close">${t('Continuar')}</button>
@@ -2086,11 +2799,23 @@ document.addEventListener('click',e=>{
   switch(a){
    case 'classes':classScreen();break;
    case 'title':UI.confirm=null;ovBack=null;titleScreen();break;
-   case 'continue':{UI.confirm=null;if(!R){R=loadRun();F=null;if(R&&R.phase==='shop'&&!R.shop)genShop()}hideOv();render();break}
+   case 'continue':{UI.confirm=null;if(!R){R=loadRun();F=null;if(R&&R.phase==='shop'&&!R.shop)genShop()}hideOv();render();if(R.phase==='reward')rewardOv();break}
    case 'newask':UI.confirm='new';titleScreen();break;
    case 'newyes':{UI.confirm=null;if(!R)R=loadRun();if(R&&!['dead','won'].includes(R.phase)){const x=endRun(false);toast(t('Jornada encerrada: +{x} XP.',{x:x.xp}))}R=null;F=null;classScreen();break}
    case 'nono':UI.confirm=null;(UI.screen||titleScreen)();break;
-   case 'start':if(!clsOpen(tg.dataset.k))return;hideOv();newRun(tg.dataset.k);render();break;
+   case 'start':{const k=tg.dataset.k,sgn=UI.sign||0;if(!clsOpen(k)||signMax(k)<sgn)return;hideOv();newRun(k,{sign:sgn});render();break}
+   case 'sign':UI.sign=+tg.dataset.k;classScreen();break;
+   case 'daily':{const sv=R&&!['dead','won'].includes(R.phase)?R:loadRun();if(sv&&UI.confirm!=='daily'){UI.confirm='daily';titleScreen();break}}
+   /* falls through */
+   case 'dailyyes':{UI.confirm=null;if(!R)R=loadRun();if(R&&!['dead','won'].includes(R.phase)){const x=endRun(false);toast(t('Jornada encerrada: +{x} XP.',{x:x.xp}))}const ds_=dailySpec();R=null;F=null;hideOv();newRun(ds_.cls,{sign:ds_.sign,daily:ds_.d});render();break}
+   case 'codex':UI.confirm=null;codexScreen();break;
+   case 'cxtab':UI.cx=tg.dataset.k;codexScreen();break;
+   case 'node':if(R.phase!=='path')return;enterNode(+tg.dataset.i);break;
+   case 'evc':chooseEvent(+tg.dataset.i);break;
+   case 'evdone':R.ev=null;advanceRow();R.phase='path';render();break;
+   case 'rwpick':takeOpt(+tg.dataset.i);break;
+   case 'rwdone':R.rw=null;R.phase='path';hideOv();render();break;
+   case 'boneblood':{const h=tg.dataset.k;if(R.shop.blood||R.maxHp<=15)return;R.shop.blood=true;R.maxHp-=BAL.boneBlood;R.hp=Math.min(R.hp,R.maxHp);lvUp(h,1,true);sfx('coin');toast(t('Os ossos falam: {n} chega ao nível {l}.',{n:nm(HANDS[h]),l:lvl(h)}));render();break}
    case 'close':closeOv();break;
    case 'rules':ovBack=UI.screen===menuScreen?menuScreen:(!inRun?titleScreen:null);rulesOv();break;
    case 'hands':ovBack=UI.screen===menuScreen?menuScreen:null;handsOv();break;
@@ -2099,7 +2824,7 @@ document.addEventListener('click',e=>{
    case 'restartask':UI.confirm='restart';menuScreen();break;
    case 'endask':UI.confirm='end';menuScreen();break;
    case 'menuno':UI.confirm=null;menuScreen();break;
-   case 'restartyes':{UI.confirm=null;const ck=R.cls;const x=endRun(false);newRun(ck);hideOv();render();toast(t('Jornada reiniciada. +{x} XP guardados.',{x:x.xp}));break}
+   case 'restartyes':{UI.confirm=null;const ck=R.cls,sg0=R.sign,dl=R.daily;const x=endRun(false);newRun(ck,{sign:sg0,daily:dl});hideOv();render();toast(t('Jornada reiniciada. +{x} XP guardados.',{x:x.xp}));break}
    case 'endyes':UI.confirm=null;abandon();break;
    case 'mute':setMuted(!AUDIO.muted);(UI.screen||titleScreen)();break;
    case 'lang':{LANG=tg.dataset.k;LS.set('ruina-lang',LANG);applyLangMeta();const scr=UI.screen||titleScreen;if(inRun)render();scr();break}
@@ -2114,7 +2839,7 @@ document.addEventListener('click',e=>{
    case 'bones':R.shop.view='bones';closePop();renderStage();sfx('coin');break;
    case 'boneback':R.shop.view=null;renderStage();break;
    case 'bonebuy':{const h=tg.dataset.k,c=ossoCost(h);if(R.gold<c||R.shop.read)return;R.gold-=c;R.shop.read=true;R.lv[h]=lvl(h)+1;sfx('coin');toast(t('Os ossos falam: {n} chega ao nível {l}.',{n:nm(HANDS[h]),l:lvl(h)}));render();break}
-   case 'topath':R.phase='path';R.shop=null;closePop();render();break;
+   case 'topath':R.phase='path';R.shop=null;advanceRow();closePop();render();break;
    case 'card':{if(UI.busy)return;const id=+tg.dataset.id;if(UI.sel.has(id))UI.sel.delete(id);else if(UI.sel.size<5)UI.sel.add(id);else{toast(t('No máximo 5 cartas.'));return}
      tg.classList.toggle('sel',UI.sel.has(id));tg.setAttribute('aria-pressed',UI.sel.has(id));
      document.querySelector('[data-act="play"]').disabled=!UI.sel.size;document.querySelector('[data-act="discard"]').disabled=!UI.sel.size||!canDiscard();updatePreview();break}
@@ -2122,16 +2847,16 @@ document.addEventListener('click',e=>{
    case 'discard':discard();break;
    case 'sort':UI.sort=tg.dataset.v;renderStage();break;
    case 'eqpop':{const i=+tg.dataset.eq;if(popFor===a+i){closePop();break}popFor=a+i;const e2=R.eq[i],E=EQ[e2.id];const sv=Math.max(1,Math.floor(E.p/2));
-     openPop(tg,`<div class="k">${t('Equipamento.')}</div><h5>${nm(E)}</h5><p>${ds(E)}${e2.id==='alabarda'?' ×'+fmtx(e2.v)+'.':''}</p><div class="pb">${!UI.busy?`<button data-act="sell" data-i="${i}">${t('Vender')} · $${sv}</button>`:''}<button class="alt" data-act="closepop">${t('Fechar')}</button></div>`);break}
+     openPop(tg,`<div class="k">${t('Equipamento.')} · ${rarN(E.r)}</div><h5>${nm(E)}</h5><p>${ds(E)}${e2.id==='alabarda'?' ×'+fmtx(e2.v)+'.':''}</p><div class="pb">${!UI.busy?`<button data-act="sell" data-i="${i}">${t('Vender')} · $${sv}</button>`:''}<button class="alt" data-act="closepop">${t('Fechar')}</button></div>`);break}
    case 'conspop':{const i=+tg.dataset.cons;if(popFor===a+i){closePop();break}popFor=a+i;const k=R.cons[i],C=CONS[k];
-     openPop(tg,`<div class="k">${t(C.k==='magia'?'Magia':C.k==='item'?'Item':'Manual')}</div><h5>${nm(C)}</h5><p>${ds(C)}</p><div class="pb"><button data-act="use" data-i="${i}">${t('Usar')}</button><button class="alt" data-act="sellc" data-i="${i}">${t('Vender')} · $1</button></div>`);break}
+     openPop(tg,`<div class="k">${t(C.k==='magia'?'Magia':C.k==='item'?'Item':'Manual')} · ${rarN(C.r)}</div><h5>${nm(C)}</h5><p>${ds(C)}</p><div class="pb"><button data-act="use" data-i="${i}">${t('Usar')}</button><button class="alt" data-act="sellc" data-i="${i}">${t('Vender')} · $1</button></div>`);break}
    case 'closepop':closePop();break;
    case 'use':useCons(+tg.dataset.i);break;
    case 'sell':{if(UI.busy)return;const i=+tg.dataset.i;const E=EQ[R.eq[i].id];R.gold+=Math.max(1,Math.floor(E.p/2));equipRemove(i);closePop();render();break}
    case 'sellc':{if(UI.busy)return;R.cons.splice(+tg.dataset.i,1);R.gold+=1;closePop();render();break}
-   case 'buy':{const i=+tg.dataset.i,type=tg.dataset.type;const it=R.shop[type][i];const D=type==='eq'?EQ[it.k]:CONS[it.k];if(R.gold<D.p)return;
+   case 'buy':{const i=+tg.dataset.i,type=tg.dataset.type;const it=R.shop[type][i];const D=type==='eq'?EQ[it.k]:CONS[it.k];const pr=priceOf(D);if(R.gold<pr)return;
      if(type==='eq'){if(R.eq.length>=5)return;equipAdd(it.k)}else{if(R.cons.length>=slots())return;R.cons.push(it.k)}
-     R.gold-=D.p;it.sold=true;render();break}
+     R.gold-=pr;it.sold=true;render();break}
    case 'reroll':{if(R.gold<R.shop.reroll)return;R.gold-=R.shop.reroll;const rr=R.shop.reroll+1,rs=R.shop.rested,rd=R.shop.read;genShop();R.shop.reroll=rr;R.shop.rested=rs;R.shop.read=rd;render();break}
    case 'rest':{if(R.gold<4)return;R.gold-=4;const h=heal(Math.round(R.maxHp*.35));R.shop.rested=true;toast(t('Uma noite de sono ruim. +{h} PV.',{h}));render();break}
   }

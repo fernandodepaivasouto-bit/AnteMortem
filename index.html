@@ -378,6 +378,7 @@ button:focus-visible,.card:focus-visible,.slot:focus-visible{outline:3px solid v
 
 .card.stone{filter:grayscale(1) contrast(.7) brightness(.8)}
 .card.stone::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(135deg,transparent 0 6px,rgba(11,11,10,.18) 6px 8px);border-radius:4px;pointer-events:none}
+.card svg{fill:currentColor}
 </style>
 </head>
 <body>
@@ -489,7 +490,7 @@ const EN={
 
 const SUITS={pt:['Lâminas','Sangue','Ossos','Coroas'],en:['Blades','Blood','Bones','Crowns']};
 const suitN=s=>SUITS[LANG][s];
-const RL={pt:{11:'V',12:'D',13:'R',14:'A'},en:{11:'J',12:'Q',13:'K',14:'A'}};const rl=r=>RL[LANG][r]||String(r);
+const RL={pt:{11:'J',12:'Q',13:'K',14:'A'},en:{11:'J',12:'Q',13:'K',14:'A'}};const rl=r=>RL[LANG][r]||String(r);
 
 /* ================= arte em tinta (gerador procedural) =================
    Cada criatura tem seu próprio desenho. Coordenadas no espaço 240×300. */
@@ -1474,7 +1475,7 @@ const ABIL={
  engolir:[['Engolir Inteiro','A partir da sua 5ª mão, ataca com o triplo da força.'],['Swallow Whole','From your 5th hand on, it strikes three times as hard.']],
  naipe:[['Raio Ocular','Cartas de {s} não pontuam.'],['Eye Ray','{s} cards don\'t score.']],
  eco:[['Explosão Mental','Não aceita o mesmo tipo de mão duas vezes seguidas.'],['Mind Blast','Won\'t accept the same hand type twice in a row.']],
- rostos:[['Olhar Petrificante','Figuras (V, D, R) chegam viradas para baixo.'],['Petrifying Gaze','Face cards (J, Q, K) are dealt face down.']],
+ rostos:[['Olhar Petrificante','Figuras (J, Q, K) chegam viradas para baixo.'],['Petrifying Gaze','Face cards (J, Q, K) are dealt face down.']],
  regen:[['Cabeças que Renascem','Regenera 6% da vida máxima após cada mão sua.'],['Regrowing Heads','Regenerates 6% of max life after each of your hands.']],
  garra:[['Encantar','Você não tem descartes neste combate.'],['Charm','You have no discards in this fight.']],
  furia:[['Aura de Ruína','Ataca com 60% mais força.'],['Aura of Ruin','Strikes 60% harder.']],
